@@ -25,7 +25,8 @@ GLOBAL_LIST_EMPTY(players_in_dream)
 	desc = span_userdanger("WHAT IS THAT THING?!")
 
 /proc/teleport_to_dream(mob/living/carbon/human/user, probability = 0.1)
-	if(!ishuman(user))
+	return //sleep tight //Wet dreams next
+	/*if(!ishuman(user))
 		return
 
 	if(user.patron.type == /datum/patron/divine/abyssor)
@@ -78,7 +79,7 @@ GLOBAL_LIST_EMPTY(players_in_dream)
 		new /obj/effect/spawner/lootdrop/roguetown/abyssor(weapon_turf)
 
 	// Schedule return
-	user.apply_status_effect(/datum/status_effect/dream_teleport, original_turf)
+	user.apply_status_effect(/datum/status_effect/dream_teleport, original_turf)*/
 
 /proc/return_from_dream(mob/living/carbon/human/user, turf/original_turf)
 	if(!user || QDELETED(user) || !original_turf)

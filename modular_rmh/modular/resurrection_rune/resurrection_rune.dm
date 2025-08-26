@@ -24,15 +24,30 @@
 /datum/resurrection_rune_controller/process()
 	if(!sub_rune.main_rune_link)
 		sub_rune.find_master()
+		return
 	if(control_rune.disabled_res && !sub_rune.is_main)
 		return
-	if(!linked_users_minds.len)
-		return
-	for(var/datum/mind/mind_user in linked_users_minds)
+	//if(!linked_users_minds.len)
+	//	return
+	for(var/datum/mind/mind_user in linked_users_minds) //revive linked no-body
 		if(!mind_user.current && !(mind_user in resurrecting))
 			to_chat(mind_user.get_ghost(TRUE, TRUE), span_blue("Somewhere, you are being remade anew..."))
 			resurrecting |= mind_user
-			addtimer(CALLBACK(src, PROC_REF(spawn_new_body), mind_user), 90 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(spawn_new_body), mind_user), 5 SECONDS)
+	for(var/mob/H in GLOB.player_list) //revive unlinked bodies //idk how to add unlinked souls though
+		if(sub_rune.is_main)
+			return
+		if(ishuman(H))
+			var/mob/living/carbon/human/unlinked = H
+			if(!isnull(unlinked.client))
+				if(!unlinked.rune_linked)
+					var/turf/tur = get_turf(H)
+					if(IS_DEAD_OR_INCAP(unlinked) || istype(tur, /turf/open/lava) || istype(tur, /turf/open/lava/acid))
+						if(!(unlinked.mind in resurrecting))
+							resurrecting |= unlinked
+							to_chat(unlinked.mind.get_ghost(TRUE, TRUE), span_blue("An alien force suddenly <b>YANKS</b> you back to life!"))
+							addtimer(CALLBACK(src, PROC_REF(start_revival), unlinked, FALSE), 1 SECONDS)
+
 
 /datum/resurrection_rune_controller/proc/spawn_new_body(datum/mind/mind)
 	linked_users -= body_mind_link[mind]
@@ -61,6 +76,8 @@
 	linked_users_names[user.name] = user
 	body_mind_link[user.mind] = user
 	RegisterSignal(user, COMSIG_LIVING_HEALTH_UPDATE, PROC_REF(start_revive))
+	var/mob/living/carbon/human/H = user
+	H.rune_linked = TRUE
 	return TRUE
 
 /datum/resurrection_rune_controller/proc/remove_user(mob/user)
@@ -71,6 +88,8 @@
 	linked_users_names[user.name] = user
 	body_mind_link.Remove(user.mind)
 	UnregisterSignal(user, COMSIG_LIVING_HEALTH_UPDATE, PROC_REF(start_revive))
+	var/mob/living/carbon/human/H = user
+	H.rune_linked = FALSE
 	return TRUE
 
 /datum/resurrection_rune_controller/proc/start_revive(mob/living/carbon/target)
@@ -85,21 +104,26 @@
 	if(!(target in linked_users)) //sanity check
 		return
 	
-	if(IS_DEAD_OR_INCAP(target))
+	var/turf/tur = get_turf(target)
+	if(IS_DEAD_OR_INCAP(target) || istype(tur, /turf/open/lava) || istype(tur, /turf/open/lava/acid))
 		if(target in resurrecting)
 			return
 		start_revival(target)
 	return
 
-/datum/resurrection_rune_controller/proc/start_revival(mob/living/carbon/user)
-	to_chat(user.mind, span_blue("You feel a faint force tuggung you back to life..."))
+/datum/resurrection_rune_controller/proc/start_revival(mob/living/carbon/user, is_linked = TRUE)
+	if(is_linked)
+		to_chat(user.mind, span_blue("You feel a faint force tuggung you back to life..."))
+	else
+		to_chat(user.mind, span_blue("An alien force suddenly <b>YANKS</b> you back to life!"))
 	sub_rune.visible_message(span_blue("The rune begins to grow brighter."))
-	resurrecting |= user
-	addtimer(CALLBACK(src, PROC_REF(revive_linked), user), 60 SECONDS)
+	if(!(user in resurrecting))
+		resurrecting |= user
+	addtimer(CALLBACK(src, PROC_REF(revive_mob), user, is_linked), 1 SECONDS)
 
 
-/datum/resurrection_rune_controller/proc/revive_linked(mob/living/carbon/user)
-	if(!IS_DEAD_OR_INCAP(user))
+/datum/resurrection_rune_controller/proc/revive_mob(mob/living/carbon/user, is_linked)
+	if(!IS_DEAD_OR_INCAP(user) && !(istype(get_turf(user), /turf/open/lava) || istype(get_turf(user), /turf/open/lava/acid)))
 		resurrecting -= user
 		to_chat(user.mind, span_blue("The tugging stops; you seem to be recovering."))
 		return
@@ -110,17 +134,20 @@
 		resurrecting -= user
 		return
 	body.visible_message(span_blue("With a loud pop, [body.name] suddenly disappears!"))
-	playsound(T, 'sound/magic/repulse.ogg', 100, FALSE, -1)
+	playsound(get_turf(body), 'sound/magic/repulse.ogg', 100, FALSE, -1)
 	body.forceMove(T)
 	body.revive(full_heal = TRUE, admin_revive = TRUE)
 	user.grab_ghost(TRUE)
 	body.flash_act()
 	resurrecting -= user
-	body.apply_status_effect(/datum/status_effect/debuff/revived/rune)
+	var/mob/living/carbon/human/H = user
+	if(H.rune_linked)
+		body.apply_status_effect(/datum/status_effect/debuff/revived/rune)
+	else
+		body.apply_status_effect(/datum/status_effect/debuff/revived/rune/rough)
 	body.apply_status_effect(/datum/status_effect/debuff/rune_glow)
 	playsound(T, 'sound/misc/vampirespell.ogg', 100, FALSE, -1)
 	to_chat(body, span_blue("You are back."))
-
 
 
 
