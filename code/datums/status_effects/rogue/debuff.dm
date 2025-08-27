@@ -721,10 +721,11 @@
 	id = "knot_tied"
 	status_type = STATUS_EFFECT_UNIQUE
 	alert_type = /atom/movable/screen/alert/status_effect/knot_tied
-	effectedstats = list("strength" = -1, "endurance" = -2, "speed" = -2, "intelligence" = -3)
+	effectedstats = list("strength" = -5, "constitution" = -3, "endurance" = -3, "speed" = -5)
 
 /atom/movable/screen/alert/status_effect/knot_tied
 	name = "Knotted"
+	desc = "I feel their knot throb inside of me, I find it hard to walk."
 
 /datum/status_effect/knot_fucked_stupid
 	id = "knot_fucked_stupid"
@@ -769,8 +770,7 @@
 
 /atom/movable/screen/alert/status_effect/knotted
 	name = "Knotted"
-	desc = "I feel their knot throb inside of me, I find it hard to walk."
-	effectedstats = list("strength" = -5, "constitution" = -3, "endurance" = -3, "speed" = -5)
+	desc = "I have to be careful where I step..."
 
 /datum/status_effect/facial
 	id = "facial"
