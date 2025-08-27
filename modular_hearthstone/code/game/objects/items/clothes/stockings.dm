@@ -38,6 +38,7 @@
 				forceMove(H)
 				H.legwear_socks = src
 				legwears_feature.accessory_colors = color
+				H.regenerate_icons()
 
 /obj/item/legwears/Destroy()
 	legwears_feature = null

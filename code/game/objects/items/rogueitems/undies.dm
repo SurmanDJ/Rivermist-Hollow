@@ -40,6 +40,7 @@
 				forceMove(H)
 				H.underwear = src
 				undies_feature.accessory_colors = color
+				H.regenerate_icons()
 
 /obj/item/undies/Destroy()
 	undies_feature = null

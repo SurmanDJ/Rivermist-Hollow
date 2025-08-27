@@ -131,13 +131,14 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 			return
 		usr.visible_message(span_warning("[usr] starts taking off [src]'s [underwear.name]."),span_warning("I start taking off [src]'s [underwear.name]..."))
 		if(do_after(usr, 50, needhand = 1, target = src))
-			var/obj/item/bodypart/chest = get_bodypart(BODY_ZONE_CHEST)
-			chest.remove_bodypart_feature(underwear.undies_feature)
+			var/obj/item/bodypart/chest = src.get_bodypart(BODY_ZONE_CHEST)
+			chest.remove_bodypart_feature(src.underwear.undies_feature)
 			underwear.forceMove(get_turf(src))
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
 				C.put_in_hands(underwear)
 			underwear = null
+			regenerate_icons()
 
 	if(href_list["legwearsthing"]) //canUseTopic check for this is handled by mob/Topic()
 		if(!get_location_accessible(src, BODY_ZONE_PRECISE_GROIN, skipundies = TRUE))
@@ -147,13 +148,14 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 			return
 		usr.visible_message(span_warning("[usr] starts taking off [src]'s [legwear_socks.name]."),span_warning("I start taking off [src]'s [legwear_socks.name]..."))
 		if(do_after(usr, 50, needhand = 1, target = src))
-			var/obj/item/bodypart/chest = get_bodypart(BODY_ZONE_CHEST)
-			chest.remove_bodypart_feature(legwear_socks.legwears_feature)
-			underwear.forceMove(get_turf(src))
+			var/obj/item/bodypart/chest = src.get_bodypart(BODY_ZONE_CHEST)
+			chest.remove_bodypart_feature(src.legwear_socks.legwears_feature)
+			legwear_socks.forceMove(get_turf(src))
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
-				C.put_in_hands(underwear)
-			underwear = null
+				C.put_in_hands(legwear_socks)
+			legwear_socks = null
+			regenerate_icons()
 
 	if(href_list["pockets"] && usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY)) //TODO: Make it match (or intergrate it into) strippanel so you get 'item cannot fit here' warnings if mob_can_equip fails
 		var/pocket_side = href_list["pockets"]
