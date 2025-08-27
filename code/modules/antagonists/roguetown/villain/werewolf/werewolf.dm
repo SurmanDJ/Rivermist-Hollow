@@ -15,6 +15,7 @@
 	var/transforming
 	var/untransforming
 	var/wolfname = "Verewolf"
+	var/forced_transform = FALSE
 
 /datum/antagonist/werewolf/lesser
 	name = "Lesser Verewolf"
@@ -43,12 +44,14 @@
 		forge_werewolf_objectives()
 	
 	wolfname = "[pick(GLOB.wolf_prefixes)] [pick(GLOB.wolf_suffixes)]"
+	owner.current.verbs |= /mob/living/carbon/human/proc/toggle_werewolf_transform
 	return ..()
 
 /datum/antagonist/werewolf/on_removal()
 	if(!silent && owner.current)
 		to_chat(owner.current,span_danger("I am no longer a [special_role]!"))
 	owner.special_role = null
+	owner.current.verbs -= /mob/living/carbon/human/proc/toggle_werewolf_transform
 	return ..()
 
 /datum/antagonist/werewolf/proc/add_objective(datum/objective/O)
@@ -192,3 +195,17 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOEMBED, TRAIT_GENERIC)
+
+/mob/living/carbon/human/proc/toggle_werewolf_transform()
+	set name = "Toggle Transformation"
+	set category = "WEREWOLF"
+	var/datum/antagonist/werewolf/ww = mind.has_antag_datum(/datum/antagonist/werewolf)
+	if(isnull(ww))
+		to_chat(src, span_warning("You are not a werewolf!"))
+		return
+	if(ww.forced_transform)
+		ww.forced_transform = FALSE
+	else
+		ww.forced_transform = TRUE
+		ww.transforming = TRUE
+	

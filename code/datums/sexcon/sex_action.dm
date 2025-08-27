@@ -21,6 +21,8 @@
 	var/gags_user = FALSE
 	var/gags_target = FALSE
 	var/segsovolume = 50 //volume for plaps
+	/// Only allow select actions to end with a knot-tie
+	var/knot_on_finish = FALSE
 
 /datum/sex_action/proc/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	return TRUE
