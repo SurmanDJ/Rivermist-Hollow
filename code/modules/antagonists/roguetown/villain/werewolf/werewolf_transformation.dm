@@ -14,6 +14,7 @@
 			if(isturf(H.loc))
 				var/turf/loc = H.loc
 				if(loc.can_see_sky())
+					forced_transform = FALSE
 					to_chat(H, span_userdanger("The moonlight scorns me... It is too late."))
 					owner.current.playsound_local(get_turf(owner.current), 'sound/music/wolfintro.ogg', 80, FALSE, pressure_affected = FALSE)
 					H.flash_fullscreen("redflash3")
@@ -44,6 +45,8 @@
 		H.name = wolfname
 
 		if(GLOB.tod != "night")
+			if(forced_transform)
+				return
 			if(!untransforming)
 				untransforming = world.time // Start untransformation phase
 
@@ -95,7 +98,7 @@
 	W.cmode_music = 'sound/music/cmode/antag/combat_darkstar.ogg'
 	W.skin_armor = new /obj/item/clothing/suit/roguetown/armor/skin_armor/werewolf_skin(W)
 	playsound(W.loc, pick('sound/combat/gib (1).ogg','sound/combat/gib (2).ogg'), 200, FALSE, 3)
-	W.spawn_gibs(FALSE)
+	//W.spawn_gibs(FALSE)
 	src.forceMove(W)
 
 	W.after_creation()
@@ -115,6 +118,15 @@
 
 	to_chat(W, span_userdanger("I transform into a horrible beast!"))
 	W.emote("rage")
+
+	if(getorganslot(ORGAN_SLOT_PENIS))
+		W.internal_organs_slot[ORGAN_SLOT_PENIS] = /obj/item/organ/penis/knotted/big
+	if(getorganslot(ORGAN_SLOT_TESTICLES))
+		W.internal_organs_slot[ORGAN_SLOT_TESTICLES] = /obj/item/organ/filling_organ/testicles
+	if(getorganslot(ORGAN_SLOT_BREASTS))
+		W.internal_organs_slot[ORGAN_SLOT_BREASTS] = /obj/item/organ/filling_organ/breasts
+	if(getorganslot(ORGAN_SLOT_VAGINA))
+		W.internal_organs_slot[ORGAN_SLOT_VAGINA] = /obj/item/organ/filling_organ/vagina
 
 	W.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
 	W.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
@@ -152,6 +164,7 @@
 	ADD_TRAIT(W, TRAIT_STRENGTH_UNCAPPED, TRAIT_GENERIC)
 
 	invisibility = oldinv
+	W.verbs |= /mob/living/carbon/human/proc/toggle_werewolf_transform
 
 
 /mob/living/carbon/human/proc/werewolf_untransform(dead,gibbed)
@@ -189,7 +202,7 @@
 
 	to_chat(W, span_userdanger("I return to my facade."))
 	playsound(W.loc, pick('sound/combat/gib (1).ogg','sound/combat/gib (2).ogg'), 200, FALSE, 3)
-	W.spawn_gibs(FALSE)
+	//W.spawn_gibs(FALSE)
 	W.Knockdown(30)
 	W.Stun(30)
 

@@ -35,9 +35,11 @@
 	misscost = 0
 
 /obj/item/reagent_containers/glass/attack(mob/M, mob/user, obj/target)
-	if(!reagents || !reagents.total_volume)
-		to_chat(user, span_warning("[src] is empty!"))
+	if(!istype(M))
 		return
+	if(!spillable)
+		return
+
 	if(ishuman(M) && user.used_intent.type == INTENT_FILL)
 		var/mob/living/carbon/human/humanized = M
 		var/obj/item/organ/filling_organ/breasts/tiddies = humanized.getorganslot(ORGAN_SLOT_BREASTS) // tiddy hehe
@@ -80,6 +82,11 @@
 					vag.reagents.trans_to(src, reag_to_take, transfered_by = user)
 					user.visible_message(span_notice("[user] collects some of the fluids from [humanized]'s loin into \the [src]."), span_notice("I collect fluids from [humanized]'s loin into \the [src]."))
 		return
+
+	if(!reagents || !reagents.total_volume)
+		to_chat(user, span_warning("[src] is empty!"))
+		return
+
 	if(user.used_intent.type == INTENT_SPLASH)
 		var/R
 		M.visible_message(span_danger("[user] splashes the contents of [src] onto [M]!"), \

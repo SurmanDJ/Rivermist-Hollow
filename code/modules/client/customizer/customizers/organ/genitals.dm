@@ -136,6 +136,20 @@
 		/datum/sprite_accessory/penis/tapered,
 		)
 
+/datum/customizer_choice/organ/penis/tapered_knot
+	name = "Knotted Tapered Penis"
+	organ_type = /obj/item/organ/penis/tapered_knotted
+	sprite_accessories = list(
+		/datum/sprite_accessory/penis/taperedknot,
+		)
+
+/datum/customizer_choice/organ/penis/tapered_knot_mammal
+	name = "Knotted Tapered Penis (Mammal)"
+	organ_type = /obj/item/organ/penis/tapered_knotted_mammal
+	sprite_accessories = list(
+		/datum/sprite_accessory/penis/taperedknot_mammal,
+		)
+
 /datum/customizer_choice/organ/penis/tapered_double
 	name = "Hemi Tapered Penis"
 	organ_type = /obj/item/organ/penis/tapered

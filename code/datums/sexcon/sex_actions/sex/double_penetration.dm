@@ -82,8 +82,8 @@
 	user.sexcon.perform_sex_action(user, 3, 0, TRUE)
 	if(user.sexcon.check_active_orgasm())
 		user.visible_message(span_love("[user] cums into [target]'s holes at the same time!"))
-		user.sexcon.cum_into(splashed_user = target)
-		user.try_impregnate(target)
+		user.sexcon.cum_into(vaginal = TRUE, anal = TRUE)//splashed_user = target)
+		//user.try_impregnate(target)
 		user.virginity = FALSE
 		target.virginity = FALSE
 
@@ -91,4 +91,4 @@
 		user.sexcon.perform_sex_action(target, 1.4, 4, FALSE)
 	else
 		user.sexcon.perform_sex_action(target, 2.7, 9*1.5, FALSE)
-	target.sexcon.handle_passive_ejaculation()
+	target.sexcon.handle_passive_orgasm()

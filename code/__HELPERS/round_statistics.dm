@@ -139,6 +139,7 @@
 #define STATS_ALCOHOL_CONSUMED "alcohol_consumed"
 #define STATS_ALCOHOLICS "alcoholics"
 #define STATS_JUNKIES "junkies"
+//#define STATS_KNOTTED "knottings"
 
 //Matthios
 #define STATS_ITEMS_PICKPOCKETED "items_pickpocketed"
