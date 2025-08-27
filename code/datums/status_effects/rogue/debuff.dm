@@ -769,7 +769,8 @@
 
 /atom/movable/screen/alert/status_effect/knotted
 	name = "Knotted"
-	desc = "I have to be careful where I step..."
+	desc = "I feel their knot throb inside of me, I find it hard to walk."
+	effectedstats = list("strength" = -5, "constitution" = -3, "endurance" = -3, "speed" = -5)
 
 /datum/status_effect/facial
 	id = "facial"
