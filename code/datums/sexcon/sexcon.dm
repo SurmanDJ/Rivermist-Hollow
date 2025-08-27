@@ -33,6 +33,8 @@
 	var/recent_orgasm_count = 0
 	var/aphrodisiac = 1
 
+	var/has_statuses = FALSE
+
 /datum/sex_controller/New(mob/living/owner)
 	user = owner
 
@@ -217,7 +219,7 @@
 
 /datum/sex_controller/proc/cum_into(oral = FALSE, vaginal = FALSE, anal = FALSE, nipple = FALSE, girljuice = FALSE)
 	var/obj/item/organ/filling_organ/testicles/testes = user.getorganslot(ORGAN_SLOT_TESTICLES)
-	/*if(target.mind)
+	if(target.mind)
 		if(!issimple(target))
 			log_combat(user, target, "Came inside [target]")
 			if(HAS_TRAIT(target, TRAIT_GOODLOVER))
@@ -238,7 +240,7 @@
 					target.add_stress(/datum/stressevent/cummax)
 					to_chat(target, span_love("Our sex was a true TRIUMPH!"))
 				else
-					target.add_stress(/datum/stressevent/cumok)*/
+					target.add_stress(/datum/stressevent/cumok)
 	if(girljuice)
 		if(!issimple(target))
 			target.reagents.add_reagent(/datum/reagent/water/pussjuice, 10)
@@ -331,17 +333,6 @@
 	user.playsound_local(user, 'sound/misc/mat/end.ogg', 100)
 	last_climax_time = world.time
 	recent_orgasm_count += 1
-	var/isnymph = 0
-	if(HAS_TRAIT(user, TRAIT_CURSE_BAOTHA) || HAS_TRAIT(user, TRAIT_NYMPHO_CURSE) || user.has_flaw(/datum/charflaw/addiction/lovefiend))
-		isnymph = 5
-	if(recent_orgasm_count > OVER_THE_TOP_ORGASM_THRESHOLD + isnymph)
-		user.apply_status_effect(/datum/status_effect/debuff/nympho_addiction)
-	else if(recent_orgasm_count > HIGH_ORGASM_THRESHOLD + isnymph)
-		user.apply_status_effect(/datum/status_effect/debuff/orgasmbroken)
-	else if(recent_orgasm_count > MED_ORGASM_THRESHOLD + isnymph)
-		user.apply_status_effect(/datum/status_effect/debuff/cumbrained)
-	else if(recent_orgasm_count > LOW_ORGASM_THRESHOLD + isnymph)
-		user.apply_status_effect(/datum/status_effect/debuff/loinspent)
 
 /datum/sex_controller/proc/after_intimate_climax()
 	if(user == target)
@@ -396,7 +387,7 @@
 		if(SEX_FORCE_EXTREME)
 			oxyloss_multiplier = 1.0
 	oxyloss_amt *= oxyloss_multiplier
-	if(oxyloss_amt <= 0)
+	if((oxyloss_amt <= 0) || (action_target.getOxyLoss() > 30))
 		return
 	action_target.adjustOxyLoss(oxyloss_amt)
 	// Indicate someone is choking through sex
@@ -418,37 +409,6 @@
 	/*if(HAS_TRAIT(user, TRAIT_DEATHBYSNOOSNOO))
 		if(istype(user.rmb_intent, /datum/rmb_intent/strong))
 			pain_amt *= 2.5*/
-	var/isnymph = 0
-	if(HAS_TRAIT(user, TRAIT_CURSE_BAOTHA) || HAS_TRAIT(user, TRAIT_NYMPHO_CURSE) || user.has_flaw(/datum/charflaw/addiction/lovefiend))
-		isnymph = 5
-	if(recent_orgasm_count > HIGH_ORGASM_THRESHOLD)
-		arousal_amt *= 2
-		update_aching(1)
-		var/lovermessage = pick("This feels too good!", "I wish to never stop!", "I want MORE!", "I need this!")
-		if(prob(25))
-			to_chat(action_target, span_love(lovermessage))
-	else if(recent_orgasm_count > MED_ORGASM_THRESHOLD)
-		if(!isnymph)
-			arousal_amt *= 0.5
-		update_aching(5)
-		var/lovermessage
-		if(isnymph)
-			lovermessage = pick("My mind is going blank!", "I'm too spent, it hurts!", "I don't want to anymore!")
-		else
-			lovermessage = pick("My mind is getting fucked out!", "I'm soo full!", "I LOVE this!")
-		if(prob(25))
-			to_chat(action_target, span_love(lovermessage))
-	else if(recent_orgasm_count > LOW_ORGASM_THRESHOLD)
-		if(!isnymph)
-			arousal_amt *= 0.8
-		update_aching(2)
-		var/lovermessage
-		if(isnymph)
-			lovermessage = pick("This is starting to feel unpleasant...", "Maybe I should rest soon...", "My loins are starting to chafe a bit.")
-		else
-			lovermessage = pick("This is starting to feel interesting.", "We're getting there...", "I love this feeling.")
-		if(prob(25))
-			to_chat(action_target, span_love(lovermessage))
 
 	action_target.sexcon.receive_sex_action(arousal_amt, pain_amt, giving, force, speed)
 
@@ -500,6 +460,39 @@
 						if(prob(3))
 							to_chat(devouser, span_info("I feel Viiritri guide me."))*/
 
+	var/isnymph = 0
+	if(HAS_TRAIT(user, TRAIT_NYMPHO_CURSE) || user.has_flaw(/datum/charflaw/addiction/lovefiend))
+		isnymph = 2
+	if(user.has_status_effect(/datum/status_effect/debuff/orgasmbroken))
+		if(isnymph)
+			arousal_amt *= 2
+		else
+			arousal_amt *= 1.5
+		update_aching(1)
+		var/lovermessage = pick("This feels too good!", "I must never stop!", "I want MORE!", "I need this!")
+		if(prob(15))
+			to_chat(user, span_love(lovermessage))
+	else if(user.has_status_effect(/datum/status_effect/debuff/cumbrained))
+		update_aching(5)
+		var/lovermessage
+		if(!isnymph)
+			arousal_amt *= 0.5
+			lovermessage = pick("My mind is going blank!", "I'm too spent!", "This is too much!")
+		else
+			lovermessage = pick("My mind is getting fucked out!", "I'm soo full!", "I LOVE this!")
+		if(prob(15))
+			to_chat(user, span_love(lovermessage))
+	else if(user.has_status_effect(/datum/status_effect/debuff/loinspent))
+		update_aching(2)
+		var/lovermessage
+		if(!isnymph)
+			arousal_amt *= 0.8
+			lovermessage = pick("This is starting to feel unpleasant...", "Maybe I should rest soon...", "My loins are starting to chafe a bit.")
+		else
+			lovermessage = pick("This is starting to feel interesting.", "We're getting there...", "I love this feeling.")
+		if(prob(15))
+			to_chat(user, span_love(lovermessage))
+	
 	if(!arousal_frozen)
 		adjust_arousal(arousal_amt)
 	damage_from_pain(pain_amt)
@@ -731,6 +724,7 @@
 	handle_arousal_unhorny(dt)
 	//handle_charge(dt)
 	handle_orgasm_charge()
+	handle_statuses()
 	handle_passive_orgasm()
 
 /datum/sex_controller/proc/handle_orgasm_charge()
@@ -1067,6 +1061,41 @@
 			return "<span class='love_high'>[string]</span>"
 		if(SEX_FORCE_EXTREME)
 			return "<span class='love_extreme'>[string]</span>"
+
+/datum/sex_controller/proc/handle_statuses()
+
+	var/nymph_mod = 0
+	if(HAS_TRAIT(user, TRAIT_NYMPHO_CURSE) || user.has_flaw(/datum/charflaw/addiction/lovefiend))
+		nymph_mod = 2
+
+	//Sorry but idk how else to do this
+	if(user.has_status_effect(/datum/status_effect/debuff/loinspent))
+		if(recent_orgasm_count <= LOW_ORGASM_THRESHOLD_LOSS + nymph_mod)
+			user.remove_status_effect(/datum/status_effect/debuff/loinspent)
+	else
+		if(recent_orgasm_count >= LOW_ORGASM_THRESHOLD_GAIN + nymph_mod)
+			user.apply_status_effect(/datum/status_effect/debuff/loinspent)
+
+	if(user.has_status_effect(/datum/status_effect/debuff/cumbrained))
+		if(recent_orgasm_count <= MED_ORGASM_THRESHOLD_LOSS + nymph_mod)
+			user.remove_status_effect(/datum/status_effect/debuff/cumbrained)
+	else
+		if(recent_orgasm_count >= MED_ORGASM_THRESHOLD_GAIN + nymph_mod)
+			user.apply_status_effect(/datum/status_effect/debuff/cumbrained)
+	
+	if(user.has_status_effect(/datum/status_effect/debuff/orgasmbroken))
+		if(recent_orgasm_count <= HIGH_ORGASM_THRESHOLD_LOSS + nymph_mod)
+			user.remove_status_effect(/datum/status_effect/debuff/orgasmbroken)
+	else
+		if(recent_orgasm_count >= HIGH_ORGASM_THRESHOLD_GAIN + nymph_mod)
+			user.apply_status_effect(/datum/status_effect/debuff/orgasmbroken)
+	
+	if(user.has_status_effect(/datum/status_effect/debuff/nympho_addiction))
+		if(recent_orgasm_count <= OVER_THE_TOP_ORGASM_THRESHOLD_LOSS + nymph_mod)
+			user.remove_status_effect(/datum/status_effect/debuff/nympho_addiction)
+	else
+		if(recent_orgasm_count >= OVER_THE_TOP_ORGASM_THRESHOLD_GAIN + nymph_mod)
+			user.apply_status_effect(/datum/status_effect/debuff/nympho_addiction)
 /*
 /datum/sex_controller/proc/try_pelvis_crush(mob/living/carbon/human/target)
 	if(istype(user.rmb_intent, /datum/rmb_intent/strong))

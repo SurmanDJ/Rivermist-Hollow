@@ -529,29 +529,27 @@
 /datum/status_effect/debuff/orgasmbroken
 	id = "orgasmbroken"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/orgasmbroken
-	effectedstats = list("intelligence" = -20, "strength" = -8, "speed" = -6, "perception" = -5, "endurance" = 2, "constitution" = -2)
-	duration = 8 MINUTES
+	effectedstats = list("intelligence" = -10, "strength" = -2, "speed" = -2, "perception" = -5, "endurance" = 2, "constitution" = -2)
+	duration = -1
 
 /datum/status_effect/debuff/orgasmbroken/on_apply()
 	. = ..()
-	var/mob/living/carbon/human/human = owner
-	human.add_curse(/datum/curse/baotha)
+	owner.add_movespeed_modifier("ORGASM_SLOWDOWN", multiplicative_slowdown=4)
 
 /datum/status_effect/debuff/orgasmbroken/on_remove()
 	. = ..()
-	var/mob/living/carbon/human/human = owner
-	human.add_curse(/datum/curse/baotha)
+	owner.remove_movespeed_modifier("ORGASM_SLOWDOWN")
 
 /atom/movable/screen/alert/status_effect/debuff/orgasmbroken
 	name = "Orgasm Broken"
-	desc = "Sex. Sex. Sex."
+	desc = "My legs are shaking, but I need more."
 	icon_state = "fentanyl"
 
 /datum/status_effect/debuff/nympho_addiction
 	id = "nympho_addiction"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/nympho_addiction
 	//effectedstats = list("intelligence" = -20, "strength" = -8, "speed" = -6, "perception" = -5, "endurance" = 2, "constitution" = -2)
-	duration = 30 SECONDS
+	duration = -1
 
 /datum/status_effect/debuff/nympho_addiction/on_apply()
 	. = ..()
@@ -567,7 +565,7 @@
 	id = "cumbrained"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/cumbrained
 	effectedstats = list("intelligence" = -10, "strength" = -6, "speed" = -6)
-	duration = 5 MINUTES
+	duration = -1
 
 /atom/movable/screen/alert/status_effect/debuff/cumbrained
 	name = "Cum Brained"
@@ -576,20 +574,41 @@
 
 /datum/status_effect/debuff/cumbrained/process()
 	. = ..()
-	var/mob/living/carbon/human/human = owner
+	if(owner.mob_timers["cumbrained_ticker"])
+		if(world.time < owner.mob_timers["cumbrained_ticker"] + rand(30,90)SECONDS)
+			return
+	owner.mob_timers["cumbrained_ticker"] = world.time
 	if(!owner)
 		return
-	if(human.wear_pants)
+	if(owner.sexcon.arousal < 40)
+		owner.sexcon.arousal += rand(25, 35) //so it instantly fully arouses
+	else
+		owner.sexcon.arousal += rand(5, 15)
+	to_chat(owner, span_love("My body wants more..."))
+
+/datum/status_effect/debuff/loinspent/process()
+	. = ..()
+	if(owner.mob_timers["chafing_loins"])
+		if(world.time < owner.mob_timers["chafing_loins"] + rand(20,90)SECONDS)
+			return
+	owner.mob_timers["chafing_loins"] = world.time
+	if(!owner)
+		return
+	var/mob/living/carbon/human/human = owner
+	if(human.underwear)
+		if(rand(5))
+			to_chat(human, span_love("I feel [human.underwear] rub against me..."))
+		human.sexcon.arousal += rand(10,20)
+	else if(human.wear_pants)
 		if(human.wear_pants.flags_inv & HIDECROTCH && !human.wear_pants.genitalaccess)
 			if(rand(5))
-				to_chat(human, span_love("I feel my [human.wear_pants] rub against me..."))
-			human.sexcon.arousal += rand(5,50)
+				to_chat(human, span_love("I feel [human.wear_pants] rub against me..."))
+			human.sexcon.arousal += rand(5,10)
 	
 /datum/status_effect/debuff/loinspent
 	id = "loinspent"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/loinspent
-	//effectedstats = list("intelligence" = -10, "strength" = -6, "speed" = -6)
-	duration = 8 MINUTES
+	duration = -1
 
 /atom/movable/screen/alert/status_effect/debuff/loinspent
 	name = "Spent Loins"

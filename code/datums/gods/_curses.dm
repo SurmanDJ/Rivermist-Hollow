@@ -189,8 +189,14 @@
 		if(world.time < owner.mob_timers["nympho_curse"] + rand(15,90)SECONDS)
 			return
 	owner.mob_timers["nympho_curse"] = world.time
-	if(owner.wear_pants)
+	if(owner.underwear)
+		to_chat(owner, span_love("UNDIE"))
+		if(rand(5))
+			to_chat(owner, span_love("I feel my [owner.underwear] rub against me..."))
+		owner.sexcon.arousal += rand(15,60)
+	else if(owner.wear_pants)
 		if(owner.wear_pants.flags_inv & HIDECROTCH && !owner.wear_pants.genitalaccess)
+			to_chat(owner, span_love("PANT"))
 			if(rand(5))
 				to_chat(owner, span_love("I feel my [owner.wear_pants] rub against me..."))
 			owner.sexcon.arousal += rand(5,50)

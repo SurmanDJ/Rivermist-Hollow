@@ -38,6 +38,48 @@
 	if(!reagents || !reagents.total_volume)
 		to_chat(user, span_warning("[src] is empty!"))
 		return
+	if(ishuman(M) && user.used_intent.type == INTENT_FILL)
+		var/mob/living/carbon/human/humanized = M
+		var/obj/item/organ/filling_organ/breasts/tiddies = humanized.getorganslot(ORGAN_SLOT_BREASTS) // tiddy hehe
+		switch(user.zone_selected)
+			if(BODY_ZONE_CHEST) //chest
+				if(humanized.wear_shirt && (humanized.wear_shirt.flags_inv & HIDEBOOB || !humanized.wear_shirt.genitalaccess))
+					to_chat(user, span_warning("[humanized]'s chest must be exposed before I can milk [humanized.p_them()]!"))
+					return TRUE
+				if(!tiddies)
+					to_chat(user, span_warning("[humanized] cannot be milked!"))
+					return TRUE
+				if(tiddies.reagents.total_volume <= 0)
+					to_chat(user, span_warning("[humanized] is out of milk!"))
+					return TRUE
+				if(reagents.total_volume >= volume)
+					to_chat(user, span_warning("[src] is full."))
+					return TRUE
+				user.visible_message(span_notice("[user] starts to gently massage [humanized]'s breasts, trying to fill the [src] with milk..."), span_notice("I start to gently massage [humanized]'s breasts, trying to fill the [src] with milk..."))
+				var/milk_to_take = CLAMP((tiddies.reagents.maximum_volume/6), 1, min(tiddies.reagents.total_volume, volume - reagents.total_volume))
+				if(do_after(user, 20, target = humanized))
+					tiddies.reagents.trans_to(src, milk_to_take, transfered_by = user)
+					user.visible_message(span_notice("[user] milks [humanized] into \the [src]."), span_notice("I milk [humanized] into \the [src]."))
+			if(BODY_ZONE_PRECISE_GROIN) //groin
+				if(humanized.wear_pants && (humanized.wear_pants.flags_inv & HIDECROTCH || !humanized.wear_pants.genitalaccess))
+					to_chat(user, span_warning("[humanized]'s groin must be exposed before I can collect [humanized.p_them()] fluids!"))
+					return TRUE
+				var/obj/item/organ/filling_organ/vagina/vag = humanized.getorganslot(ORGAN_SLOT_TESTICLES)
+				if(!vag)
+					to_chat(user, span_warning("[humanized] has nothing to colect from!"))
+					return TRUE
+				if(vag.reagents.total_volume <= 0)
+					to_chat(user, span_warning("[humanized]'s loins are ampty!"))
+					return TRUE
+				if(reagents.total_volume >= volume)
+					to_chat(user, span_warning("[src] is full."))
+					return TRUE
+				user.visible_message(span_notice("[user] positions the [src] right under [humanized]'s loin and waits..."), span_notice("I position the [src] right under [humanized]'s loin..."))
+				if(do_after(user, 40, target = humanized))
+					var/reag_to_take = CLAMP((vag.reagents.maximum_volume/2), 1, min(vag.reagents.total_volume, volume - reagents.total_volume))
+					vag.reagents.trans_to(src, reag_to_take, transfered_by = user)
+					user.visible_message(span_notice("[user] collects some of the fluids from [humanized]'s loin into \the [src]."), span_notice("I collect fluids from [humanized]'s loin into \the [src]."))
+		return
 	if(user.used_intent.type == INTENT_SPLASH)
 		var/R
 		M.visible_message(span_danger("[user] splashes the contents of [src] onto [M]!"), \
