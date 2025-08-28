@@ -797,3 +797,20 @@
 			to_chat(owner, span_notice("I feel much cleaner now!"))
 			owner.add_stress(/datum/stressevent/bathcleaned)
 		owner.remove_status_effect(src)
+
+
+/datum/status_effect/edged_penis_cooldown
+	id = "tired_penis"
+	alert_type = null
+	duration = 7 MINUTES
+
+
+/datum/status_effect/blue_bean
+	id = "blue_bean"
+	alert_type = null
+	duration = -1
+
+/datum/status_effect/blue_balls
+	id = "blue_balls"
+	alert_type = null
+	duration = -1

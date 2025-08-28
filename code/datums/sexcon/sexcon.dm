@@ -32,7 +32,7 @@
 	var/last_pain = 0
 	var/msg_signature = ""
 	var/last_msg_signature = 0
-	/// 25% arousal loss after each orgasm
+	/// 40% arousal loss after each orgasm
 	var/arousal_falloff_coeff = 0.6
 	var/recent_orgasm_count = 0
 	var/aphrodisiac = 1
@@ -45,6 +45,7 @@
 	var/has_statuses = FALSE
 	/// Which zones we are using in the current action.
 	var/using_zones = list()
+	var/edging_charge = 0
 
 
 /datum/sex_controller/New(mob/living/owner)
@@ -384,7 +385,19 @@
 	after_climax()
 
 /datum/sex_controller/proc/after_climax()
-	set_arousal(arousal * arousal_falloff_coeff)
+	switch(edging_charge)
+		if(0 to 20)
+			to_chat(user, span_love("Feels good to finally cum!"))
+		if(21 to 50)
+			to_chat(user, span_love("Oh gods, I came!"))
+		if(51 to MAX_EDGING)
+			to_chat(user, span_love("Finally finally finally!"))
+	if(user.has_penis())
+		user.apply_status_effect(/datum/status_effect/edged_penis_cooldown)
+		set_edging(0)
+	else
+		set_edging(edging_charge * 0.70)
+	set_arousal(arousal * (arousal_falloff_coeff + edging_charge / MAX_EDGING))//set_arousal(arousal * (arousal_falloff_coeff + (1 - arousal_falloff_coeff) * edging_charge / MAX_EDGING))
 	if(user.has_flaw(/datum/charflaw/addiction/lovefiend))
 		user.sate_addiction()
 	if(!user.rogue_sneaking && user.alpha > 100) //stealth sex, keep your voice down.
@@ -560,7 +573,8 @@
 			lovermessage = pick("This is starting to feel interesting.", "We're getting there...", "I love this feeling.")
 		if(prob(15))
 			to_chat(user, span_love(lovermessage))
-	
+	if(arousal > AROUSAL_EDGING_THRESHOLD)
+		adjust_edging(arousal_amt / 2)
 	if(!arousal_frozen)
 		adjust_arousal(arousal_amt)
 	damage_from_pain(pain_amt)
@@ -701,7 +715,7 @@
 	//	return FALSE
 	if(!can_climax())
 		return FALSE
-	if(last_climax_time + ORGASM_COOLDOWN_TIME > world.time)
+	if(last_climax_time + ORGASM_COOLDOWN_TIME - clamp(edging_charge, 0, ORGASM_COOLDOWN_TIME - 10) >= world.time)
 		return FALSE
 	return TRUE
 
@@ -721,7 +735,7 @@
 	//	return
 	if(!can_climax())
 		return FALSE
-	if(last_climax_time + ORGASM_COOLDOWN_TIME > world.time)
+	if(last_climax_time + ORGASM_COOLDOWN_TIME - clamp(edging_charge, 0, ORGASM_COOLDOWN_TIME - 10) >= world.time)
 		return FALSE
 	climax()
 
@@ -823,6 +837,14 @@
 		if(40 to INFINITY)
 			rate = AROUSAL_HIGH_UNHORNY_RATE
 	adjust_arousal(-dt * rate)
+
+	adjust_edging(-dt * 0.01)
+
+/datum/sex_controller/proc/adjust_edging(amount)
+	set_edging(edging_charge + amount)
+
+/datum/sex_controller/proc/set_edging(amount)
+	edging_charge = clamp(amount, 0, MAX_EDGING)
 
 /datum/sex_controller/proc/show_ui()
 	if(!target.erpable && issimple(target))
@@ -1172,6 +1194,21 @@
 	else
 		if(recent_orgasm_count >= OVER_THE_TOP_ORGASM_THRESHOLD_GAIN + nymph_mod)
 			user.apply_status_effect(/datum/status_effect/debuff/nympho_addiction)
+
+	if(user.has_penis())
+		if(user.has_status_effect(/datum/status_effect/blue_balls))
+			if(edging_charge <= 15)
+				user.remove_status_effect(/datum/status_effect/blue_balls)
+		else
+			if(edging_charge >= 20)
+				user.apply_status_effect(/datum/status_effect/blue_balls)
+	if(user.has_vagina())
+		if(user.has_status_effect(/datum/status_effect/blue_bean))
+			if(edging_charge <= 15)
+				user.remove_status_effect(/datum/status_effect/blue_bean)
+		else
+			if(edging_charge >= 20)
+				user.apply_status_effect(/datum/status_effect/blue_bean)
 /*
 /datum/sex_controller/proc/try_pelvis_crush(mob/living/carbon/human/target)
 	if(istype(user.rmb_intent, /datum/rmb_intent/strong))

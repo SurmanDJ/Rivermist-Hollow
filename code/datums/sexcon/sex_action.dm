@@ -23,6 +23,8 @@
 	var/segsovolume = 50 //volume for plaps
 	/// Only allow select actions to end with a knot-tie
 	var/knot_on_finish = FALSE
+	/// This action adds additional edging to target
+	var/is_edging = FALSE
 
 /datum/sex_action/proc/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	return TRUE
