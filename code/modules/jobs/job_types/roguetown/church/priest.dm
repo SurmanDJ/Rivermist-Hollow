@@ -39,6 +39,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 
 /datum/outfit/job/roguetown/priest
 	job_bitflag = BITFLAG_CHURCH
+	has_loadout = TRUE
 	allowed_patrons = list(/datum/patron/divine/undivided)	//We lock this cus head of church, acktully
 
 /datum/outfit/job/roguetown/priest/pre_equip(mob/living/carbon/human/H)
@@ -88,12 +89,46 @@ GLOBAL_LIST_EMPTY(heretical_players)
 
 	H.verbs |= /mob/living/carbon/human/proc/coronate_lord
 	H.verbs |= /mob/living/carbon/human/proc/churchannouncement
-	H.verbs |= /mob/living/carbon/human/proc/change_miracle_set
 	H.verbs |= /mob/living/carbon/human/proc/churchexcommunicate //your button against clergy
 	H.verbs |= /mob/living/carbon/human/proc/churchpriestcurse //snowflake priests button. Will not sacrifice them
 	H.verbs |= /mob/living/carbon/human/proc/churcheapostasy //punish the lamb reward the wolf
 	H.verbs |= /mob/living/carbon/human/proc/completesermon
 	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/convert_heretic_priest)
+	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/revive)
+
+/datum/outfit/job/roguetown/priest/choose_loadout(mob/living/carbon/human/H)
+	. = ..()
+	var/t3_count = 2
+	var/list/t4 = list()
+	var/list/t3 = list()
+	for(var/path as anything in GLOB.patrons_by_faith[/datum/faith/divine])
+		var/datum/patron/patron = GLOB.patronlist[path]
+		if(!patron || !patron.name)
+			continue
+		for(var/miracle in patron.miracles)
+			var/obj/effect/proc_holder/checked_miracle = miracle
+			if(patron.miracles[checked_miracle] == CLERIC_T4 && (initial(checked_miracle.priest_excluded) == FALSE))
+				t4[initial(checked_miracle.name)] = checked_miracle
+			if(patron.miracles[checked_miracle] == CLERIC_T3 && (initial(checked_miracle.priest_excluded) == FALSE))
+				t3[initial(checked_miracle.name)] = checked_miracle
+	for(var/miracle in t4)
+		if(H.mind?.has_spell(t4[miracle]))
+			t4.Remove(miracle)
+	for(var/miracle in t3)
+		if(H.mind?.has_spell(t3[miracle]))
+			t3.Remove(miracle)
+	var/t4_choice = input(H,"Choose your Tier Four Miracle.", "TAKE UP KNAWLEDGE") as anything in t4
+	if(t4_choice)
+		var/obj/effect/proc_holder/chosen_miracle = t4[t4_choice]
+		H.mind?.AddSpell(new chosen_miracle)
+
+	for(var/i in 1 to t3_count)
+		var/t3_choice = input(H,"Choose your Tier Three Miracle.", "TAKE UP KNAWLEDGE ([t3_count] CHOICES REMAIN)") as anything in t3
+		if(t3_choice)
+			var/obj/effect/proc_holder/chosen_miracle = t3[t3_choice]
+			H.mind?.AddSpell(new chosen_miracle)
+			t3.Remove(t3_choice)
+			t3_count--
 
 /datum/job/priest/vice //just used to change the priest title
 	title = "Vice Priest"
@@ -103,7 +138,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	total_positions = 0
 	spawn_positions = 0
 
-/mob/living/carbon/human/proc/change_miracle_set(mob/living/user)
+/*/mob/living/carbon/human/proc/change_miracle_set(mob/living/user)
 	set name = "Change Miracle Set"
 	set category = "Priest"
 	var/mono_first_pick = FALSE
@@ -219,7 +254,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		for(var/obj/effect/proc_holder/spell/S in mind.spell_list)
 			if(S.type in whitelist)
 				mind.RemoveSpell(S)
-
+		
 		for(var/spell_type in god.miracles)
 			if(god.miracles[spell_type] <= CLERIC_T4 && (spell_type in whitelist))
 				var/obj/effect/proc_holder/spell/new_spell = new spell_type
@@ -243,7 +278,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 
 	to_chat(src, "<font color='yellow'>The strain of changing your miracles has consumed all your devotion.</font>")
 
-	COOLDOWN_START(src, priest_change_miracles, PRIEST_SWAP_COOLDOWN)
+	COOLDOWN_START(src, priest_change_miracles, PRIEST_SWAP_COOLDOWN)*/
 
 /mob/living/carbon/human/proc/coronate_lord()
 	set name = "Coronate"
