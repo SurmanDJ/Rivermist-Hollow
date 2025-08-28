@@ -30,9 +30,9 @@
 		else if (world.time >= transforming + 25 SECONDS) // Stage 2
 			H.flash_fullscreen("redflash3")
 			H.emote("agony", forced = TRUE)
-			to_chat(H, span_userdanger("UNIMAGINABLE PAIN!"))
-			H.Stun(30)
-			H.Knockdown(30)
+			//to_chat(H, span_userdanger("UNIMAGINABLE PAIN!"))
+			//H.Stun(30)
+			//H.Knockdown(30)
 
 		else if (world.time >= transforming + 10 SECONDS) // Stage 1
 			H.emote("")
@@ -120,13 +120,21 @@
 	W.emote("rage")
 
 	if(getorganslot(ORGAN_SLOT_PENIS))
-		W.internal_organs_slot[ORGAN_SLOT_PENIS] = /obj/item/organ/penis/knotted/big
+		var/obj/item/organ/penis/penis = W.getorganslot(ORGAN_SLOT_PENIS)
+		penis = new /obj/item/organ/penis/knotted/big
+		penis.Insert(W, TRUE)
 	if(getorganslot(ORGAN_SLOT_TESTICLES))
-		W.internal_organs_slot[ORGAN_SLOT_TESTICLES] = /obj/item/organ/filling_organ/testicles
+		var/obj/item/organ/filling_organ/testicles/testicles = W.getorganslot(ORGAN_SLOT_TESTICLES)
+		testicles = new /obj/item/organ/filling_organ/testicles
+		testicles.Insert(W, TRUE)
 	if(getorganslot(ORGAN_SLOT_BREASTS))
-		W.internal_organs_slot[ORGAN_SLOT_BREASTS] = /obj/item/organ/filling_organ/breasts
+		var/obj/item/organ/filling_organ/breasts/breasts = W.getorganslot(ORGAN_SLOT_BREASTS)
+		breasts = new /obj/item/organ/filling_organ/breasts
+		breasts.Insert(W, TRUE)
 	if(getorganslot(ORGAN_SLOT_VAGINA))
-		W.internal_organs_slot[ORGAN_SLOT_VAGINA] = /obj/item/organ/filling_organ/vagina
+		var/obj/item/organ/filling_organ/vagina/vagina = W.getorganslot(ORGAN_SLOT_VAGINA)
+		vagina = new /obj/item/organ/filling_organ/vagina
+		vagina.Insert(W, TRUE)
 
 	W.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
 	W.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
@@ -203,7 +211,7 @@
 	to_chat(W, span_userdanger("I return to my facade."))
 	playsound(W.loc, pick('sound/combat/gib (1).ogg','sound/combat/gib (2).ogg'), 200, FALSE, 3)
 	//W.spawn_gibs(FALSE)
-	W.Knockdown(30)
-	W.Stun(30)
+	//W.Knockdown(30)
+	//W.Stun(30)
 
 	qdel(src)

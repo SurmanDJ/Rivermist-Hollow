@@ -1,4 +1,8 @@
 GLOBAL_LIST_EMPTY(global_resurrunes)
+
+#define IS_DEAD_OR_UNCONSCIOUS(source) (source.IsUnconscious() || source.stat)
+
+
 //For revive - your body DIDN'T rot, but it did suffer damage. Unlike being rotted, this one is only timed. Not forever.
 /datum/status_effect/debuff/revived/rune
 	id = "revived_rune"

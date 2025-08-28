@@ -37,12 +37,12 @@
 	for(var/mob/H in GLOB.player_list) //revive unlinked bodies //idk how to add unlinked souls though
 		if(sub_rune.is_main)
 			return
-		if(ishuman(H))
+		if(ishuman(H) && !(H.status_flags & GODMODE))
 			var/mob/living/carbon/human/unlinked = H
 			if(!isnull(unlinked.client))
 				if(!unlinked.rune_linked)
 					var/turf/tur = get_turf(H)
-					if(IS_DEAD_OR_INCAP(unlinked) || istype(tur, /turf/open/lava) || istype(tur, /turf/open/lava/acid))
+					if(IS_DEAD_OR_UNCONSCIOUS(unlinked) || istype(tur, /turf/open/lava) || istype(tur, /turf/open/lava/acid))
 						if(!(unlinked.mind in resurrecting))
 							resurrecting |= unlinked
 							to_chat(unlinked.mind.get_ghost(TRUE, TRUE), span_blue("An alien force suddenly <b>YANKS</b> you back to life!"))
@@ -60,13 +60,13 @@
 	mind.transfer_to(body)
 	mind.grab_ghost(TRUE)
 	body.flash_act()
-
+	resurrecting -= mind
 	linked_users += body
 	body.apply_status_effect(/datum/status_effect/debuff/revived/rune)
 	body.apply_status_effect(/datum/status_effect/debuff/rune_glow)
 	playsound(T, 'sound/misc/vampirespell.ogg', 100, FALSE, -1)
 	to_chat(body, span_blue("You are back."))
-	resurrecting -= mind
+	
 
 /datum/resurrection_rune_controller/proc/add_user(mob/user)
 	if(user in linked_users)
@@ -105,7 +105,7 @@
 		return
 	
 	var/turf/tur = get_turf(target)
-	if(IS_DEAD_OR_INCAP(target) || istype(tur, /turf/open/lava) || istype(tur, /turf/open/lava/acid))
+	if(IS_DEAD_OR_UNCONSCIOUS(target) || istype(tur, /turf/open/lava) || istype(tur, /turf/open/lava/acid))
 		if(target in resurrecting)
 			return
 		start_revival(target)
@@ -123,7 +123,7 @@
 
 
 /datum/resurrection_rune_controller/proc/revive_mob(mob/living/carbon/user, is_linked)
-	if(!IS_DEAD_OR_INCAP(user) && !(istype(get_turf(user), /turf/open/lava) || istype(get_turf(user), /turf/open/lava/acid)))
+	if(!IS_DEAD_OR_UNCONSCIOUS(user) && !(istype(get_turf(user), /turf/open/lava) || istype(get_turf(user), /turf/open/lava/acid)))
 		resurrecting -= user
 		to_chat(user.mind, span_blue("The tugging stops; you seem to be recovering."))
 		return
@@ -139,7 +139,8 @@
 	body.revive(full_heal = TRUE, admin_revive = TRUE)
 	user.grab_ghost(TRUE)
 	body.flash_act()
-	resurrecting -= user
+	//resurrecting -= user
+	addtimer(CALLBACK(src, PROC_REF(remove_res), user), 10 SECONDS)
 	var/mob/living/carbon/human/H = user
 	if(H.rune_linked)
 		body.apply_status_effect(/datum/status_effect/debuff/revived/rune)
@@ -149,6 +150,8 @@
 	playsound(T, 'sound/misc/vampirespell.ogg', 100, FALSE, -1)
 	to_chat(body, span_blue("You are back."))
 
+/datum/resurrection_rune_controller/proc/remove_res(mob/living/carbon/user)
+	resurrecting -= user
 
 
 /obj/structure/resurrection_rune
