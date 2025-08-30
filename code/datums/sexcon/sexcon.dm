@@ -47,6 +47,7 @@
 	var/using_zones = list()
 	var/edging_charge = 0
 	var/resistance_to_pleasure = RESIST_NONE
+	var/edging_other = FALSE
 
 
 /datum/sex_controller/New(mob/living/owner)
@@ -486,6 +487,7 @@
 		action_target.emote("gasp", forced = TRUE)
 
 /datum/sex_controller/proc/perform_sex_action(mob/living/action_target, arousal_amt, pain_amt, giving)
+	var/ed_oth = FALSE
 	if(HAS_TRAIT(user, TRAIT_GOODLOVER))
 		arousal_amt *= 1.5
 		if(prob(10)) //10 perc chance each action to emit the message so they know who the fuckin' wituser.
@@ -494,10 +496,27 @@
 	/*if(HAS_TRAIT(user, TRAIT_DEATHBYSNOOSNOO))
 		if(istype(user.rmb_intent, /datum/rmb_intent/strong))
 			pain_amt *= 2.5*/
+	var/res_send = RESIST_NONE
+	if(action_target == user)
+		res_send = resistance_to_pleasure
+	if(action_target != user && edging_other)
+		if(action_target.sexcon.arousal >= AROUSAL_EDGING_THRESHOLD + 15)
+			var/succes_chance = 100
+			if(prob(5))
+				to_chat(user, span_love("I try to match my movements so that they don't climax too soon..."))
+			if(get_speed_pain_multiplier(speed) > 1 || get_force_pain_multiplier(force) > 1) //lil hack
+				succes_chance *= 0.5
+			if(user.get_stat_level(STATKEY_PER) < 7)
+				succes_chance *= 0.7
+				if(prob(10))
+					to_chat(user, span_love("I can't tell if they are close or not..."))
+			if(prob(succes_chance))
+				ed_oth = TRUE
 
-	action_target.sexcon.receive_sex_action(arousal_amt, pain_amt, giving, force, speed, resistance_to_pleasure)
 
-/datum/sex_controller/proc/receive_sex_action(arousal_amt, pain_amt, giving, applied_force, applied_speed, applied_resist)
+	action_target.sexcon.receive_sex_action(arousal_amt, pain_amt, giving, force, speed, res_send, ed_oth)
+
+/datum/sex_controller/proc/receive_sex_action(arousal_amt, pain_amt, giving, applied_force, applied_speed, applied_resist, edged_by_other)
 	arousal_amt *= get_force_pleasure_multiplier(applied_force, giving)
 	pain_amt *= get_force_pain_multiplier(applied_force)
 	pain_amt *= get_speed_pain_multiplier(applied_speed)
@@ -578,9 +597,23 @@
 		if(prob(15))
 			to_chat(user, span_love(lovermessage))
 	if(arousal > AROUSAL_EDGING_THRESHOLD)
-		adjust_edging(arousal_amt / 2)
+		adjust_edging(arousal_amt / 3)
 	if(arousal > 45)
-		arousal_amt *= get_resist_multiplier(applied_resist)
+		var/resmessage
+		if(user.has_status_effect(/datum/status_effect/debuff/cumbrained))
+			if(prob(15))
+				resmessage = pick("I can't hold in the pleasure!", "My mind is blank, I can't concentrate on not cumming!")
+				to_chat(user, span_love(resmessage))
+		else
+			arousal_amt *= get_resist_multiplier(applied_resist)
+			if(prob(5) && (applied_resist != RESIST_NONE))
+				resmessage = pick("I focus on holding in the pleasure.", "I concentrate on trying not to cum...")
+				to_chat(user, span_love(resmessage))
+	if(edged_by_other)
+		arousal_amt = 0
+		if(prob(15))
+			var/edgemessage = pick("They are not letting me cum!", "Please, let me cum!", "I need to cum already!")
+			to_chat(user, span_love(edgemessage))
 	if(!arousal_frozen)
 		adjust_arousal(arousal_amt)
 	damage_from_pain(pain_amt)
@@ -867,7 +900,7 @@
 		dat += "<center><a href='?src=[REF(src)];task=speed_down'>\<</a> [speed_name] <a href='?src=[REF(src)];task=speed_up'>\></a> ~|~ <a href='?src=[REF(src)];task=force_down'>\<</a> [force_name] <a href='?src=[REF(src)];task=force_up'>\></a> ~|~ <a href='?src=[REF(src)];task=manual_arousal_down'>\<</a> [manual_arousal_name] <a href='?src=[REF(src)];task=manual_arousal_up'>\></a></center>"
 	dat += "<center>| <a href='?src=[REF(src)];task=toggle_finished'>[do_until_finished ? "UNTIL IM FINISHED" : "UNTIL I STOP"]</a> |</center>"
 	//dat += "<center><a href='?src=[REF(src)];task=set_arousal'>SET AROUSAL</a> | <a href='?src=[REF(src)];task=freeze_arousal'>[arousal_frozen ? "UNFREEZE AROUSAL" : "FREEZE AROUSAL"]</a></center>"
-	dat += "<center>Holding pleasure: <a href='?src=[REF(src)];task=resist_down'>\<</a> [resist_name] <a href='?src=[REF(src)];task=resist_up'>\></a></center>"
+	dat += "<center>| Holding pleasure: <a href='?src=[REF(src)];task=resist_down'>\<</a> [resist_name] <a href='?src=[REF(src)];task=resist_up'>\></a> ~|~ <a href='?src=[REF(src)];task=toggle_edging_other'>[edging_other ? "EDGE THEM" : "LET THEM FINISH"]</a> |</center>"
 	if(target == user)
 		dat += "<center>Doing unto yourself</center>"
 	else
@@ -940,6 +973,8 @@
 			adjust_resist(1)
 		if("resist_down")
 			adjust_resist(-1)
+		if("toggle_edging_other")
+			edging_other = !edging_other
 	show_ui()
 
 /datum/sex_controller/proc/try_stop_current_action()
