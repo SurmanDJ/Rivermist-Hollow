@@ -596,6 +596,12 @@
 			lovermessage = pick("This is starting to feel interesting.", "We're getting there...", "I love this feeling.")
 		if(prob(15))
 			to_chat(user, span_love(lovermessage))
+	if(user.has_status_effect(/datum/status_effect/edging_overstimulation))
+		arousal_amt *= 2
+		if(prob(15))
+			var/stimmessage
+			stimmessage = pick("I'm too sensitive!", "There's too much pleasure!")
+			to_chat(user, span_love(stimmessage))
 	if(arousal > AROUSAL_EDGING_THRESHOLD)
 		adjust_edging(arousal_amt / 3)
 	if(arousal > 45)
@@ -1278,6 +1284,12 @@
 		else
 			if(edging_charge >= 20)
 				user.apply_status_effect(/datum/status_effect/blue_bean)
+	if(edging_charge > 60)
+		if(user.mob_timers["edging_overstimulation"])
+			if(world.time < user.mob_timers["edging_overstimulation"] + 30)//5 MINUTES)
+				user.apply_status_effect(/datum/status_effect/edging_overstimulation)
+				user.mob_timers["edging_overstimulation"] = null
+		user.mob_timers["edging_overstimulation"] = world.time
 /*
 /datum/sex_controller/proc/try_pelvis_crush(mob/living/carbon/human/target)
 	if(istype(user.rmb_intent, /datum/rmb_intent/strong))

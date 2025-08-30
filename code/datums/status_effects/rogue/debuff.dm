@@ -804,7 +804,6 @@
 	alert_type = null
 	duration = 7 MINUTES
 
-
 /datum/status_effect/blue_bean
 	id = "blue_bean"
 	alert_type = null
@@ -814,3 +813,13 @@
 	id = "blue_balls"
 	alert_type = null
 	duration = -1
+
+/datum/status_effect/edging_overstimulation
+	id = "edging_overstimulation"
+	duration = 5 MINUTES
+	alert_type = /atom/movable/screen/alert/status_effect/edging_overstimulation
+	effectedstats = list("strength" = -1, "speed" = -2, "intelligence" = -2)
+
+/atom/movable/screen/alert/status_effect/edging_overstimulation
+	name = "Overstimulated"
+	desc = "I have been going at it for too long without release, I need relief..."
