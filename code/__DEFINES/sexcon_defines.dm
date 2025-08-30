@@ -67,8 +67,13 @@ GLOBAL_LIST_INIT(sex_actions, build_sex_actions())
 
 #define ORGASM_RESET_TIME (1 MINUTES)
 #define ORGASM_COOLDOWN_TIME (10 SECONDS)
-#define AROUSAL_EDGING_THRESHOLD 70
+#define AROUSAL_EDGING_THRESHOLD 65
 #define MAX_EDGING 90
+
+#define RESIST_NONE 1
+#define RESIST_LOW 2
+#define RESIST_MEDIUM 3
+#define RESIST_HIGH 4
 
 /proc/build_sex_actions()
 	. = list()

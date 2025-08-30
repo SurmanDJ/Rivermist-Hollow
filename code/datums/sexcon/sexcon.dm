@@ -46,6 +46,7 @@
 	/// Which zones we are using in the current action.
 	var/using_zones = list()
 	var/edging_charge = 0
+	var/resistance_to_pleasure = RESIST_NONE
 
 
 /datum/sex_controller/New(mob/living/owner)
@@ -207,6 +208,9 @@
 
 /datum/sex_controller/proc/adjust_arousal_manual(amt)
 	manual_arousal = clamp(manual_arousal + amt, SEX_MANUAL_AROUSAL_MIN, SEX_MANUAL_AROUSAL_MAX)
+
+/datum/sex_controller/proc/adjust_resist(amt)
+	resistance_to_pleasure = clamp(resistance_to_pleasure + amt, RESIST_NONE, RESIST_HIGH)
 
 /datum/sex_controller/proc/update_pink_screen()
 	var/severity = 0
@@ -491,9 +495,9 @@
 		if(istype(user.rmb_intent, /datum/rmb_intent/strong))
 			pain_amt *= 2.5*/
 
-	action_target.sexcon.receive_sex_action(arousal_amt, pain_amt, giving, force, speed)
+	action_target.sexcon.receive_sex_action(arousal_amt, pain_amt, giving, force, speed, resistance_to_pleasure)
 
-/datum/sex_controller/proc/receive_sex_action(arousal_amt, pain_amt, giving, applied_force, applied_speed)
+/datum/sex_controller/proc/receive_sex_action(arousal_amt, pain_amt, giving, applied_force, applied_speed, applied_resist)
 	arousal_amt *= get_force_pleasure_multiplier(applied_force, giving)
 	pain_amt *= get_force_pain_multiplier(applied_force)
 	pain_amt *= get_speed_pain_multiplier(applied_speed)
@@ -575,6 +579,8 @@
 			to_chat(user, span_love(lovermessage))
 	if(arousal > AROUSAL_EDGING_THRESHOLD)
 		adjust_edging(arousal_amt / 2)
+	if(arousal > 45)
+		arousal_amt *= get_resist_multiplier(applied_resist)
 	if(!arousal_frozen)
 		adjust_arousal(arousal_amt)
 	damage_from_pain(pain_amt)
@@ -854,12 +860,14 @@
 	var/force_name = get_force_string()
 	var/speed_name = get_speed_string()
 	var/manual_arousal_name = get_manual_arousal_string()
+	var/resist_name = get_resist_string()
 	if(!user.getorganslot(ORGAN_SLOT_PENIS))
 		dat += "<center><a href='?src=[REF(src)];task=speed_down'>\<</a> [speed_name] <a href='?src=[REF(src)];task=speed_up'>\></a> ~|~ <a href='?src=[REF(src)];task=force_down'>\<</a> [force_name] <a href='?src=[REF(src)];task=force_up'>\></a></center>"
 	else
 		dat += "<center><a href='?src=[REF(src)];task=speed_down'>\<</a> [speed_name] <a href='?src=[REF(src)];task=speed_up'>\></a> ~|~ <a href='?src=[REF(src)];task=force_down'>\<</a> [force_name] <a href='?src=[REF(src)];task=force_up'>\></a> ~|~ <a href='?src=[REF(src)];task=manual_arousal_down'>\<</a> [manual_arousal_name] <a href='?src=[REF(src)];task=manual_arousal_up'>\></a></center>"
 	dat += "<center>| <a href='?src=[REF(src)];task=toggle_finished'>[do_until_finished ? "UNTIL IM FINISHED" : "UNTIL I STOP"]</a> |</center>"
 	//dat += "<center><a href='?src=[REF(src)];task=set_arousal'>SET AROUSAL</a> | <a href='?src=[REF(src)];task=freeze_arousal'>[arousal_frozen ? "UNFREEZE AROUSAL" : "FREEZE AROUSAL"]</a></center>"
+	dat += "<center>Holding pleasure: <a href='?src=[REF(src)];task=resist_down'>\<</a> [resist_name] <a href='?src=[REF(src)];task=resist_up'>\></a></center>"
 	if(target == user)
 		dat += "<center>Doing unto yourself</center>"
 	else
@@ -928,6 +936,10 @@
 			set_arousal(amount)
 		if("freeze_arousal")
 			arousal_frozen = !arousal_frozen
+		if("resist_up")
+			adjust_resist(1)
+		if("resist_down")
+			adjust_resist(-1)
 	show_ui()
 
 /datum/sex_controller/proc/try_stop_current_action()
@@ -1159,6 +1171,28 @@
 			return "<span class='love_high'>[string]</span>"
 		if(SEX_FORCE_EXTREME)
 			return "<span class='love_extreme'>[string]</span>"
+
+/datum/sex_controller/proc/get_resist_multiplier(passed_res)
+	switch(passed_res)
+		if(RESIST_NONE)
+			return 1
+		if(RESIST_LOW)
+			return 0.7
+		if(RESIST_MEDIUM)
+			return 0.4
+		if(RESIST_HIGH)
+			return 0.2
+
+/datum/sex_controller/proc/get_resist_string()
+	switch(resistance_to_pleasure)
+		if(RESIST_NONE)
+			return "<font color='#eac8de'>NONE</font>"
+		if(RESIST_LOW)
+			return "<font color='#e9a8d1'>LOW</font>"
+		if(RESIST_MEDIUM)
+			return "<font color='#f05ee1'>MEDIUM</font>"
+		if(RESIST_HIGH)
+			return "<font color='#d146f5'>HIGH</font>"
 
 /datum/sex_controller/proc/handle_statuses()
 
