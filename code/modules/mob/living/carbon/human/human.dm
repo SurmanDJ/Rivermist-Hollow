@@ -46,7 +46,7 @@
 					src.put_in_hands(underwear)
 					underwear = null
 		if((user.zone_selected == BODY_ZONE_L_LEG) || (user.zone_selected == BODY_ZONE_R_LEG))
-			if(get_location_accessible(src, BODY_ZONE_PRECISE_GROIN, skipundies = TRUE))
+			if(get_location_accessible(src, BODY_ZONE_PRECISE_R_FOOT, skipundies = TRUE) || get_location_accessible(src, BODY_ZONE_PRECISE_L_FOOT, skipundies = TRUE))
 				if(!legwear_socks)
 					return
 				src.visible_message(span_notice("[src] begins to take off [legwear_socks]..."))
