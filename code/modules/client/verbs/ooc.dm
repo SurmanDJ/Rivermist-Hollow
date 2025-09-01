@@ -319,7 +319,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 		else
 			return "2022" //can't find join date, either a scuffed name or a guest but let it through anyway
 
-/proc/CheckIPCountry(ipaddress)
+/*/proc/CheckIPCountry(ipaddress)
 	set background = 1
 	if(!ipaddress)
 		return
@@ -337,7 +337,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 		pos = search
 		search = findtext(jd, ",", pos+1)
 		if(search)
-			return lowertext(copytext(jd, pos+9, search))
+			return lowertext(copytext(jd, pos+9, search))*/
 
 //	var/regex/R = regex("\"country\":\"(.*)\"")
 //	if(jd)

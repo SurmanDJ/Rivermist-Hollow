@@ -1,6 +1,6 @@
 GLOBAL_LIST_EMPTY(global_resurrunes)
 
-#define IS_DEAD_OR_UNCONSCIOUS(source) (source.IsUnconscious() || source.stat)
+#define IS_RES_ELIGIBLE(source) ((source.InBadHealth() && !source.IsSleeping()) || (source.IsSleeping() && source.health < source.crit_threshold))
 
 
 //For revive - your body DIDN'T rot, but it did suffer damage. Unlike being rotted, this one is only timed. Not forever.

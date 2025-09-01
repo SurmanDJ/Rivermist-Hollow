@@ -1156,6 +1156,15 @@
 /obj/item/rogueweapon/mace/goden/steel,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
+"Qu" = (
+/obj/structure/flora/roguegrass/bush,
+/obj/structure/resurrection_rune/control,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/woods/north)
+"QU" = (
+/obj/structure/resurrection_rune,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors)
 "Rk" = (
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/rtfield)
@@ -2768,7 +2777,7 @@ wX
 wX
 wX
 wX
-rm
+Qu
 wX
 wX
 wX
@@ -2907,7 +2916,7 @@ rT
 rT
 rT
 rT
-rT
+QU
 rT
 rT
 rT

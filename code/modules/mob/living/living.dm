@@ -638,6 +638,9 @@
 		return FALSE
 	return TRUE
 
+/mob/living/proc/InBadHealth()
+	return ((health <= crit_threshold || stat))
+
 /mob/living/proc/InCritical()
 	return (health <= crit_threshold && (stat == SOFT_CRIT || stat == UNCONSCIOUS))
 
