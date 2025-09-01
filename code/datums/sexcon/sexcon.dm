@@ -499,6 +499,8 @@
 	var/res_send = RESIST_NONE
 	if(action_target == user)
 		res_send = resistance_to_pleasure
+	else
+		res_send = action_target.sexcon.resistance_to_pleasure
 	if(action_target != user && edging_other)
 		if(action_target.sexcon.arousal >= AROUSAL_EDGING_THRESHOLD + 15)
 			var/succes_chance = 100
@@ -506,6 +508,10 @@
 				to_chat(user, span_love("I try to match my movements so that they don't climax too soon..."))
 			if(get_speed_pain_multiplier(speed) > 1 || get_force_pain_multiplier(force) > 1) //lil hack
 				succes_chance *= 0.5
+			if(action_target.has_status_effect(/datum/status_effect/edging_overstimulation))
+				succes_chance *= 0.3
+				if(prob(10))
+					to_chat(user, span_love("They are just too sensitive for me to control their pleasure..."))
 			if(user.get_stat_level(STATKEY_PER) < 7)
 				succes_chance *= 0.7
 				if(prob(10))
@@ -602,9 +608,7 @@
 			var/stimmessage
 			stimmessage = pick("I'm too sensitive!", "There's too much pleasure!")
 			to_chat(user, span_love(stimmessage))
-	if(arousal > AROUSAL_EDGING_THRESHOLD)
-		adjust_edging(arousal_amt / 3)
-	if(arousal > 45)
+	if(arousal > 45 && applied_resist > RESIST_NONE)
 		var/resmessage
 		if(user.has_status_effect(/datum/status_effect/debuff/cumbrained))
 			if(prob(15))
@@ -612,14 +616,16 @@
 				to_chat(user, span_love(resmessage))
 		else
 			arousal_amt *= get_resist_multiplier(applied_resist)
-			if(prob(5) && (applied_resist != RESIST_NONE))
+			if(prob(5))
 				resmessage = pick("I focus on holding in the pleasure.", "I concentrate on trying not to cum...")
 				to_chat(user, span_love(resmessage))
-	if(edged_by_other)
-		arousal_amt = 0
-		if(prob(15))
-			var/edgemessage = pick("They are not letting me cum!", "Please, let me cum!", "I need to cum already!")
-			to_chat(user, span_love(edgemessage))
+	if(arousal > AROUSAL_EDGING_THRESHOLD)
+		adjust_edging(arousal_amt / 3)
+		if(edged_by_other)
+			arousal_amt = 0
+			if(prob(15))
+				var/edgemessage = pick("They are not letting me cum!", "Please, let me cum!", "I need to cum already!")
+				to_chat(user, span_love(edgemessage))
 	if(!arousal_frozen)
 		adjust_arousal(arousal_amt)
 	damage_from_pain(pain_amt)
@@ -1286,7 +1292,7 @@
 				user.apply_status_effect(/datum/status_effect/blue_bean)
 	if(edging_charge > 60)
 		if(user.mob_timers["edging_overstimulation"])
-			if(world.time < user.mob_timers["edging_overstimulation"] + 30)//5 MINUTES)
+			if(world.time < user.mob_timers["edging_overstimulation"] + 5 MINUTES)
 				user.apply_status_effect(/datum/status_effect/edging_overstimulation)
 				user.mob_timers["edging_overstimulation"] = null
 		user.mob_timers["edging_overstimulation"] = world.time
