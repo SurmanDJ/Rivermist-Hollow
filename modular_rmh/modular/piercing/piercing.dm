@@ -29,6 +29,10 @@
 	generic_gender_feature_adjust(appearance_list, organ, bodypart, owner, OFFSET_SUIT, OFFSET_SUIT)
 
 /datum/sprite_accessory/piercing/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
+	var/obj/item/organ/filling_organ/breasts/breasts = owner.getorganslot(ORGAN_SLOT_BREASTS)
+	if(breasts)
+		if(breasts.visible_through_clothes)
+			return TRUE
 	if(isnull(owner.underwear))
 		return is_human_part_visible(owner, HIDEBOOB)
 	else

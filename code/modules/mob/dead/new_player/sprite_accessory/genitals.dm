@@ -27,6 +27,8 @@
 		return "[icon_state]_[pp.organ_size]"
 
 /datum/sprite_accessory/penis/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
+	if(organ.visible_through_clothes)
+		return TRUE
 	if(owner.underwear)
 		return FALSE
 	return is_human_part_visible(owner, HIDEJUMPSUIT|HIDECROTCH)
@@ -109,6 +111,8 @@
 	return "[icon_state]_[testes.organ_size]"
 
 /datum/sprite_accessory/testicles/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
+	if(organ.visible_through_clothes)
+		return TRUE
 	if(owner.underwear)
 		return FALSE
 	var/obj/item/organ/penis/pp = owner.getorganslot(ORGAN_SLOT_PENIS)
@@ -134,6 +138,8 @@
 	generic_gender_feature_adjust(appearance_list, organ, bodypart, owner, OFFSET_ID, OFFSET_ID_F)
 
 /datum/sprite_accessory/breasts/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
+	if(organ.visible_through_clothes)
+		return TRUE
 	if(owner.underwear && owner.underwear.covers_breasts)
 		return FALSE
 	return is_human_part_visible(owner, HIDEBOOB|HIDEJUMPSUIT)
@@ -162,6 +168,8 @@
 	generic_gender_feature_adjust(appearance_list, organ, bodypart, owner, OFFSET_BELT, OFFSET_BELT_F)
 
 /datum/sprite_accessory/vagina/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
+	if(organ.visible_through_clothes)
+		return TRUE
 	if(owner.underwear)
 		return FALSE
 	return is_human_part_visible(owner, HIDECROTCH|HIDEJUMPSUIT)
@@ -209,6 +217,8 @@
 	generic_gender_feature_adjust(appearance_list, organ, bodypart, owner, OFFSET_BELT, OFFSET_BELT_F)
 
 /datum/sprite_accessory/belly/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
+	if(organ.visible_through_clothes)
+		return TRUE
 	return is_human_part_visible(owner, HIDEBELLY|HIDEJUMPSUIT)
 
 /datum/sprite_accessory/belly
@@ -232,6 +242,8 @@
 	return "butt_[icon_state]_[buttie.organ_size]"
 
 /datum/sprite_accessory/butt/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
+	if(organ.visible_through_clothes)
+		return TRUE
 	var/obj/item/organ/butt/buttie = organ
 	if(owner.underwear)
 		return FALSE

@@ -47,4 +47,4 @@
 /datum/reagent/consumable/milk/dwarf
 	description = "An opaque white liquid produced by the mammary glands of mammals. It seeems tinted a little yellow..."
 	color = "#ece4bd" 
-	taste_description = "hops, cream and wheat"
+	taste_description = "hops, cream and barley"
