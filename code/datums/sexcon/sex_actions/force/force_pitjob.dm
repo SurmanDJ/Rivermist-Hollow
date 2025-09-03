@@ -1,5 +1,5 @@
 /datum/sex_action/force_pitjob
-	name = "Вздрочнуть подмышкой"
+	name = "Force their armpit to get off"
 	check_same_tile = FALSE
 	require_grab = TRUE
 	stamina_cost = 1.0
@@ -24,10 +24,10 @@
 
 /datum/sex_action/force_pitjob/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	..()
-	user.visible_message(span_warning("[user] хватает руку [target] и зажимает под ней свой пенис!"))
+	user.visible_message(span_warning("[user] grabs the arm of [target] and squeezes thir member with it!"))
 
 /datum/sex_action/force_pitjob/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] трахает подмышку [target]."))
+	user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] fucks [target]'s armpit."))
 	playsound(user, 'sound/misc/mat/fingering.ogg', 30, TRUE, -2, ignore_walls = FALSE)
 	do_thrust_animate(user, target)
 
@@ -36,4 +36,4 @@
 
 /datum/sex_action/force_pitjob/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	..()
-	user.visible_message(span_warning("[user] вынимает из свой хер из ложбинки под плечом [target]."))
+	user.visible_message(span_warning("[user] removes their penis from under [target]'s arm."))

@@ -19,6 +19,8 @@
 	var/driprate = 0.1
 	var/spiller = FALSE //toggles if it will spill its contents when not plugged.
 	var/blocker = ITEM_SLOT_SHIRT //pick an item slot
+	var/additional_blocker
+	var/max_femcum = 0
 	var/processspeed = 5 SECONDS//will apply the said seconds cooldown each time before any spill or absorb happens.
 	var/bloatable = FALSE //will it give bloat debuffs when filled, not good to use with refilling organs.
 
@@ -81,24 +83,39 @@
 			to_chat(H, span_warning("My [pick(altnames)] aches..."))
 
 	// modify nutrition to generate reagents
-	if(!HAS_TRAIT(src, TRAIT_NOHUNGER)) //if not nohunger
-		if(owner.nutrition < (NUTRITION_LEVEL_HUNGRY - 25) && hungerhelp) //consumes if hungry and uses nutrient, putting below the limit so person dont get stress message spam.
-			var/remove_amount = min(reagent_generate_rate, reagents.total_volume)
-			if(uses_nutrient) //add nutrient
-				owner.adjust_nutrition(remove_amount) //since hunger factor is so tiny compared to the nutrition levels it has to fill
-			reagents.remove_reagent(reagent_to_make, (remove_amount*4)) //we consume our own reagents for food less efficently, allowing running out (may undo this multiplier later.)
+	if(istype(src, /obj/item/organ/filling_organ/vagina)) //generate lube from arousal
+		if(owner.sexcon.arousal > VISIBLE_AROUSAL_THRESHOLD)
+			refilling = TRUE
 		else
-			if((reagents.total_volume < reagents.maximum_volume) && refilling && owner.nutrition > (NUTRITION_LEVEL_FED + 25)) //if organ is not full.
-				var/max_restore = owner.nutrition > (NUTRITION_LEVEL_WELL_FED) ? reagent_generate_rate * 2 : reagent_generate_rate
-				var/restore_amount = min(max_restore, reagents.maximum_volume - reagents.total_volume) // amount restored if fed, capped by reagents.maximum_volume
-				if(uses_nutrient) //consume nutrient
-					owner.adjust_nutrition(-restore_amount)
-				reagents.add_reagent(reagent_to_make, restore_amount)
-	else //if nohunger, should just regenerate stuff for free no matter what, if refilling.
-		if((reagents.total_volume < reagents.maximum_volume) && refilling)
+			refilling = FALSE
+		var/check_volume = 0
+		if(reagent_to_make in reagents.reagent_list)
+			check_volume = reagents.reagent_list[reagent_to_make].volume
+		else
+			check_volume = reagents.total_volume
+		if((check_volume < max_femcum) && refilling)
 			var/max_restore = reagent_generate_rate * 2
-			var/restore_amount = min(max_restore, reagents.maximum_volume - reagents.total_volume)
+			var/restore_amount = min(max_restore, reagents.maximum_volume - max_femcum)
 			reagents.add_reagent(reagent_to_make, restore_amount)
+	else
+		if(!HAS_TRAIT(src, TRAIT_NOHUNGER)) //if not nohunger
+			if(owner.nutrition < (NUTRITION_LEVEL_HUNGRY - 25) && hungerhelp) //consumes if hungry and uses nutrient, putting below the limit so person dont get stress message spam.
+				var/remove_amount = min(reagent_generate_rate, reagents.total_volume)
+				if(uses_nutrient) //add nutrient
+					owner.adjust_nutrition(remove_amount) //since hunger factor is so tiny compared to the nutrition levels it has to fill
+				reagents.remove_reagent(reagent_to_make, (remove_amount*4)) //we consume our own reagents for food less efficently, allowing running out (may undo this multiplier later.)
+			else
+				if((reagents.total_volume < reagents.maximum_volume) && refilling && owner.nutrition > (NUTRITION_LEVEL_FED + 25)) //if organ is not full.
+					var/max_restore = owner.nutrition > (NUTRITION_LEVEL_WELL_FED) ? reagent_generate_rate * 2 : reagent_generate_rate
+					var/restore_amount = min(max_restore, reagents.maximum_volume - reagents.total_volume) // amount restored if fed, capped by reagents.maximum_volume
+					if(uses_nutrient) //consume nutrient
+						owner.adjust_nutrition(-restore_amount)
+					reagents.add_reagent(reagent_to_make, restore_amount)
+		else //if nohunger, should just regenerate stuff for free no matter what, if refilling.
+			if((reagents.total_volume < reagents.maximum_volume) && refilling)
+				var/max_restore = reagent_generate_rate * 2
+				var/restore_amount = min(max_restore, reagents.maximum_volume - reagents.total_volume)
+				reagents.add_reagent(reagent_to_make, restore_amount)
 
 	if(!COOLDOWN_FINISHED(src, liquidcd))
 		return
@@ -107,25 +124,25 @@
 	if(!contents.len) //if nothing is plugging the hole, stuff will drip out.
 		var/tempdriprate = driprate
 		if((reagents.total_volume && spiller) || (reagents.total_volume > reagents.maximum_volume)) //spiller or above it's capacity to leak.
-			var/obj/item/clothing/blockingitem = H.mob_slot_wearing(blocker)
+			var/obj/item/blockingitem = H.mob_slot_wearing(blocker)
+			if(!isnull(additional_blocker))
+				if(H.underwear)
+					blockingitem = H.underwear	
 			if(blockingitem && !blockingitem.genitalaccess) //we aint dripping a drop.
-
-			/*
-				tempdriprate = 0.1 //if worn slot cover it, drip nearly nothing.
-				if(owner.has_quirk(/datum/quirk/selfawaregeni))
-					if(prob(5))
-						to_chat(H, pick(span_info("A little bit of [english_list(reagents.reagent_list)] drips from my [pick(altnames)] to my [blockingitem.name]..."),
-						span_info("Some liquid drips from my [pick(altnames)] to my [blockingitem.name]."),
-						span_info("My [pick(altnames)] spills some liquid to my [blockingitem.name]."),
-						span_info("Some [english_list(reagents.reagent_list)] drips from my [pick(altnames)] to my [blockingitem.name].")))
-			*/
+				tempdriprate = 0.1 //if worn slot cover it, drip nearly nothing.	
+				//if(owner.has_quirk(/datum/quirk/selfawaregeni))
+				if(prob(5))
+					to_chat(H, pick(span_info("A little bit of [english_list(reagents.reagent_list)] drips from my [pick(altnames)] to my [blockingitem.name]..."),
+					span_info("Some liquid drips from my [pick(altnames)] to my [blockingitem.name]."),
+					span_info("My [pick(altnames)] spills some liquid to my [blockingitem.name]."),
+					span_info("Some [english_list(reagents.reagent_list)] drips from my [pick(altnames)] to my [blockingitem.name].")))
 			else //we drippin
-				if(owner.has_quirk(/datum/quirk/selfawaregeni))
-					if(prob(5)) //with selfawaregeni quirk you got some chance to see what type of liquid is dripping from you.
-						to_chat(H, pick(span_info("A little bit of [english_list(reagents.reagent_list)] drips from my [pick(altnames)]..."),
-						span_info("Some liquid drips from my [pick(altnames)]."),
-						span_info("My [pick(altnames)] spills some liquid."),
-						span_info("Some [english_list(reagents.reagent_list)] drips from my [pick(altnames)].")))
+				//if(owner.has_quirk(/datum/quirk/selfawaregeni))
+				if(prob(5)) //with selfawaregeni quirk you got some chance to see what type of liquid is dripping from you.
+					to_chat(H, pick(span_info("A little bit of [english_list(reagents.reagent_list)] drips from my [pick(altnames)]..."),
+					span_info("Some liquid drips from my [pick(altnames)]."),
+					span_info("My [pick(altnames)] spills some liquid."),
+					span_info("Some [english_list(reagents.reagent_list)] drips from my [pick(altnames)].")))
 				var/obj/item/reagent_containers/glass/the_bottle
 				if((owner.mobility_flags & MOBILITY_STAND))
 					for(var/obj/item/reagent_containers/glass/bottle in range(0,H)) //having a bottle under us speed up leak greatly and transfer the leak there instead.

@@ -68,9 +68,9 @@
 	alpha = 100
 	taste_mult = 0.1
 
-/datum/reagent/water/pussjuice
-	name = "pussy juice"
-	description = "A strange slightly gooey substance."
+///datum/reagent/water/pussjuice
+//	name = "pussy juice"
+//	description = "A strange slightly gooey substance."
 
 /datum/chemical_reaction/grosswaterify
 	name = "grosswater"

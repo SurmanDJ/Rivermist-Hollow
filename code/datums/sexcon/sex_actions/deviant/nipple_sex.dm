@@ -56,7 +56,7 @@
 	user.sexcon.perform_sex_action(user, 2, 0, TRUE)
 	if(user.sexcon.check_active_orgasm())
 		user.visible_message(span_love("[user] cums into [target]'s nipple!"))
-		user.sexcon.cum_into(nipple = TRUE)
+		user.sexcon.cum_into(cum_target = target, nipple = TRUE)
 		user.virginity = FALSE
 
 	if(user.sexcon.considered_limp())

@@ -58,7 +58,6 @@
 	var/naledicolor = FALSE
 
 	///for skirts etc that allow passage to fun lands.
-	var/genitalaccess = FALSE
 
 /obj/item
 	var/blocking_behavior
@@ -71,6 +70,7 @@
 	var/boobed_detail = TRUE
 	var/sleeved_detail = TRUE
 	var/list/original_armor //For restoring broken armor
+	var/genitalaccess = FALSE
 
 /obj/item/clothing/New()
 	..()

@@ -277,12 +277,13 @@
 	//	splashed_user.apply_status_effect(/datum/status_effect/facial)
 	after_climax()
 
-/datum/sex_controller/proc/cum_into(oral = FALSE, vaginal = FALSE, anal = FALSE, nipple = FALSE, girljuice = FALSE)
+/datum/sex_controller/proc/cum_into(cum_target, oral = FALSE, vaginal = FALSE, anal = FALSE, nipple = FALSE, girljuice = FALSE)
+	var/mob/living/c_target = cum_target
 	var/obj/item/organ/filling_organ/testicles/testes = user.getorganslot(ORGAN_SLOT_TESTICLES)
-	if(target.mind)
-		if(!issimple(target))
-			log_combat(user, target, "Came inside [target]")
-			if(HAS_TRAIT(target, TRAIT_GOODLOVER))
+	if(c_target.mind)
+		if(!issimple(c_target))
+			log_combat(user, c_target, "Came inside [c_target]")
+			if(HAS_TRAIT(c_target, TRAIT_GOODLOVER))
 				if(!user.mob_timers["cumtri"])
 					user.mob_timers["cumtri"] = world.time
 					user.adjust_triumphs(1)
@@ -292,23 +293,26 @@
 				user.add_stress(/datum/stressevent/cumok)
 	if(user.mind)
 		if(!issimple(user))
-			log_combat(target, user, "Came inside [user]")
+			log_combat(c_target, user, "Came inside [user]")
 			if(HAS_TRAIT(user, TRAIT_GOODLOVER))
-				if(!target.mob_timers["cumtri"])
-					target.mob_timers["cumtri"] = world.time
-					target.adjust_triumphs(1)
-					target.add_stress(/datum/stressevent/cummax)
-					to_chat(target, span_love("Our sex was a true TRIUMPH!"))
+				if(!c_target.mob_timers["cumtri"])
+					c_target.mob_timers["cumtri"] = world.time
+					c_target.adjust_triumphs(1)
+					c_target.add_stress(/datum/stressevent/cummax)
+					to_chat(c_target, span_love("Our sex was a true TRIUMPH!"))
 				else
-					target.add_stress(/datum/stressevent/cumok)
+					c_target.add_stress(/datum/stressevent/cumok)
 	if(girljuice)
-		if(!issimple(target))
-			target.reagents.add_reagent(/datum/reagent/water/pussjuice, 10)
+		if(!issimple(c_target))
+			var/obj/item/organ/filling_organ/vagina/vag = user.getorganslot(ORGAN_SLOT_VAGINA)
+			if(vag)
+				var/gj_to_add = min(8, vag.reagents.total_volume)
+				vag.reagents.trans_to(c_target, gj_to_add, 2, TRUE, FALSE, user, FALSE, INGEST)
 			after_climax()
 		else
 			after_climax()
 		return
-	if(issimple(target))
+	if(issimple(c_target))
 		if(testes) //simple target just remove the coom.
 			var/cum_to_take = CLAMP((testes.reagents.maximum_volume/2), 1, testes.reagents.total_volume)
 			if(testes.reagents)
@@ -316,20 +320,20 @@
 			user.add_stress(/datum/stressevent/cumok)
 			after_climax()
 			return
-	if(!issimple(target) && testes)
+	if(!issimple(c_target) && testes)
 		if(oral)
-			playsound(target, pick(list('sound/misc/mat/mouthend (1).ogg','sound/misc/mat/mouthend (2).ogg')), 100, FALSE, ignore_walls = FALSE)
+			playsound(c_target, pick(list('sound/misc/mat/mouthend (1).ogg','sound/misc/mat/mouthend (2).ogg')), 100, FALSE, ignore_walls = FALSE)
 			if(testes.reagents)
 				var/cum_to_take = CLAMP((testes.reagents.maximum_volume/2), 1, testes.reagents.total_volume)
-				testes.reagents.trans_to(target, cum_to_take, transfered_by = user, method = INGEST)
+				testes.reagents.trans_to(c_target, cum_to_take, transfered_by = user, method = INGEST)
 		else
 			var/obj/item/organ/filling_organ/cameloc
 			if(vaginal)
-				cameloc = target.getorganslot(ORGAN_SLOT_VAGINA)
+				cameloc = c_target.getorganslot(ORGAN_SLOT_VAGINA)
 			if(anal)
-				cameloc = target.getorganslot(ORGAN_SLOT_ANUS)
+				cameloc = c_target.getorganslot(ORGAN_SLOT_ANUS)
 			if(nipple)
-				cameloc = target.getorganslot(ORGAN_SLOT_BREASTS)
+				cameloc = c_target.getorganslot(ORGAN_SLOT_BREASTS)
 			if(vaginal || anal || nipple)
 				if(testes.reagents)
 					var/cum_to_take = CLAMP((testes.reagents.maximum_volume/4), 1, min(testes.reagents.total_volume, cameloc.reagents.maximum_volume - cameloc.reagents.total_volume))
@@ -337,10 +341,10 @@
 			else
 				if(testes.reagents)
 					var/cum_to_take = CLAMP((testes.reagents.maximum_volume/4), 1, testes.reagents.total_volume)
-					testes.reagents.trans_to(target,  cum_to_take, transfered_by = user, method = INGEST) //digest anyway if none of those.
+					testes.reagents.trans_to(c_target,  cum_to_take, transfered_by = user, method = INGEST) //digest anyway if none of those.
 
-		playsound(target, 'sound/misc/mat/endin.ogg', 50, TRUE, ignore_walls = FALSE)
-	if(user != target)
+		playsound(c_target, 'sound/misc/mat/endin.ogg', 50, TRUE, ignore_walls = FALSE)
+	if(user != c_target)
 		knot_try()
 	if(testes)
 		if(testes.reagents)
@@ -825,7 +829,7 @@
 	return TRUE
 
 /datum/sex_controller/proc/considered_limp()
-	if(arousal >= AROUSAL_HARD_ON_THRESHOLD)
+	if(arousal >= VISIBLE_AROUSAL_THRESHOLD)
 		return FALSE
 	return TRUE
 /*

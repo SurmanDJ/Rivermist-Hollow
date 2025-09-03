@@ -117,6 +117,7 @@
 	spiller = TRUE
 	blocker = ITEM_SLOT_PANTS
 	bloatable = TRUE
+	additional_blocker = "underwear"
 
 /obj/item/organ/filling_organ/vagina
 	name = "vagina"
@@ -133,9 +134,15 @@
 	altnames = list("vagina", "cunt", "womb", "pussy", "slit", "kitty", "snatch") //used in thought messages.
 	spiller = TRUE
 	blocker = ITEM_SLOT_PANTS
+	additional_blocker = "underwear"
 	bloatable = TRUE
 	var/preggotimer //dumbass timer
 	var/pre_pregnancy_size = 0
+
+	reagent_to_make = /datum/reagent/consumable/femcum 
+	refilling = FALSE
+	reagent_generate_rate = 0.5
+	max_femcum = 9
 
 //we handle all of this here because cant timer another goddamn thing from here correctly.
 /obj/item/organ/filling_organ/vagina/proc/be_impregnated()
@@ -198,6 +205,7 @@
 	altnames = list("breasts", "tits", "milkers", "tiddies", "badonkas", "boobas") //used in thought messages.
 	startsfilled = TRUE
 	blocker = ITEM_SLOT_SHIRT
+	additional_blocker = "bra"
 
 /obj/item/organ/filling_organ/breasts/Insert(mob/living/carbon/M, special, drop_if_replaced)
 	. = ..()

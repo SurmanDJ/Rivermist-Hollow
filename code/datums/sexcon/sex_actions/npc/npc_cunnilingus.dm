@@ -24,7 +24,7 @@
 	user.sexcon.perform_sex_action(target, 4, 3, TRUE)
 	if(target.sexcon.check_active_orgasm())
 		target.visible_message(span_love("[target] orgasms into [user]'s mouth!"))
-		target.sexcon.cum_into(girljuice = TRUE)
+		target.sexcon.cum_into(cum_target = user, girljuice = TRUE)
 
 /datum/sex_action/npc_cunnilingus/on_finish(mob/living/user, mob/living/target)
 	user.visible_message(span_warning("[user] stops licking [target]'s cunt ..."))

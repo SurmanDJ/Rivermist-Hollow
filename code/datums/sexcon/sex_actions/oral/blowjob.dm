@@ -60,7 +60,7 @@
 			target.sexcon.cum_onto()
 		else*/
 		target.visible_message(span_love("[target] cums into [user]'s mouth!"))
-		target.sexcon.cum_into(oral = TRUE)
+		target.sexcon.cum_into(cum_target = user, oral = TRUE)
 
 /datum/sex_action/blowjob/on_finish(mob/living/user, mob/living/target)
 	..()

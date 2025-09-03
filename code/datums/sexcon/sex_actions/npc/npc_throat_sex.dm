@@ -26,7 +26,7 @@
 	user.sexcon.perform_sex_action(user, 4, 0, TRUE)
 	if(user.sexcon.check_active_orgasm())
 		user.visible_message(span_love("[user] cums into [target]'s throat!"))
-		user.sexcon.cum_into(oral = TRUE)
+		user.sexcon.cum_into(cum_target = target, oral = TRUE)
 
 	target.heal_overall_damage(3,3,0, updating_health = TRUE)
 	if(user.sexcon.considered_limp())

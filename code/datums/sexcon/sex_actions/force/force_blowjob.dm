@@ -49,7 +49,7 @@
 	user.sexcon.perform_sex_action(user, 2, 4, TRUE)
 	if(user.sexcon.check_active_orgasm())
 		user.visible_message(span_love("[user] cums into [target]'s throat!"))
-		user.sexcon.cum_into(oral = TRUE)
+		user.sexcon.cum_into(cum_target = target, oral = TRUE)
 
 	user.sexcon.perform_sex_action(target, 0, 7, FALSE)
 	if(!user.sexcon.considered_limp())

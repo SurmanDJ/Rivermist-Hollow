@@ -44,9 +44,13 @@
 	do_thrust_animate(target, user)
 
 	user.sexcon.perform_sex_action(user, 2, 4, TRUE)
+	if(prob(25))
+		var/obj/item/organ/filling_organ/vagina/vag = user.getorganslot(ORGAN_SLOT_VAGINA)
+		var/gj_to_add = min(1.5, vag.reagents.total_volume)
+		vag.reagents.trans_to(target, gj_to_add, TRUE, TRUE, FALSE, user, FALSE, INGEST)
 	if(user.sexcon.check_active_orgasm())
 		user.visible_message(span_love("[user] orgasms into [target]'s mouth!"))
-		user.sexcon.cum_into(girljuice = TRUE)
+		user.sexcon.cum_into(cum_target = target, girljuice = TRUE)
 
 	user.sexcon.perform_sex_action(target, 0, 2, FALSE)
 	target.sexcon.handle_passive_orgasm()

@@ -26,7 +26,7 @@
 		var/obj/item/organ/filling_organ/breasts/breasties = getorganslot(ORGAN_SLOT_BREASTS)
 		breasties.reagent_to_make = breast_milk
 		breasties.reagents.clear_reagents()
-		breasties.create_reagents(breasties.max_reagents)
+		breasties.create_reagents(breasties.max_reagents/2)
 
 /datum/reagent/consumable/milk/elf
 	description = "An opaque white liquid produced by the mammary glands of mammals. It seeems tinted a little green..."
