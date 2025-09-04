@@ -395,7 +395,7 @@
 
 /datum/sex_controller/proc/after_climax()
 	switch(edging_charge)
-		if(0 to 20)
+		if(10 to 20)
 			to_chat(user, span_love("Feels good to finally cum!"))
 		if(21 to 50)
 			to_chat(user, span_love("Oh gods, I came!"))

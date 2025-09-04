@@ -106,11 +106,11 @@
 		if(GLOB.lord_titles[name])
 			. += span_notice("[m3] been granted the title of \"[GLOB.lord_titles[name]]\".")
 
-		if(HAS_TRAIT(src, TRAIT_NOBLE) || HAS_TRAIT(src, TRAIT_DEFILED_NOBLE))
+		/*if(HAS_TRAIT(src, TRAIT_NOBLE) || HAS_TRAIT(src, TRAIT_DEFILED_NOBLE))
 			if(HAS_TRAIT(user, TRAIT_NOBLE) || HAS_TRAIT(user, TRAIT_DEFILED_NOBLE))
 				. += span_notice("A fellow noble.")
 			else
-				. += span_notice("A noble!")
+				. += span_notice("A noble!")*/
 
 		if((HAS_TRAIT(src, TRAIT_OUTLANDER) && !HAS_TRAIT(user, TRAIT_OUTLANDER)) || (HAS_TRAIT(user, TRAIT_RACISMISBAD) && !(src.dna.species.name == "Elf" || src.dna.species.name == "Dark Elf" || src.dna.species.name == "Half Elf")))
 			. += span_phobia("A foreigner...")
@@ -446,6 +446,21 @@
 			str += wear_mask.integrity_check()
 		. += str
 
+	//underwear
+	if(underwear)
+		if(underwear.covers_breasts && (is_human_part_visible(src, HIDECROTCH) || is_human_part_visible(src, HIDEBOOB)))
+			. += "[m3] [underwear] on."
+		else if(is_human_part_visible(src, HIDECROTCH))
+			. += "[m3] [underwear] on."
+
+	//stockings
+	if(legwear_socks && is_human_part_visible(src, HIDEJUMPSUIT))
+		. += "[m3] [legwear_socks] on."
+
+	//piercing
+	if(piercings_item && is_human_part_visible(src, HIDEBOOB))
+		. += "[m3] their nipples pierced with [piercings_item]."
+
 	//mouth
 	if(mouth && !(SLOT_MOUTH in obscured))
 		var/str = "[m3] [mouth.get_examine_string(user)] in [m2] mouth. "
@@ -727,6 +742,87 @@
 				msg += "[m1] looking a little tired."
 	else
 		msg += "[m1] unconscious."
+
+	if(length(msg))
+		. += span_warning("[msg.Join("\n")]")
+
+	var/list/organ_desc = list()
+	//var/show_pant_desc = FALSE
+	var/show_undie_desc = FALSE
+	var/show_naked_desc = FALSE
+	if(wear_pants)
+		var/obj/item/clothing/under/roguetown/pantsies = wear_pants
+		if(pantsies.flags_inv & HIDECROTCH)
+			if(!pantsies.genitalaccess)
+				if(sexcon.arousal > VISIBLE_AROUSAL_THRESHOLD)
+					if(getorganslot(ORGAN_SLOT_PENIS))
+						organ_desc += "[capitalize(m3)] a visible bulge in [m2] [pantsies.name]."
+					if(getorganslot(ORGAN_SLOT_VAGINA))
+						organ_desc += "[capitalize(m1)] shifting their legs uncomfortably."
+					//show_pant_desc = TRUE
+		else if(underwear)
+			if(sexcon.arousal > VISIBLE_AROUSAL_THRESHOLD)
+				if(getorganslot(ORGAN_SLOT_PENIS))
+					organ_desc += "[capitalize(m1)] pitching a tent in [m2] [underwear.name]."
+				if(getorganslot(ORGAN_SLOT_VAGINA))
+					organ_desc += "[capitalize(m3)] a wet spot on [m2] [underwear.name]."
+				show_undie_desc = TRUE
+		else
+			if(sexcon.arousal > VISIBLE_AROUSAL_THRESHOLD)
+				if(getorganslot(ORGAN_SLOT_PENIS))
+					var/obj/item/organ/penis/pen = getorganslot(ORGAN_SLOT_PENIS)
+					organ_desc += "[capitalize(m2)] [pen.name] is visibly erect!"
+				if(getorganslot(ORGAN_SLOT_VAGINA))
+					var/obj/item/organ/filling_organ/vagina/vag = getorganslot(ORGAN_SLOT_VAGINA)
+					organ_desc += "[capitalize(m2)] [vag.name] is glistening with arousal!"
+				show_naked_desc = TRUE
+
+	else if(underwear && !show_undie_desc)
+		if(sexcon.arousal > VISIBLE_AROUSAL_THRESHOLD)
+			if(getorganslot(ORGAN_SLOT_PENIS))
+				organ_desc += "[capitalize(m1)] pitching a tent in [m2] [underwear.name]."
+			if(getorganslot(ORGAN_SLOT_VAGINA))
+				organ_desc += "[capitalize(m3)] a wet spot on [m2] [underwear.name]."
+			show_undie_desc = TRUE
+
+	else if(sexcon.arousal > VISIBLE_AROUSAL_THRESHOLD && !show_naked_desc)
+		if(getorganslot(ORGAN_SLOT_PENIS))
+			var/obj/item/organ/penis/pen = getorganslot(ORGAN_SLOT_PENIS)
+			organ_desc += "[capitalize(m2)] [pen.name] is visibly erect!"
+		if(getorganslot(ORGAN_SLOT_VAGINA))
+			var/obj/item/organ/filling_organ/vagina/vag = getorganslot(ORGAN_SLOT_VAGINA)
+			organ_desc += "[capitalize(m2)] [vag.name] is glistening with arousal!"
+		show_naked_desc = TRUE
+
+	if(length(organ_desc))
+		. += span_love("[organ_desc.Join("\n")]")
+
+	//The Nymphomaniac Underground
+	if((!appears_dead) && stat == CONSCIOUS && src.has_flaw(/datum/charflaw/addiction/lovefiend))
+		var/datum/charflaw/addiction/bonercheck = src.charflaw
+		if((bonercheck) && (bonercheck.sated == 0))
+			if(user.has_flaw(/datum/charflaw/addiction/lovefiend)) //Takes one to know one
+				switch(rand(1,5))
+					if(1)
+						. += span_love("I can sense [m2] <B>need</B> for fun...")
+					if(2)
+						. += span_love("[m1] <B>aching</B> for a release.")
+					if(3)
+						. += span_love("A carnal need <B>stirs</B> within [m2] core.")
+					if(4)
+						. += span_love("I can practically feel [m2] <B>horniness</B>...")
+					if(5)
+						. += span_love("Embers of desire <B>smolder</B> within [m2].")
+			else if(Adjacent(user)) //No nympho, but close enough to notice.
+				switch(rand(1,4))
+					if(1)
+						. += span_love("[m1] shifting their legs quite a bit...")
+					if(2)
+						. += span_love("I can see [m2] is a bit restless...")
+					if(3)
+						. += span_love("[m2] seem distracted...")
+					if(4)
+						. += span_love("[m1] restless, for some reason.")
 //		else
 //			if(HAS_TRAIT(src, TRAIT_DUMB))
 //				msg += "[m3] a stupid expression on [m2] face."
@@ -738,8 +834,6 @@
 //			else if(!client)
 //				msg += "[m3] a blank, absent-minded stare and appears completely unresponsive to anything. [t_He] may snap out of it soon."
 
-	if(length(msg))
-		. += span_warning("[msg.Join("\n")]")
 
 	// Show especially large embedded objects at a glance
 	for(var/obj/item/bodypart/part in bodyparts)
