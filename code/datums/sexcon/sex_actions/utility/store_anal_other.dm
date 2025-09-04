@@ -22,13 +22,13 @@
 /datum/sex_action/store_ass_other/can_perform(mob/living/user, mob/living/target)
 	if(user == target)
 		return FALSE
-	if(ishuman(target))
+	/*if(ishuman(target))
 		var/mob/living/carbon/human/targethuman = target
 		if(targethuman.wear_pants)
 			var/obj/item/clothing/under/roguetown/pantsies = targethuman.wear_pants
 			if(pantsies.flags_inv & HIDECROTCH) 
 				if(!pantsies.genitalaccess) 
-					return FALSE
+					return FALSE*/
 	if(!target.getorganslot(ORGAN_SLOT_ANUS))
 		return FALSE
 	var/obj/item/organ/filling_organ/anus/targetass = target.getorgan(/obj/item/organ/filling_organ/vagina)

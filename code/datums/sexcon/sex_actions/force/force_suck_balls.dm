@@ -17,14 +17,14 @@
 /datum/sex_action/force_suck_balls/can_perform(mob/living/user, mob/living/target)
 	if(user == target)
 		return FALSE
-	if(istype(user, /mob/living/carbon/human))
+	/*if(istype(user, /mob/living/carbon/human))
 		var/mob/living/carbon/human/userhuman = user
 		if(userhuman.wear_pants)
 			var/obj/item/clothing/under/roguetown/pantsies = userhuman.wear_pants
 			if(pantsies.flags_inv & HIDECROTCH)
 				return FALSE
 	if(!get_location_accessible(target, BODY_ZONE_PRECISE_MOUTH))
-		return FALSE
+		return FALSE*/
 	if(!user.getorganslot(ORGAN_SLOT_TESTICLES))
 		return FALSE
 	return TRUE

@@ -15,13 +15,13 @@
 /datum/sex_action/toy_anal/can_perform(mob/living/user, mob/living/target)
 	if(user != target)
 		return FALSE
-	if(ishuman(user))
+	/*if(ishuman(user))
 		var/mob/living/carbon/human/userhuman = user
 		if(userhuman.wear_pants)
 			var/obj/item/clothing/under/roguetown/pantsies = userhuman.wear_pants
 			if(pantsies.flags_inv & HIDECROTCH)
 				if(!pantsies.genitalaccess)
-					return FALSE
+					return FALSE*/
 	if(!get_dildo_in_either_hand(user))
 		return FALSE
 	return TRUE

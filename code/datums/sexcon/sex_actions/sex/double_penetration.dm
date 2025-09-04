@@ -14,10 +14,10 @@
 /datum/sex_action/double_penetration_sex/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
 		return FALSE
-	if(!get_location_accessible(user, user, BODY_ZONE_PRECISE_GROIN, TRUE))
+	/*if(!get_location_accessible(user, user, BODY_ZONE_PRECISE_GROIN, TRUE))
 		return FALSE
 	if(!get_location_accessible(user, target, BODY_ZONE_PRECISE_GROIN, TRUE))
-		return FALSE
+		return FALSE*/
 	if(!target.getorganslot(ORGAN_SLOT_VAGINA))
 		return FALSE
 	var/obj/item/organ/penis/penis = user.getorganslot(ORGAN_SLOT_PENIS)

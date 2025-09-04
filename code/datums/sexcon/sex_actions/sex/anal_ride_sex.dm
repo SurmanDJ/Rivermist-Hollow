@@ -22,7 +22,7 @@
 /datum/sex_action/anal_ride_sex/can_perform(mob/living/user, mob/living/target)
 	if(user == target)
 		return FALSE
-	if(ishuman(user))
+	/*if(ishuman(user))
 		var/mob/living/carbon/human/userhuman = user
 		if(userhuman.wear_pants)
 			var/obj/item/clothing/under/roguetown/pantsies = userhuman.wear_pants
@@ -35,7 +35,7 @@
 			var/obj/item/clothing/under/roguetown/pantsies = targethuman.wear_pants
 			if(pantsies.flags_inv & HIDECROTCH)
 				if(!pantsies.genitalaccess)
-					return FALSE
+					return FALSE*/
 	if(!target.getorganslot(ORGAN_SLOT_PENIS))
 		if(issimple(target) && target.gender == MALE && target.sexcon)
 		else

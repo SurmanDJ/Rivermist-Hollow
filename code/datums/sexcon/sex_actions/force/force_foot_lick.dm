@@ -25,8 +25,8 @@
 	if(!get_location_accessible(user, BODY_ZONE_PRECISE_R_FOOT))
 		return FALSE
 	*/
-	if(!get_location_accessible(target, BODY_ZONE_PRECISE_MOUTH))
-		return FALSE
+	/*if(!get_location_accessible(target, BODY_ZONE_PRECISE_MOUTH))
+		return FALSE*/
 	return TRUE
 
 /datum/sex_action/force_foot_lick/on_start(mob/living/user, mob/living/target)

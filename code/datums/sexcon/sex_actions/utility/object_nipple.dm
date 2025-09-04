@@ -22,13 +22,13 @@
 /datum/sex_action/object_nipple/can_perform(mob/living/user, mob/living/target)
 	if(user != target)
 		return FALSE
-	if(ishuman(user))
+	/*if(ishuman(user))
 		var/mob/living/carbon/human/userhuman = user
 		if(userhuman.wear_shirt)
 			var/obj/item/clothing/suit/roguetown/shirtsies = userhuman.wear_shirt
 			if(shirtsies.flags_inv & HIDEBOOB)
 				if(!shirtsies.genitalaccess)
-					return FALSE
+					return FALSE*/
 	if(!user.getorganslot(ORGAN_SLOT_BREASTS))
 		return FALSE
 	if(!get_funobject_in_hand(user))

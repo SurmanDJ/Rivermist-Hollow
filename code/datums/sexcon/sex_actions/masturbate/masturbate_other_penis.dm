@@ -16,13 +16,13 @@
 /datum/sex_action/masturbate_penis_other/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
 		return FALSE
-	if(ishuman(target))
+	/*if(ishuman(target))
 		var/mob/living/carbon/human/targethuman = target
 		if(targethuman.wear_pants)
 			var/obj/item/clothing/under/roguetown/pantsies = targethuman.wear_pants
 			if(pantsies.flags_inv & HIDECROTCH)
 				if(!pantsies.genitalaccess)
-					return FALSE
+					return FALSE*/
 	if(!target.getorganslot(ORGAN_SLOT_PENIS))
 		return FALSE
 	return TRUE

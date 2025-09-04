@@ -10,10 +10,10 @@
 /datum/sex_action/kissing/can_perform(mob/living/user, mob/living/target)
 	if(user == target)
 		return FALSE
-	if(!get_location_accessible(target, BODY_ZONE_PRECISE_MOUTH))
+	/*if(!get_location_accessible(target, BODY_ZONE_PRECISE_MOUTH))
 		return FALSE
 	if(!get_location_accessible(user, BODY_ZONE_PRECISE_MOUTH))
-		return FALSE
+		return FALSE*/
 	return TRUE
 
 /datum/sex_action/kissing/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)

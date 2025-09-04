@@ -17,8 +17,8 @@
 /datum/sex_action/toy_other_oral/can_perform(mob/living/user, mob/living/target)
 	if(user == target)
 		return FALSE
-	if(!get_location_accessible(target, BODY_ZONE_PRECISE_MOUTH))
-		return FALSE
+	/*if(!get_location_accessible(target, BODY_ZONE_PRECISE_MOUTH))
+		return FALSE*/
 	if(!get_dildo_in_either_hand(user))
 		return FALSE
 	return TRUE

@@ -20,7 +20,7 @@
 /datum/sex_action/force_blowjob/can_perform(mob/living/user, mob/living/target)
 	if(user == target)
 		return FALSE
-	if(ishuman(user))
+	/*if(ishuman(user))
 		var/mob/living/carbon/human/userhuman = user
 		if(userhuman.wear_pants)
 			var/obj/item/clothing/under/roguetown/pantsies = userhuman.wear_pants
@@ -28,7 +28,7 @@
 				if(!pantsies.genitalaccess)
 					return FALSE
 	if(!get_location_accessible(target, BODY_ZONE_PRECISE_MOUTH))
-		return FALSE
+		return FALSE*/
 	if(!user.getorganslot(ORGAN_SLOT_PENIS))
 		return FALSE
 	if(!user.sexcon.can_use_penis())

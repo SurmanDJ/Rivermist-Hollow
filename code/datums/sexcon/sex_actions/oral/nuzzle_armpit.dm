@@ -16,7 +16,7 @@
 /datum/sex_action/armpit_nuzzle/can_perform(mob/living/user, mob/living/target)
 	if(user == target)
 		return FALSE
-	if(ishuman(target))
+	/*if(ishuman(target))
 		var/mob/living/carbon/human/targethuman = target
 		if(targethuman.wear_shirt)
 			var/obj/item/clothing/suit/roguetown/shirtsies = targethuman.wear_shirt
@@ -24,7 +24,7 @@
 				if(shirtsies.genitalaccess == FALSE)
 					return FALSE
 	if(!get_location_accessible(user, BODY_ZONE_PRECISE_MOUTH))
-		return FALSE
+		return FALSE*/
 	return TRUE
 
 /datum/sex_action/armpit_nuzzle/on_start(mob/living/user, mob/living/target)

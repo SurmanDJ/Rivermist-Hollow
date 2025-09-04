@@ -22,13 +22,13 @@
 /datum/sex_action/store_vagina_other/can_perform(mob/living/user, mob/living/target)
 	if(user == target)
 		return FALSE
-	if(ishuman(target))
+	/*if(ishuman(target))
 		var/mob/living/carbon/human/targethuman = target
 		if(targethuman.wear_pants)
 			var/obj/item/clothing/under/roguetown/pantsies = targethuman.wear_pants
 			if(pantsies.flags_inv & HIDECROTCH) 
 				if(!pantsies.genitalaccess) 
-					return FALSE
+					return FALSE*/
 	if(!target.getorganslot(ORGAN_SLOT_VAGINA))
 		if(issimple(target) && target.gender == FEMALE && target.sexcon)
 		else

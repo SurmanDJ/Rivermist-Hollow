@@ -18,7 +18,7 @@
 /datum/sex_action/force_rimming/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
 		return FALSE
-	if(ishuman(user))
+	/*if(ishuman(user))
 		var/mob/living/carbon/human/userhuman = user
 		if(userhuman.wear_pants)
 			var/obj/item/clothing/under/roguetown/pantsies = userhuman.wear_pants
@@ -26,7 +26,7 @@
 				if(!pantsies.genitalaccess) 
 					return FALSE
 	if(!get_location_accessible(target, BODY_ZONE_PRECISE_MOUTH))
-		return FALSE
+		return FALSE*/
 	return TRUE
 
 /datum/sex_action/force_rimming/on_start(mob/living/user, mob/living/target)

@@ -12,8 +12,8 @@
 /datum/sex_action/masturbate_other_vagina_finger/can_perform(mob/living/user, mob/living/target)
 	if(user == target)
 		return FALSE
-	if(!get_location_accessible(target, BODY_ZONE_PRECISE_GROIN, TRUE))
-		return FALSE
+	/*if(!get_location_accessible(target, BODY_ZONE_PRECISE_GROIN, TRUE))
+		return FALSE*/
 	if(!target.getorganslot(ORGAN_SLOT_VAGINA))
 		return FALSE
 	return TRUE

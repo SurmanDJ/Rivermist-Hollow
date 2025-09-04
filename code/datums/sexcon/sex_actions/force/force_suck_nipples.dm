@@ -17,7 +17,7 @@
 /datum/sex_action/force_suck_nipples/can_perform(mob/living/user, mob/living/target)
 	if(user == target)
 		return FALSE
-	if(ishuman(user))
+	/*if(ishuman(user))
 		var/mob/living/carbon/human/userhuman = user
 		if(userhuman.wear_shirt)
 			var/obj/item/clothing/suit/roguetown/shirtsies = userhuman.wear_shirt
@@ -25,7 +25,7 @@
 				if(shirtsies.genitalaccess == FALSE)
 					return FALSE
 	if(!get_location_accessible(target, BODY_ZONE_PRECISE_MOUTH))
-		return FALSE
+		return FALSE*/
 	if(!user.getorganslot(ORGAN_SLOT_BREASTS))
 		return FALSE
 	return TRUE
