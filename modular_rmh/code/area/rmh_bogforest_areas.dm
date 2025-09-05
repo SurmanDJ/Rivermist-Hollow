@@ -138,6 +138,8 @@
 	icon_state = "living"
 	first_time_text = "MINDFLAYER COLONY"
 	deathsight_message = "Mindflayer Colony"
+	ceiling_protected = TRUE
+
 
 /area/rogue/under/cave/spider/rmh
 	name = "Spider Caves"
