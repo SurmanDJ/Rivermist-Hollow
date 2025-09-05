@@ -29,6 +29,11 @@
 	droning_sound = 'sound/music/area/caves.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
+	ambush_times = list("night","dawn","dusk","day")
+	ambush_mobs = list(
+				/mob/living/simple_animal/hostile/retaliate/rogue/elemental/crawler = 30,
+				/mob/living/simple_animal/hostile/retaliate/rogue/elemental/warden = 20,
+				/mob/living/simple_animal/hostile/retaliate/rogue/troll/cave = 15)
 
 /area/rogue/under/underdark/rmh/glimmerlakes
 	name = "The Glimmerlakes"
@@ -37,6 +42,8 @@
 	droning_sound = 'sound/music/area/underdark.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
+	ambush_times = null 
+	ambush_mobs = null
 	deathsight_message = "Glimmerlakes"
 
 /area/rogue/under/underdark/rmh/shrub
@@ -44,12 +51,20 @@
 	first_time_text = "THE SHRUB DEPTH"
 	icon = 'modular_rmh/icons/turf/areas.dmi'
 	icon_state = "outdoors"
+	ambush_times = list("night","dawn","dusk","day")
+	ambush_mobs = list(
+				/mob/living/simple_animal/hostile/retaliate/rogue/fae/sprite = 40,
+				/mob/living/simple_animal/hostile/retaliate/rogue/fae/dryad = 5)
 	deathsight_message = "Shrubdepth"
 
 /area/rogue/under/underdark/rmh/deepwastes
 	name = "The Deep Wastes"
 	first_time_text = "THE DEEP WASTES"
 	icon_state = "woods"
+	ambush_times = list("night","dawn","dusk","day")
+	ambush_mobs = list(
+				/mob/living/simple_animal/hostile/retaliate/rogue/spider = 30,
+				/mob/living/simple_animal/hostile/retaliate/rogue/spider/mutated = 25)
 	deathsight_message = "Deep Wastes"
 
 /area/rogue/under/underdark/rmh/flow
@@ -57,6 +72,9 @@
 	first_time_text = "FLOW TUNNELS"
 	icon = 'modular_rmh/icons/turf/areas.dmi'
 	icon_state = "living"
+	ambush_times = list("night","dawn","dusk","day")
+	ambush_mobs = list(
+				/mob/living/simple_animal/hostile/retaliate/rogue/troll/cave = 15)
 	deathsight_message = "Flow Tunnels"
 
 /area/rogue/under/cavelava/rmh/lava_hollows
@@ -68,8 +86,9 @@
 	ambientnight = AMB_CAVELAVA
 	spookysounds = SPOOKY_CAVE
 	spookynight = SPOOKY_CAVE
-	ambush_times = null
-	ambush_mobs = null
+	ambush_times = list("night","dawn","dusk","day")
+	ambush_mobs = list(
+				/mob/living/simple_animal/hostile/retaliate/rogue/infernal/imp = 50)
 	droning_sound = 'sound/music/area/decap.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
@@ -83,7 +102,12 @@
 	droning_sound = 'sound/music/area/underdark.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
+	ambush_times = list("night","dawn","dusk","day")
+	ambush_mobs = list(
+				/mob/living/simple_animal/hostile/rogue/dreamfiend/unbound = 50)
 	deathsight_message = "Gauntlet of Shar"
+	ceiling_protected = TRUE
+
 
 //TRANSITIONS
 
