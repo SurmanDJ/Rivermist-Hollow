@@ -226,4 +226,10 @@
 			adjective = "a large"
 		if(5)
 			adjective = "an enormous"
+		if(6)
+			adjective = "a towering"
+		if(7)
+			adjective = "a gigantic"
+		if(8)
+			adjective = "a titanic"
 	return "[adjective] pair of breasts"

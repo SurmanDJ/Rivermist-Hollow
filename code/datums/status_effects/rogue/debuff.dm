@@ -674,7 +674,7 @@
 			continue
 		if(istype(forgan, /obj/item/organ/filling_organ/breasts))
 			initialbreasts = forgan.organ_size
-			forgan.organ_size = TOTAL_BREASTS_SIZE - 1
+			forgan.organ_size = TOTAL_BREASTS_SIZE - 2
 			continue
 		continue
 	user.update_body_parts(TRUE)

@@ -513,6 +513,7 @@
 
 		//RMH
 		/datum/sprite_accessory/hair/head/cowlick,
+		/datum/sprite_accessory/hair/head/cowbangs,
 
 		)
 

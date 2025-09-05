@@ -91,7 +91,7 @@
 					acid_damage += 30
 				swallowed_mob.adjustFireLoss(acid_damage)
 				stomach_burn_cooldown = world.time + stomach_burn_delay
-			if(swallowed_mob.stat == DEAD)
+			if(swallowed_mob.stat == DEAD || swallowed_mob.health < 30)
 				//They are full dead.
 				SpitUp()
 				adjustBruteLoss(-50)
