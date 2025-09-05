@@ -1,7 +1,7 @@
 //DESERT MAP AREAS//
 
 
-//DESERT
+//ПУСТЫНЯ - DESERT
 
 /area/rogue/outdoors/rmh_desert
 	name = "Desert"
@@ -10,9 +10,10 @@
 	soundenv = 19
 	ambush_mobs = null
 	first_time_text = "CURSED DESERT"
-	droning_sound = 'sound/music/area/field.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/sleeping.ogg'
+	droning_sound_dawn = 'modular_rmh/sound/music/area/desert_dawn.ogg'
+	droning_sound = 'modular_rmh/sound/music/area/desert_day.ogg'
+	droning_sound_dusk = 'modular_rmh/sound/music/area/desert_dusk.ogg'
+	droning_sound_night = 'modular_rmh/sound/music/area/desert_night.ogg'
 	converted_type = /area/rogue/indoors/shelter/rmh_desert
 	deathsight_message = "somewhere far in sands"
 
@@ -23,13 +24,14 @@
 	soundenv = 19
 	ambush_mobs = null
 	first_time_text = "DESERT VALLEY"
-	droning_sound = 'sound/music/area/field.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/sleeping.ogg'
+	droning_sound_dawn = 'modular_rmh/sound/music/area/desert_dawn.ogg'
+	droning_sound = 'modular_rmh/sound/music/area/desert_day.ogg'
+	droning_sound_dusk = 'modular_rmh/sound/music/area/desert_dusk.ogg'
+	droning_sound_night = 'modular_rmh/sound/music/area/desert_night.ogg'
 	converted_type = /area/rogue/indoors/shelter/rmh_desert
 	deathsight_message = "somewhere far in lowsands"
 
-// УБЕЖИЩЕ
+// УБЕЖИЩЕ - SHELTER
 /area/rogue/indoors/shelter/rmh_desert
 	icon = 'modular_rmh/icons/turf/areas.dmi'
 	icon_state = "shelter"
@@ -37,14 +39,14 @@
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
 
-// МОРЕ
+// МОРЕ - SEA
 /area/rogue/outdoors/rmh_desert/sea
 	name = "Saltsea"
 	first_time_text = "FAR SALTSEA"
 	icon = 'modular_rmh/icons/turf/areas.dmi'
 	icon_state = "sea"
 
-// ПОРТ - ДОМА
+// ПОРТ - PORT
 /area/rogue/indoors/rmh_desert_phouse
 	name = "indoors"
 	icon = 'modular_rmh/icons/turf/areas.dmi'
@@ -78,16 +80,17 @@
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
 
-// ПОРТ
 /area/rogue/outdoors/rmh_desert/port
 	name = "Sea Port"
 	first_time_text = "SEASIDE PORT"
 	icon = 'modular_rmh/icons/turf/areas.dmi'
 	icon_state = "seaport"
-	droning_sound = 'sound/music/area/towngen.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
+	droning_sound_dawn = 'modular_rmh/sound/music/area/desert_town.ogg'
+	droning_sound = 'modular_rmh/sound/music/area/desert_town.ogg'
+	droning_sound_dusk = 'modular_rmh/sound/music/area/desert_town.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
 
+// ДАНЖ И ПЕЩЕРЫ - DUNGEON AND CAVES
 /area/rogue/under/rmh_desert/ziqurat
 	name = "ziqurat"
 	icon = 'modular_rmh/icons/turf/areas.dmi'
@@ -109,20 +112,20 @@
 	droning_sound_night = null
 	ceiling_protected = TRUE
 
+/area/rogue/indoors/cave/rmh_desertcaves
+	name = "Dusted Caves"
+	first_time_text = "DUSTED CAVES"
+
+// ОАЗИС - OASIS
 /area/rogue/outdoors/rmh_desert/oasis
 	name = "oasis"
 	icon = 'modular_rmh/icons/turf/areas.dmi'
 	icon_state = "oasis"
-	warden_area = TRUE
-	ambientsounds = AMB_RIVERDAY
-	ambientnight = AMB_RIVERNIGHT
-	spookysounds = SPOOKY_FROG
-	spookynight = SPOOKY_FOREST
-	droning_sound = 'sound/music/area/forest.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/forestnight.ogg'
+	ambientsounds = 'modular_rmh/sound/music/area/oasis_day.ogg'
+	ambientnight = 'modular_rmh/sound/music/area/oasis_night.ogg'
+	spookysounds = null
+	spookynight = null
+	droning_sound = null
+	droning_sound_dusk = null
+	droning_sound_night = null
 	converted_type = /area/rogue/indoors/shelter/rmh_desert
-
-/area/rogue/indoors/cave/rmh_desertcaves
-	name = "Dusted Caves"
-	first_time_text = "DUSTED CAVES"
