@@ -171,6 +171,8 @@
 			vagina_type = "plain vagina"
 		if(/datum/sprite_accessory/vagina/hairy)
 			vagina_type = "hairy vagina"
+		if(/datum/sprite_accessory/vagina/trimmed)
+			vagina_type = "trimmed vagina"
 		if(/datum/sprite_accessory/vagina/spade)
 			vagina_type = "spade vagina"
 		if(/datum/sprite_accessory/vagina/furred)

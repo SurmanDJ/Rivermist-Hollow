@@ -451,6 +451,7 @@
 		/datum/sprite_accessory/vagina/human,
 		/datum/sprite_accessory/vagina/gaping,
 		/datum/sprite_accessory/vagina/hairy,
+		/datum/sprite_accessory/vagina/trimmed,
 		)
 	allows_accessory_color_customization = FALSE
 
@@ -462,6 +463,7 @@
 		/datum/sprite_accessory/vagina/human,
 		/datum/sprite_accessory/vagina/gaping,
 		/datum/sprite_accessory/vagina/hairy,
+		/datum/sprite_accessory/vagina/trimmed,
 		)
 	allows_accessory_color_customization = TRUE
 
@@ -473,6 +475,7 @@
 		/datum/sprite_accessory/vagina/human,
 		/datum/sprite_accessory/vagina/gaping,
 		/datum/sprite_accessory/vagina/hairy,
+		/datum/sprite_accessory/vagina/trimmed,
 		/datum/sprite_accessory/vagina/spade,
 		/datum/sprite_accessory/vagina/furred,
 		)
@@ -485,6 +488,7 @@
 		/datum/sprite_accessory/vagina/human,
 		/datum/sprite_accessory/vagina/gaping,
 		/datum/sprite_accessory/vagina/hairy,
+		/datum/sprite_accessory/vagina/trimmed,
 		/datum/sprite_accessory/vagina/spade,
 		/datum/sprite_accessory/vagina/furred,
 		/datum/sprite_accessory/vagina/cloaca,
