@@ -10,7 +10,15 @@
 	droning_sound_dusk = null
 	droning_sound_night = null
 	first_time_text = "DUSK SPIRE MOUNTAINS"
-	ambush_times = null
+	ambush_times = list("night","dawn","dusk")
+	ambush_mobs = list(
+				/mob/living/carbon/human/species/dwarfskeleton/ambush/knight = 11,
+				/mob/living/carbon/human/species/dwarfskeleton/ambush = 11,
+				/mob/living/simple_animal/hostile/retaliate/rogue/direbear = 13,
+				/mob/living/simple_animal/hostile/retaliate/rogue/minotaur/wounded/chained = 5,
+				/mob/living/simple_animal/hostile/retaliate/rogue/wolf/bobcat = 21,
+				/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 21,
+				/mob/living/simple_animal/hostile/retaliate/rogue/wolf_undead = 18)
 	converted_type = /area/rogue/indoors/shelter/mountains/rmh_mountains/frozen
 	deathsight_message = "a spire pass"
 
@@ -18,6 +26,8 @@
 	icon = 'modular_rmh/icons/turf/areas.dmi'
 	icon_state = "indoors"
 	droning_sound = 'sound/music/area/decap.ogg'
+	ambush_times = null 
+	ambush_mobs = null
 	droning_sound_dusk = null
 	droning_sound_night = null
 
@@ -26,6 +36,8 @@
 	first_time_text = "COLD CAVES"
 	icon = 'modular_rmh/icons/turf/areas.dmi'
 	icon_state = "ice"
+	ambush_times = null 
+	ambush_mobs = null
 	deathsight_message = "a cold cave"
 
 //DUSK SPIRE MANOR
@@ -98,6 +110,8 @@
 	droning_sound_dusk = null
 	droning_sound_night = null
 	converted_type = /area/rogue/outdoors/exposed/rmh_dwarf_keep
+	ceiling_protected = TRUE
+
 
 /area/rogue/outdoors/exposed/rmh_dwarf_keep
 	name = "Kêdnath Acöb"

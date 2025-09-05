@@ -79,6 +79,7 @@
 	icon = 'modular_rmh/icons/turf/areas.dmi'
 	icon_state = "mine"
 	deathsight_message = "a dark mine"
+	ceiling_protected = TRUE
 
 /area/rogue/indoors/cave/rmh_cave/to_underdark
 	name = "UNDERDARK DESCENT"
@@ -170,6 +171,7 @@
 	icon = 'modular_rmh/icons/turf/areas.dmi'
 	icon_state = "minotaur"
 	deathsight_message = "a minotaur camp"
+	ceiling_protected = TRUE
 
 
 /area/rogue/indoors/cave/rmh_cave/greenskins
@@ -233,6 +235,7 @@
 	soundenv = 5
 	town_area = TRUE
 	converted_type = /area/rogue/outdoors/exposed/rmh/under/basement
+	ceiling_protected = TRUE
 
 /area/rogue/outdoors/exposed/rmh/under/basement
 	icon_state = "basement"
@@ -240,6 +243,37 @@
 	droning_sound_dusk = null
 	droning_sound_night = null
 
+/area/rogue/under/town/rmh/treasury
+	name = "treasury"
+	icon = 'modular_rmh/icons/turf/areas.dmi'
+	icon_state = "treasury"
+	ambientsounds = AMB_BASEMENT
+	ambientnight = AMB_BASEMENT
+	spookysounds = SPOOKY_DUNGEON
+	spookynight = SPOOKY_DUNGEON
+	droning_sound = 'sound/music/area/catacombs.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = null
+	soundenv = 5
+	town_area = TRUE
+	converted_type = /area/rogue/outdoors/exposed/rmh/under/basement
+	ceiling_protected = TRUE
+
+/area/rogue/under/town/rmh/bank
+	name = "bank vault"
+	icon = 'modular_rmh/icons/turf/areas.dmi'
+	icon_state = "bank"
+	ambientsounds = AMB_BASEMENT
+	ambientnight = AMB_BASEMENT
+	spookysounds = SPOOKY_DUNGEON
+	spookynight = SPOOKY_DUNGEON
+	droning_sound = 'sound/music/area/catacombs.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = null
+	soundenv = 5
+	town_area = TRUE
+	converted_type = /area/rogue/outdoors/exposed/rmh/under/basement
+	ceiling_protected = TRUE
 
 /area/rogue/indoors/town/rmh/garrison
 	name = "Town Guardhouse"
@@ -282,6 +316,7 @@
 	ambientrain = RAIN_SEWER
 	soundenv = 21
 	converted_type = /area/rogue/outdoors/exposed/under/rmh/sewer
+	ceiling_protected = TRUE
 
 /area/rogue/outdoors/exposed/under/rmh/sewer
 	name = "Rivermist Hollow Sewers"
@@ -313,6 +348,12 @@
 /area/rogue/indoors/town/rmh/magician/pass
 	name = "Secret Pass"
 	first_time_text = "SECRET PASS"
+	spookysounds = SPOOKY_MYSTICAL
+	spookynight = SPOOKY_MYSTICAL
+	droning_sound = 'sound/music/area/magiciantower.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = null
+	ceiling_protected = TRUE
 
 /area/rogue/indoors/town/rmh/barber
 	name = "Town Barber"
