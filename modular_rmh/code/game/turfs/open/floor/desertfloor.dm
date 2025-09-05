@@ -22,6 +22,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/grassland.wav'
 	slowdown = 5
+	smooth = SMOOTH_FALSE
 
 /turf/open/floor/rogue/sand/desertsand/sandbrick
 	name = "sand brick"
