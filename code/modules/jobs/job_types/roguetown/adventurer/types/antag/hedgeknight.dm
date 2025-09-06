@@ -58,3 +58,15 @@
 		if(inputty == "Yes")
 			to_chat(H, span_warning("My former deity has abandoned me.. Matthios is my new master."))
 			H.set_patron(/datum/patron/inhumen/matthios)
+
+/obj/item/clothing/gloves/roguetown/chain/blk
+		color = CLOTHING_GREY
+
+/obj/item/clothing/under/roguetown/chainlegs/blk
+		color = CLOTHING_GREY
+
+/obj/item/clothing/suit/roguetown/armor/plate/blk
+		color = CLOTHING_GREY
+
+/obj/item/clothing/shoes/roguetown/boots/armor/blk
+		color = CLOTHING_GREY

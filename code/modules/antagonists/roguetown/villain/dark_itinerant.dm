@@ -40,11 +40,11 @@
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	r_hand = /obj/item/rogueweapon/spear
 	backpack_contents = list(
-		/obj/item/rogueweapon/huntingknife/idagger/steel = 1, 
+		/obj/item/rogueweapon/huntingknife/idagger/steel = 1,
 		/obj/item/rogueweapon/scabbard/sheath = 1,
-		/obj/item/rogueweapon/hammer/iron = 1, 
-		/obj/item/rogueweapon/tongs = 1, 
-		/obj/item/storage/belt/rogue/pouch/coins/poor = 1, 
+		/obj/item/rogueweapon/hammer/iron = 1,
+		/obj/item/rogueweapon/tongs = 1,
+		/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
 	)
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
@@ -82,7 +82,7 @@
 			backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
 		if("Sling")
 			beltr = /obj/item/quiver/sling/iron
-			r_hand = /obj/item/gun/ballistic/revolver/grenadelauncher/sling 
+			r_hand = /obj/item/gun/ballistic/revolver/grenadelauncher/sling
 
 	switch(armor_choice)
 		if("Light Armor")
@@ -97,7 +97,6 @@
 	H.cmode_music = 'sound/music/combat_heretic.ogg'
 	ADD_TRAIT(H, TRAIT_SQUIRE_REPAIR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	wretch_select_bounty(H)
 
 /datum/outfit/job/dark_itinerant_knight/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -115,7 +114,7 @@
 	l_hand = /obj/item/rogueweapon/sword/long/blackflamb
 
 	backpack_contents = list(
-		/obj/item/rogueweapon/huntingknife/idagger/steel = 1, 
+		/obj/item/rogueweapon/huntingknife/idagger/steel = 1,
 		/obj/item/rogueweapon/scabbard/sheath = 1,
 		/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
 		/obj/item/ritechalk = 1,
@@ -140,7 +139,7 @@
 		H.change_stat(STATKEY_PER, 2)
 		H.change_stat(STATKEY_INT, 3)
 		H.change_stat(STATKEY_CON, 2)
-		H.change_stat(STATKEY_END, 2) 
+		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_SPD, -1) // 11 weighted
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/mindlink)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/convertrole/zizosquire)
@@ -151,7 +150,6 @@
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_RITUALIST, TRAIT_GENERIC)
 	H.cmode_music = 'sound/music/combat_heretic.ogg'
-	wretch_select_bounty(H)
 
 /obj/effect/proc_holder/spell/self/convertrole/zizosquire
 	name = "Recruit Squire"

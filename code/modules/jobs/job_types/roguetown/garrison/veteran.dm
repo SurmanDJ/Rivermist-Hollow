@@ -174,7 +174,7 @@
 
 /datum/outfit/job/roguetown/vet/calvaryman/pre_equip(mob/living/carbon/human/H)
 	neck = /obj/item/clothing/neck/roguetown/chaincoif
-	armor = /obj/item/clothing/suit/roguetown/armor/plate/	// Former knights should have knightly armour. 
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/	// Former knights should have knightly armour.
 	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
 	head = /obj/item/clothing/head/roguetown/helmet/heavy/knight
 	pants = /obj/item/clothing/under/roguetown/chainlegs
@@ -300,7 +300,6 @@
 		H.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE) // two handed weapons require a LOT of stamina.
 	H.verbs |= /mob/proc/haltyell
-	H.grant_language(/datum/language/grenzelhoftian)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
@@ -329,7 +328,7 @@
 	category_tags = list(CTAG_VETERAN)
 
 // Originally was meant to be a horse archer. I decided that was a bad idea.
-// Former Bogmaster maybe? I feel like that'd be cooler than just an archer guy. 
+// Former Bogmaster maybe? I feel like that'd be cooler than just an archer guy.
 
 /datum/outfit/job/roguetown/vet/scout/pre_equip(mob/living/carbon/human/H)
 	neck = /obj/item/clothing/neck/roguetown/gorget

@@ -12,7 +12,7 @@
 /datum/sprite_accessory/underwear/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
 	if(hides_breasts)
 		if(is_human_part_visible(owner, HIDECROTCH) || is_human_part_visible(owner, HIDEBOOB))
-			return TRUE	
+			return TRUE
 	return is_human_part_visible(owner, HIDECROTCH)
 
 /datum/sprite_accessory/underwear/briefs
@@ -126,6 +126,8 @@
     if(is_species(owner,/datum/species/elf) && owner.gender == MALE)
         tag = tag + "_f"
         pixel_y = -2
+    if(is_species(owner,/datum/species/halforc) && owner.gender == FEMALE)
+        tag = tag
     return tag
 
 /datum/sprite_accessory/legwear/adjust_appearance_list(list/appearance_list, obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)

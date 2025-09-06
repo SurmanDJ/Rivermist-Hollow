@@ -105,7 +105,6 @@
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
 	gloves = /obj/item/clothing/gloves/roguetown/angle
 	shoes = /obj/item/clothing/shoes/roguetown/sandals
-	H.grant_language(/datum/language/grenzelhoftian)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
@@ -275,7 +274,6 @@
 	beltr = /obj/item/storage/keyring/churchie
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor
 	armor = /obj/item/clothing/suit/roguetown/armor/plate	///Half-Plate not fullplate
-	H.grant_language(/datum/language/grenzelhoftian)
 	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
@@ -384,7 +382,7 @@
 			H.adjust_skillrank(/datum/skill/combat/axes, 1, TRUE)
 		if("Decablade")
 			H.put_in_hands(new /obj/item/rogueweapon/sword/long/undivided(H), TRUE)
-			H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)	
+			H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 		if("Solar Judgement")
 			H.put_in_hands(new /obj/item/rogueweapon/sword/long/exe/astrata(H), TRUE)
 			H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)

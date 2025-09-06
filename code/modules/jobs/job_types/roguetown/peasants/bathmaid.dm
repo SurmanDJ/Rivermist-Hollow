@@ -1,6 +1,6 @@
 /datum/job/roguetown/nightmaiden
-	title = "Bathhouse Attendant"
-	f_title = "Bathhouse Attendant"
+	title = "Tavern Lad"
+	f_title = "Tavern Wench"
 	flag = WENCH
 	department_flag = PEASANTS
 	faction = "Station"
@@ -10,7 +10,7 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED)
-	
+
 
 	tutorial = "Dancing, music, or practicioners of the body. You've worked up a reputation as an entertainer, and sometime in life, the bathmaster has chosen to onboard you for one of these talents. In the bathhouse, your place on the hierarchy is determined by how long you've been in the game - and how much mammon you're worth."
 

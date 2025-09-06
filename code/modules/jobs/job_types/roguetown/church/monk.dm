@@ -7,7 +7,7 @@
 	spawn_positions = 6
 
 	allowed_races = RACES_ALL_KINDS
-	allowed_patrons = ALL_DIVINE_PATRONS 
+	allowed_patrons = ALL_DIVINE_PATRONS
 	allowed_sexes = list(MALE, FEMALE)
 	outfit = /datum/outfit/job/roguetown/monk
 	tutorial = "Chores, some more chores- Even more chores.. Oh how the life of a humble acolyte is exhausting… You have faith, but even you know you gave up a life of adventure for that of the security in the Church. Assist the Bishop in their daily tasks, maybe today will be the day something interesting happens."
@@ -34,7 +34,7 @@
 	beltl = /obj/item/storage/keyring/churchie
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(/obj/item/ritechalk)
-	H.cmode_music = 'sound/music/cmode/church/combat_acolyte.ogg' // has to be defined here for the selection below to work. sm1 please rewrite cmusic to apply pre-equip. 
+	H.cmode_music = 'sound/music/cmode/church/combat_acolyte.ogg' // has to be defined here for the selection below to work. sm1 please rewrite cmusic to apply pre-equip.
 	switch(H.patron?.type)
 		if(/datum/patron/divine/undivided)
 			neck = /obj/item/clothing/neck/roguetown/psicross/undivided
@@ -129,7 +129,6 @@
 	H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/labor/farming, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/magic/holy, 5, TRUE)
-	H.grant_language(/datum/language/grenzelhoftian)
 	if(H.mind)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/divineblast)
 	if(H.age == AGE_OLD)

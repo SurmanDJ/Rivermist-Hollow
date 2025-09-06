@@ -79,7 +79,7 @@
 		/datum/body_marking/aura/v,
 
 	)
-	
+
 	descriptor_choices = list(
 		/datum/descriptor_choice/height,
 		/datum/descriptor_choice/body,
@@ -95,8 +95,7 @@
 	)
 
 	languages = list(
-		/datum/language/common,
-		/datum/language/kazengunese
+		/datum/language/common
 	)
 
 ///datum/species/aura/check_roundstart_eligible()

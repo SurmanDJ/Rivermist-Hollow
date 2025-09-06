@@ -317,13 +317,6 @@
 	H.grant_language(/datum/language/orcish)
 	H.grant_language(/datum/language/beast)
 	H.grant_language(/datum/language/draconic)
-	H.grant_language(/datum/language/kazengunese)
-	H.grant_language(/datum/language/etruscan)
-	H.grant_language(/datum/language/grenzelhoftian)
-	H.grant_language(/datum/language/thievescant)
-	H.grant_language(/datum/language/gronnic)
-	H.grant_language(/datum/language/otavan)
-	H.grant_language(/datum/language/aavnic)
 	ADD_TRAIT(H, TRAIT_GOODLOVER, QUIRK_TRAIT)
 
 /datum/quirk/civilizedbarbarian
@@ -377,7 +370,7 @@
 	H.adjust_skillrank_up_to(/datum/skill/craft/engineering, 4, TRUE)
 	H.adjust_skillrank_up_to(/datum/skill/craft/smelting, 4, TRUE)
 	H.adjust_skillrank_up_to(/datum/skill/craft/crafting, 3, TRUE)
-	H.mind.special_items["Hammer"] = /obj/item/rogueweapon/hammer 
+	H.mind.special_items["Hammer"] = /obj/item/rogueweapon/hammer
 	H.mind.special_items["Tongs"] = /obj/item/rogueweapon/tongs
 	H.mind.special_items["Coal"] = /obj/item/rogueore/coal
 

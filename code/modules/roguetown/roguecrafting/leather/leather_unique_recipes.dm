@@ -20,7 +20,7 @@
 	tools = list(/obj/item/needle)
 	craftdiff = 5
 	sellprice = 20
-		
+
 /datum/crafting_recipe/roguetown/leatherunique/gladsandals
 	name = "gladiator sandals (1 fibers, 2 leather)"
 	result = list(/obj/item/clothing/shoes/roguetown/gladiator)
@@ -40,7 +40,7 @@
 	tools = list(/obj/item/needle)
 	craftdiff = 6
 	sellprice = 15
-	
+
 /datum/crafting_recipe/roguetown/leather/unique/otavanleatherpants
 	name = "otavan leather trousers (1 fibers, 2 leather, 1 fur, 1 tallow)"
 	result = list(/obj/item/clothing/under/roguetown/heavy_leather_pants/otavan)
@@ -112,16 +112,6 @@
 	craftdiff = 5
 	sellprice = 24
 
-/datum/crafting_recipe/roguetown/leather/unique/openrobes
-	name = "shamanic coat (1 fibers, 1 cloth, 2 leather)"
-	result = list(/obj/item/clothing/suit/roguetown/armor/leather/heavy/atgervi)
-	reqs = list(/obj/item/natural/hide/cured = 2,
-	            /obj/item/natural/fibers = 1,
-	            /obj/item/natural/cloth = 1)
-	tools = list(/obj/item/needle)
-	craftdiff = 5
-	sellprice = 20
-
 /datum/crafting_recipe/roguetown/leather/unique/monkrobes
 	name = "monk vestments (2 fibers, 2 leather, 1 tallow)"
 	result = list(/obj/item/clothing/suit/roguetown/shirt/robe/monk)
@@ -130,7 +120,7 @@
 				/obj/item/natural/fibers = 2)
 	tools = list(/obj/item/needle)
 	craftdiff = 6	//Can be a bit strong, reduce to 5 if too high.
-	
+
 /datum/crafting_recipe/roguetown/leather/unique/crafteast
 	name = "decorated dobo robe (2 fibers, 2 leather, 1 tallow, 1 simple dobo robe)"
 	result = list(/obj/item/clothing/suit/roguetown/armor/basiceast/crafteast)
@@ -142,4 +132,3 @@
 		)
 	tools = list(/obj/item/needle)
 	craftdiff = 5
-	
