@@ -18,7 +18,13 @@
 		/datum/language/beast,
 		/datum/language/orcish,
 		/datum/language/draconic,
-		/datum/language/thievescant
+		/datum/language/thievescant,
+		/datum/language/grenzelhoftian,
+		/datum/language/kazengunese,
+		/datum/language/otavan,
+		/datum/language/etruscan,
+		/datum/language/gronnic,
+		/datum/language/aavnic
 	))
 
 /obj/item/organ/tongue/Initialize(mapload)
@@ -53,7 +59,7 @@
 	icon_state = "tongue-con"
 	say_mod = "crackles"
 	taste_sensitivity = 30 //It's dead, jim.
-
+	
 /obj/item/organ/tongue/lizard
 	name = "forked tongue"
 	desc = ""

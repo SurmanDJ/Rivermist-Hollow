@@ -31,7 +31,7 @@
 	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)   
 	H.change_stat("strength", 2)
 	H.change_stat("endurance", 2)
 	H.change_stat("constitution", 4)
@@ -68,6 +68,8 @@
 		/obj/item/flashlight/flare/torch = 1,
 		)
 
+	H.grant_language(/datum/language/otavan)
+	
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	H.merctype = 10

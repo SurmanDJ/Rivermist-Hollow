@@ -32,6 +32,7 @@
 	backpack_contents = list(/obj/item/twilight_powderflask = 1, /obj/item/rogueweapon/huntingknife = 1, /obj/item/flint = 1, /obj/item/bedroll = 1, /obj/item/needle/thorn = 1, /obj/item/natural/cloth = 1, /obj/item/flashlight/flare/torch = 1)
 
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+	H.grant_language(/datum/language/grenzelhoftian)
 
 	H.adjust_skillrank(/datum/skill/combat/twilight_firearms, 5, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)

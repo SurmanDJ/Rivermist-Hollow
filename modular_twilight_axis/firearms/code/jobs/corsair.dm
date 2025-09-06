@@ -7,7 +7,7 @@
 	category_tags = list(CTAG_WRETCH)
 	traits_applied = list(TRAIT_STEELHEARTED, TRAIT_DODGEEXPERT, TRAIT_OUTLANDER, TRAIT_OUTLAW, TRAIT_HERESIARCH)
 	maximum_possible_slots = 2
-
+	
 	cmode_music = 'modular_twilight_axis/firearms/sound/music/combat_corsair.ogg'
 
 /datum/outfit/job/roguetown/wretch/twilight_corsair/pre_equip(mob/living/carbon/human/H)
@@ -28,6 +28,8 @@
 	backr = /obj/item/gun/ballistic/twilight_firearm/flintgonne
 	r_hand = /obj/item/rogueweapon/sword/cutlass
 	backpack_contents = list(/obj/item/twilight_powderflask = 1, /obj/item/natural/cloth = 1, /obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/rope/chain = 1, /obj/item/storage/belt/rogue/pouch/coins/poor = 1)
+
+	H.grant_language(/datum/language/grenzelhoftian)
 
 	H.adjust_skillrank(/datum/skill/combat/twilight_firearms, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
@@ -60,6 +62,6 @@
 	H.set_blindness(0)
 	var/maskchoice = input("Choose your Mask.", "MASK MASK MASK") as anything in masks // Run from it. MASK. MASK. MASK.
 	if(maskchoice != "None")
-		mask = masks[maskchoice]
+		mask = masks[maskchoice]	
 
 	wretch_select_bounty(H)

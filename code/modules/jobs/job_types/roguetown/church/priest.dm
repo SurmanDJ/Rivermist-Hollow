@@ -76,6 +76,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	H.adjust_skillrank(/datum/skill/labor/farming, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/magic/holy, 5, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
+	H.grant_language(/datum/language/grenzelhoftian)
 	if(H.age == AGE_OLD)
 		H.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
 	H.change_stat("strength", -1)
@@ -253,7 +254,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		for(var/obj/effect/proc_holder/spell/S in mind.spell_list)
 			if(S.type in whitelist)
 				mind.RemoveSpell(S)
-
+		
 		for(var/spell_type in god.miracles)
 			if(god.miracles[spell_type] <= CLERIC_T4 && (spell_type in whitelist))
 				var/obj/effect/proc_holder/spell/new_spell = new spell_type

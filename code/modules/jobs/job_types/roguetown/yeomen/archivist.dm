@@ -1,16 +1,16 @@
 /datum/job/roguetown/archivist
-	title = "Librarian"
-	tutorial = "A librarian serves as a scholar, historian, and guardian of knowledge, responsible for managing, organizing, and preserving written materials like books and scrolls, often acting as a consultant or envoy for the knowledge they hold."
+	title = "Archivist"
+	tutorial = "The Archivist meticulously preserves and organizes ancient scrolls and tomes, safeguarding the collective knowledge of the realm for generations to come. Nobles and Peasants alike often seek your expertise on matters of history and fact, and your keenly-kept records on the events of this week will likely stand a testament to your Duke's benevolence and their realm's prosperity...or not. After all, you hold the true power: The power to dictate how the future generations will look back on these coming days."
 	flag = ARCHIVIST
 	department_flag = YEOMEN
 	faction = "Station"
-	total_positions = 2
-	spawn_positions = 0
+	total_positions = 1
+	spawn_positions = 1
 	spells = list(/obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 	allowed_races = RACES_ALL_KINDS
 	allowed_ages = ALL_AGES_LIST
 	cmode_music = 'sound/music/cmode/towner/combat_towner3.ogg'
-
+	
 	outfit = /datum/outfit/job/roguetown/archivist
 	display_order = JDO_ARCHIVIST
 	give_bank_account = 15
@@ -53,7 +53,13 @@
 	H.grant_language(/datum/language/celestial)
 	H.grant_language(/datum/language/hellspeak)
 	H.grant_language(/datum/language/orcish)
+	H.grant_language(/datum/language/grenzelhoftian)
+	H.grant_language(/datum/language/otavan)
+	H.grant_language(/datum/language/etruscan)
+	H.grant_language(/datum/language/gronnic)
+	H.grant_language(/datum/language/kazengunese)
 	H.grant_language(/datum/language/draconic)
+	H.grant_language(/datum/language/aavnic) // All but beast, which is associated with werewolves.
 	ADD_TRAIT(H, TRAIT_SEEPRICES_SHITTY, "[type]")
 	ADD_TRAIT(H, TRAIT_INTELLECTUAL, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MAGEARMOR, TRAIT_GENERIC)
@@ -61,6 +67,9 @@
 	H.change_stat("strength", -1)
 	H.change_stat("constitution", -1)
 	H.change_stat("intelligence", 4)
+	if(H.mind)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/teach)
+		H.mind?.adjust_spellpoints(12)
 	if(H.age == AGE_OLD)
 		H.change_stat("speed", -1)
 		H.change_stat("intelligence", 1)
@@ -125,6 +134,7 @@
 	/datum/language/draconic,
 	/datum/language/dwarvish,
 	/datum/language/elvish,
+	/datum/language/grenzelhoftian,
 	/datum/language/hellspeak,
 	/datum/language/orcish
 
@@ -153,7 +163,7 @@
 					to_chat(L, span_warning("There's no way I could handle all that knowledge!"))
 					to_chat(usr, span_warning("My student cannot handle that much knowledge at once!"))
 					return // cannot teach the same student twice
-				if(!(item in list(/datum/skill/misc/music, /datum/skill/craft/cooking, /datum/skill/misc/sewing, /datum/skill/misc/lockpicking, /datum/skill/misc/climbing, /datum/language/celestial, /datum/language/draconic, /datum/language/dwarvish, /datum/language/elvish, /datum/language/hellspeak, /datum/language/orcish)) && L.get_skill_level(item) < SKILL_LEVEL_NOVICE)
+				if(!(item in list(/datum/skill/misc/music, /datum/skill/craft/cooking, /datum/skill/misc/sewing, /datum/skill/misc/lockpicking, /datum/skill/misc/climbing, /datum/language/celestial, /datum/language/draconic, /datum/language/dwarvish, /datum/language/elvish, /datum/language/grenzelhoftian, /datum/language/hellspeak, /datum/language/orcish)) && L.get_skill_level(item) < SKILL_LEVEL_NOVICE)
 					to_chat(L, span_warning("I cannot understand the lesson on [item.name], I need to get more skilled first!"))
 					to_chat(usr, span_warning("I try teaching [L] [item.name] but my student couldnt grasp the lesson!"))
 					return // some basic skill will not require you novice level
@@ -168,7 +178,7 @@
 				else
 					to_chat(L, span_notice("[usr] starts teaching me about [item.name]!"))
 					to_chat(usr, span_notice("[L] gets to listen carefully to my lesson about [item.name]."))
-					if((item in list(/datum/language/celestial, /datum/language/draconic, /datum/language/dwarvish, /datum/language/elvish, /datum/language/hellspeak, /datum/language/orcish)))
+					if((item in list(/datum/language/celestial, /datum/language/draconic, /datum/language/dwarvish, /datum/language/elvish, /datum/language/grenzelhoftian, /datum/language/hellspeak, /datum/language/orcish)))
 						if(do_after(usr, teachingtime, target = L))
 							user.visible_message("<font color='yellow'>[user] teaches [L] a lesson.</font>")
 							to_chat(usr, span_notice("My student Learns the language [item.name]!"))
