@@ -123,13 +123,7 @@
 		/datum/language/orcish,
 		/datum/language/hellspeak,
 		/datum/language/draconic,
-		/datum/language/celestial,
-		/datum/language/grenzelhoftian,
-		/datum/language/kazengunese,
-		/datum/language/otavan,
-		/datum/language/etruscan,
-		/datum/language/gronnic,
-		/datum/language/aavnic
+		/datum/language/celestial
 	)
 
 	var/list/choices = list()

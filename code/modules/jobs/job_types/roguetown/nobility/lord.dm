@@ -2,8 +2,8 @@ GLOBAL_VAR(lordsurname)
 GLOBAL_LIST_EMPTY(lord_titles)
 
 /datum/job/roguetown/lord
-	title = "Grand Duke"
-	f_title = "Grand Duchess"
+	title = "Master Of The Town"
+	f_title = "Mistress Of The Town"
 	flag = LORD
 	department_flag = NOBLEMEN
 	faction = "Station"

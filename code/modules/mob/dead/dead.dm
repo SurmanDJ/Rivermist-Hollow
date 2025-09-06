@@ -82,7 +82,7 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 
 	for(var/datum/job/job in SSjob.occupations)
 		var/wanderer_job = FALSE
-		if(istype(job, /datum/job/roguetown/adventurer) || istype(job, /datum/job/roguetown/wretch) || istype(job, /datum/job/roguetown/adventurer/courtagent))
+		if(istype(job, /datum/job/roguetown/adventurer))
 			wanderer_job = TRUE
 		if(!job)
 			continue
@@ -97,15 +97,6 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 					if(!(player.client.ckey in GLOB.hiderole))
 						if(player.client.prefs.real_name)
 							var/thing = "[player.client.prefs.real_name]"
-							if(istype(job, /datum/job/roguetown/hand))
-								if(player != src)
-									if(client.prefs.job_preferences["Grand Duke"] == JP_HIGH)
-										thing = "<a href='byond://?src=[REF(src)];sethand=[player.client.ckey]'>[player.client.prefs.real_name]</a>"
-								for(var/mob/dead/new_player/Lord in GLOB.player_list)
-									if(Lord.client.prefs.job_preferences["Grand Duke"] == JP_HIGH)
-										if(Lord.brohand == player.ckey)
-											thing = "*[thing]*"
-											break
 							if(wanderer_job)
 								wanderers += thing
 							else
