@@ -818,9 +818,9 @@
 					if(1)
 						. += span_love("[m1] shifting their legs quite a bit...")
 					if(2)
-						. += span_love("I can see [m2] is a bit restless...")
+						. += span_love("I can see [m1] is a bit restless...")
 					if(3)
-						. += span_love("[m2] seem distracted...")
+						. += span_love("[t_He] seem distracted...")
 					if(4)
 						. += span_love("[m1] restless, for some reason.")
 //		else

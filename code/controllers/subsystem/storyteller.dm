@@ -568,7 +568,7 @@ SUBSYSTEM_DEF(gamemode)
 		return TRUE
 
 	var/ttime = world.time - SSticker.round_start_time
-	if(ttime >= GLOB.round_timer)
+	/*if(ttime >= GLOB.round_timer)
 		if(roundvoteend)
 			if(ttime >= round_ends_at)
 //				for(var/mob/living/carbon/human/H in GLOB.human_list)
@@ -579,7 +579,7 @@ SUBSYSTEM_DEF(gamemode)
 				return TRUE
 		else
 			if(!SSvote.mode)
-				message_admins("Storyteler tried to end round.")
+				message_admins("Storyteler tried to end round.")*/
 				//SSvote.initiate_vote("endround", pick("Zlod", "Sun King", "Gaia", "Moon Queen", "Aeon", "Gemini", "Aries"))
 
 	if(SSmapping.retainer.head_rebel_decree)

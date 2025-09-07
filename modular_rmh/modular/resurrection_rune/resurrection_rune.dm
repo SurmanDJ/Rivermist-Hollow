@@ -30,6 +30,11 @@
 	//if(!linked_users_minds.len)
 	//	return
 	for(var/datum/mind/mind_user in linked_users_minds) //revive linked no-body
+		if(!isnull(mind_user.current?.client))
+			if(isnewplayer(mind_user.current?.client.mob))
+				linked_users_minds -= mind_user
+				linked_users -= body_mind_link[mind_user]
+				break
 		if(!mind_user.current && !(mind_user in resurrecting))
 			to_chat(mind_user.get_ghost(TRUE, TRUE), span_blue("Somewhere, you are being remade anew..."))
 			resurrecting |= mind_user
@@ -84,8 +89,9 @@
 	if(!(user in linked_users))
 		return FALSE
 	linked_users -= user
-	linked_users_minds -= user.mind
-	linked_users_names[user.name] = user
+	if(user.mind)
+		linked_users_minds -= user.mind
+	linked_users_names.Remove(user.name)
 	body_mind_link.Remove(user.mind)
 	UnregisterSignal(user, COMSIG_LIVING_HEALTH_UPDATE, PROC_REF(start_revive))
 	var/mob/living/carbon/human/H = user

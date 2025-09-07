@@ -59,6 +59,9 @@
 		for(var/datum/bounty/removing_bounty in GLOB.head_bounties)
 			if(removing_bounty.target == departing_mob.real_name)
 				GLOB.head_bounties -= removing_bounty
+	for(var/obj/structure/resurrection_rune/rr in GLOB.global_resurrunes)
+		if(departing_mob in rr.resrunecontroler.linked_users)
+			rr.resrunecontroler.remove_user(departing_mob)
 	GLOB.chosen_names -= departing_mob.real_name
 	LAZYREMOVE(GLOB.actors_list, departing_mob.mobid)
 	LAZYREMOVE(GLOB.roleplay_ads, departing_mob.mobid)
