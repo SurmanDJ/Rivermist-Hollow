@@ -5,16 +5,12 @@
     "hsector.dmm",
     "frozen_mountains.dmm",
     "underdark.dmm",
-	"bogforest.dmm",
-	"aVERnus.dmm",
-	"desert.dmm"
+	"bogforest.dmm"
     ],
     "traits": [{"Name": "Rivermist Hollow", "Up": true}, {"Up": true, "Down": true}, {"Up": true, "Down": true}, {"Up": true, "Down": true}, {"Down": true},
     {"Name": "Frozen Mountains", "Up": true}, {"Up": true, "Down": true}, {"Down": true},
     {"Name": "Underdark", "Up":true}, {"Down":true},
-	{"Name": "Dark Swamps", "Up": true}, {"Up": true, "Down": true}, {"Down": true},
-	{"Name": "Averno"},
-	{"Name": "Cursed Desert", "Up": true}, {"Up": true, "Down": true}, {"Down": true}
+	{"Name": "Dark Swamps", "Up": true}, {"Up": true, "Down": true}, {"Down": true}
     ],
     "minetype": null,
     "space_empty_levels": 0,
