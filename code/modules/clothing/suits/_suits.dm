@@ -9,6 +9,7 @@
 	var/blood_overlay_type = "suit"
 	var/togglename = null
 	bloody_icon_state = "bodyblood"
+	flags_inv = HIDECROTCH|HIDEBOOB|HIDEBELLY
 
 
 /obj/item/clothing/suit/worn_overlays(isinhands = FALSE)

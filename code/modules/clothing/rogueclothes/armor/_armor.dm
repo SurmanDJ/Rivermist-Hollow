@@ -24,6 +24,6 @@
 	experimental_onhip = TRUE
 	experimental_inhand = FALSE
 	nodismemsleeves = TRUE
-	flags_inv = HIDEBOOB|HIDECROTCH
+	flags_inv = HIDECROTCH|HIDEBOOB|HIDEBELLY
 	grid_width = 64
 	grid_height = 96

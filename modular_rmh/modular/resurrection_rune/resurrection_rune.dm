@@ -47,7 +47,7 @@
 			if(!isnull(unlinked.client))
 				if(!unlinked.rune_linked)
 					var/turf/tur = get_turf(H)
-					if(IS_RES_ELIGIBLE(unlinked) || istype(tur, /turf/open/lava) || istype(tur, /turf/open/lava/acid))
+					if(unlinked.health <= unlinked.crit_threshold || istype(tur, /turf/open/lava) || istype(tur, /turf/open/lava/acid))
 						if(!(unlinked.mind in resurrecting))
 							resurrecting |= unlinked
 							to_chat(unlinked.mind.get_ghost(TRUE, TRUE), span_blue("An alien force suddenly <b>YANKS</b> you back to life!"))
@@ -111,7 +111,7 @@
 		return
 	
 	var/turf/tur = get_turf(target)
-	if(IS_RES_ELIGIBLE(target) || istype(tur, /turf/open/lava) || istype(tur, /turf/open/lava/acid))
+	if(target.health <= target.crit_threshold || istype(tur, /turf/open/lava) || istype(tur, /turf/open/lava/acid))
 		if(target in resurrecting)
 			return
 		start_revival(target)
@@ -129,10 +129,10 @@
 
 
 /datum/resurrection_rune_controller/proc/revive_mob(mob/living/carbon/user, is_linked)
-	if(!IS_RES_ELIGIBLE(user) && !(istype(get_turf(user), /turf/open/lava) || istype(get_turf(user), /turf/open/lava/acid)))
+	/*if(!IS_RES_ELIGIBLE(user) && !(istype(get_turf(user), /turf/open/lava) || istype(get_turf(user), /turf/open/lava/acid)))
 		resurrecting -= user
 		to_chat(user.mind, span_blue("The tugging stops; you seem to be recovering."))
-		return
+		return*/
 	var/turf/T = get_turf(sub_rune)
 	var/mob/living/body = user
 	if(!body)
