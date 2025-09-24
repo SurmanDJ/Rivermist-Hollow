@@ -7,6 +7,9 @@
 /obj/item/natural/stone,
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/exposed/rmh_dwarf_keep)
+"ae" = (
+/turf/open/floor/rogue/volcanic,
+/area/rogue/indoors/cave/rmh_cave/cold)
 "af" = (
 /obj/structure/bookcase/random/archive,
 /obj/structure/bookcase/random/archive,
@@ -3144,6 +3147,9 @@
 "nC" = (
 /turf/open/floor/rogue/tile/harem,
 /area/rogue/under/town/basement/keep)
+"nF" = (
+/turf/closed/wall/mineral/rogue/stone/red_moss,
+/area/rogue/indoors/cave/rmh_cave/cold)
 "nJ" = (
 /obj/structure/table/wood/long_table,
 /turf/open/floor/rogue/concrete,
@@ -3518,6 +3524,13 @@
 "pw" = (
 /turf/open/floor/rogue/carpet/lord/center,
 /area/rogue/under/town/basement/keep)
+"py" = (
+/obj/structure/fluff/traveltile{
+	aportalgoesto = "dungeonflame";
+	aportalid = "enterflame"
+	},
+/turf/open/floor/rogue/cobblerock,
+/area/rogue/indoors/cave/rmh_cave/cold)
 "pz" = (
 /obj/machinery/light/rogue/wallfire/candle/l{
 	pixel_x = 0;
@@ -5490,6 +5503,13 @@
 /obj/item/ash,
 /turf/open/floor/rogue/metal,
 /area/rogue/indoors/cave/rmh_dwarf_keep/treasury)
+"yf" = (
+/obj/structure/fluff/traveltile{
+	aportalgoesto = "dungeonflame";
+	aportalid = "enterflame"
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/indoors/cave/rmh_cave/cold)
 "yg" = (
 /obj/effect/decal/mossy{
 	dir = 2;
@@ -6052,6 +6072,13 @@
 "AN" = (
 /turf/open/floor/rogue/snowrough,
 /area/rogue/outdoors/mountains/rmh_mountains/frozen)
+"AP" = (
+/obj/structure/fluff/traveltile{
+	aportalgoesto = "dungeonflame";
+	aportalid = "enterflame"
+	},
+/turf/open/floor/rogue/volcanic,
+/area/rogue/indoors/cave/rmh_cave/cold)
 "AS" = (
 /obj/effect/decal/cleanable/debris/woody,
 /turf/open/floor/rogue/hexstone,
@@ -6670,6 +6697,18 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/outdoors/exposed/rmh_dwarf_keep)
+"DB" = (
+/obj/structure/trap/fire{
+	alpha = 30
+	},
+/obj/effect/wisp/prestidigitation{
+	pixel_x = 0;
+	name = "Will-o'-the-wisp";
+	light_color = "#e03828";
+	color = "#ff210d"
+	},
+/turf/open/floor/rogue/volcanic,
+/area/rogue/indoors/cave/rmh_cave/cold)
 "DC" = (
 /obj/structure/flora/roguetree/pine{
 	icon_state = "pine2-snow"
@@ -9080,6 +9119,19 @@
 	dir = 2
 	},
 /area/rogue/indoors/town/manor)
+"NX" = (
+/obj/structure/bars/tough{
+	icon = 'icons/effects/effects.dmi';
+	icon_state = "smoke";
+	attacked_sound = list();
+	damage_deflection = 1e+031;
+	max_integrity = 9999999;
+	mouse_opacity = 0;
+	opacity = 1;
+	name = "fog"
+	},
+/turf/open/floor/rogue/cobblerock,
+/area/rogue/indoors/cave/rmh_cave/cold)
 "NY" = (
 /obj/structure/flora/roguetree/pine/dead{
 	icon_state = "dead2"
@@ -10006,6 +10058,18 @@
 	},
 /turf/closed/wall/mineral/rogue/stonebrick,
 /area/rogue/outdoors/exposed/rmh/manorgarri)
+"Sv" = (
+/obj/structure/table/church/m{
+	icon_state = "stonetable_small"
+	},
+/obj/item/clothing/ring/aalloy{
+	icon_state = "signet";
+	name = "ancient runed ring";
+	sellprice = 1;
+	desc = "Тяжёлый перстень, будто сделанный из золота - гладкий снаружи и испещрённый мелкими рунами изнутри."
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue/indoors/cave/rmh_dwarf_keep/living)
 "Sw" = (
 /obj/item/natural/wood/plank,
 /turf/open/floor/rogue/cobble,
@@ -62463,17 +62527,17 @@ Vz
 Vz
 Vz
 Vz
+nF
+nF
 Vz
 Vz
 Vz
 Vz
 Vz
 Vz
-Vz
-Vz
-Vz
-Vz
-Vz
+ae
+DB
+nF
 ZW
 oK
 Vz
@@ -62589,20 +62653,20 @@ Vz
 Vz
 Vz
 Vz
+DB
+ae
+vA
+oK
+oK
+ae
+DB
 Vz
 Vz
 Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
+vA
+oK
+oK
+oK
 vA
 oK
 Vz
@@ -62717,18 +62781,18 @@ Vz
 Vz
 Vz
 Vz
+ae
+ae
+vA
+oK
+oK
+oK
+vA
+vA
+oK
 Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
+vA
+vA
 Vz
 Vz
 Vz
@@ -62844,19 +62908,19 @@ Vz
 Vz
 Vz
 Vz
+NX
+yf
+oK
+oK
+vA
+oK
+oK
+vA
+vA
 Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
+oK
+oK
+oK
 Vz
 Vz
 Vz
@@ -62973,15 +63037,15 @@ Vz
 Vz
 Vz
 Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
+NX
+py
+oK
+vA
+vA
+oK
+oK
+nF
+nF
 Vz
 Vz
 Vz
@@ -63102,13 +63166,13 @@ Vz
 Vz
 Vz
 Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
-Vz
+NX
+AP
+oK
+ae
+DB
+nF
+nF
 Vz
 Vz
 Vz
@@ -63232,8 +63296,8 @@ Vz
 Vz
 Vz
 Vz
-Vz
-Vz
+nF
+nF
 Vz
 Vz
 Vz
@@ -65100,7 +65164,7 @@ QA
 AL
 Gh
 sN
-Gh
+Sv
 Gh
 QA
 cq
