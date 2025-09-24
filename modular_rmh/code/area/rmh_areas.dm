@@ -499,6 +499,7 @@
 	name = "Bedrock Border"
 	first_time_text = "BEDROCK BORDER"
 	icon_state = "unknown"
+	ceiling_protected = TRUE
 	deathsight_message = "out of bounds"
 
 /area/rogue/outdoors/rmh_air

@@ -1,4 +1,10 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ag" = (
+/obj/effect/decal/cobbleedge{
+	dir = 9
+	},
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/underdark/rmh/caves)
 "aj" = (
 /obj/structure/winch{
 	gid = "underdarkg";
@@ -274,6 +280,9 @@
 	dir = 8
 	},
 /area/rogue/under/underdark/rmh/shar)
+"dP" = (
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/underdark/rmh/caves)
 "dR" = (
 /obj/effect/decal/cleanable/debris/stony,
 /obj/effect/decal/cleanable/blood/old,
@@ -332,7 +341,9 @@
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/under/underdark/rmh/shar)
 "eK" = (
-/obj/structure/trap/rock_fall,
+/obj/structure/trap/rock_fall{
+	alpha = 5
+	},
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/underdark/rmh/shar)
 "eV" = (
@@ -573,6 +584,13 @@
 /obj/machinery/light/rogue/campfire,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/underdark/rmh/deepwastes)
+"iE" = (
+/obj/effect/decal/cobbleedge{
+	dir = 10;
+	icon_state = "cobbleedge-w"
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/underdark/rmh/caves)
 "iF" = (
 /turf/open/water/river/flow/east,
 /area/rogue/under/underdark/rmh)
@@ -604,6 +622,16 @@
 /mob/living/simple_animal/hostile/retaliate/rogue/spider,
 /turf/open/floor/rogue/grassyel,
 /area/rogue/under/underdark/rmh/deepwastes)
+"jk" = (
+/obj/effect/decal/cobbleedge{
+	dir = 10;
+	icon_state = "cobbleedge-e"
+	},
+/obj/effect/decal/cobbleedge{
+	dir = 10
+	},
+/turf/open/floor/rogue/cobblerock,
+/area/rogue/under/underdark/rmh/caves)
 "jr" = (
 /obj/structure/trap/water,
 /turf/open/floor/rogue/grasscold{
@@ -863,6 +891,14 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/underdark/rmh/shar)
+"nE" = (
+/mob/living/simple_animal/hostile/retaliate/rogue/elemental/colossus{
+	del_on_deaggro = 599400;
+	faction = list("elemental","boss");
+	name = "Earth Spirit"
+	},
+/turf/open/water/cleanshallow,
+/area/rogue/under/underdark/rmh/flow)
 "nI" = (
 /obj/effect/decal/cleanable/debris/stony,
 /obj/item/natural/glass_shard,
@@ -973,7 +1009,9 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/underdark/rmh/shrub)
 "pL" = (
-/obj/structure/trap/rock_fall,
+/obj/structure/trap/rock_fall{
+	alpha = 5
+	},
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/underdark/rmh)
 "pM" = (
@@ -1027,6 +1065,14 @@
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/rogue/church,
 /area/rogue/under/underdark/rmh/shar)
+"qv" = (
+/obj/effect/wisp/prestidigitation{
+	pixel_x = 0;
+	name = "Will-o'-the-wisp";
+	desc = "A small, fiery ball of light made up of mystical energy."
+	},
+/turf/open/floor/rogue/cobblerock,
+/area/rogue/under/underdark/rmh/caves)
 "qy" = (
 /obj/effect/decal/cleanable/debris/woody,
 /obj/item/grown/log/tree/small,
@@ -1037,6 +1083,13 @@
 /obj/effect/spawner/lootdrop/roguetown/dungeon/clothing,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/clothing,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/clothing,
+/obj/item/clothing/mask/rogue/facemask/aalloy{
+	icon_state = "naledimask";
+	item_state = "naledimask";
+	name = "ancient mask";
+	color = "#242424";
+	desc = "Маска из чёрного обсидиана, гладкая и безликая. По краям угадываются стёртые руны, а её поверхность словно поглощает свет."
+	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/underdark/rmh/shar)
 "qM" = (
@@ -1196,6 +1249,12 @@
 /obj/effect/decal/cleanable/debris/woody,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/underdark/rmh/shar)
+"sN" = (
+/obj/effect/decal/cobbleedge{
+	icon_state = "cobbleedge-sread"
+	},
+/turf/open/floor/rogue/greenstone,
+/area/rogue/under/underdark/rmh/caves)
 "sP" = (
 /obj/item/natural/stone,
 /turf/open/floor/rogue/cobble,
@@ -1307,7 +1366,9 @@
 /turf/open/water/swamp/deep,
 /area/rogue/under/underdark/rmh)
 "uu" = (
-/obj/structure/trap/rock_fall,
+/obj/structure/trap/rock_fall{
+	alpha = 5
+	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/underdark/rmh)
 "uw" = (
@@ -1326,6 +1387,9 @@
 /area/rogue/under/underdark/rmh/shar)
 "uP" = (
 /turf/open/floor/rogue/naturalstone,
+/area/rogue/under/underdark/rmh/caves)
+"uT" = (
+/turf/open/floor/rogue/greenstone/runed,
 /area/rogue/under/underdark/rmh/caves)
 "uY" = (
 /obj/effect/decal/cleanable/debris/glassy,
@@ -1458,6 +1522,14 @@
 /obj/item/natural/wood/plank,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/underdark/rmh/shar)
+"xe" = (
+/obj/effect/decal/cobbleedge{
+	dir = 10;
+	icon_state = "cobbleedge-e";
+	pixel_y = 7
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/underdark/rmh/caves)
 "xf" = (
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/underdark/rmh/flow)
@@ -1492,6 +1564,9 @@
 	desc = "Grass, frigid and touched by Underdark air."
 	},
 /area/rogue/under/underdark/rmh/glimmerlakes)
+"xB" = (
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/underdark/rmh/caves)
 "xD" = (
 /turf/closed/mineral/random/rogue/high,
 /area/rogue/under/underdark/rmh/caves)
@@ -1582,6 +1657,14 @@
 /obj/item/burial_shroud,
 /turf/open/floor/rogue/churchrough,
 /area/rogue/under/underdark/rmh/shar)
+"yx" = (
+/obj/effect/wisp/prestidigitation{
+	pixel_x = 0;
+	name = "Will-o'-the-wisp";
+	desc = "A small, fiery ball of light made up of mystical energy."
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/underdark/rmh/caves)
 "yD" = (
 /obj/effect/decal/cleanable/debris/stony,
 /turf/open/floor/rogue/cobble,
@@ -1608,6 +1691,12 @@
 /obj/effect/decal/cleanable/debris/woody,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/underdark/rmh/shar)
+"yY" = (
+/obj/effect/decal/cobbleedge{
+	icon_state = "cobbleedge-sread"
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/underdark/rmh/caves)
 "yZ" = (
 /turf/open/floor/rogue/herringbone,
 /area/rogue/under/underdark/rmh/main)
@@ -1786,7 +1875,9 @@
 /turf/open/floor/rogue/tile/harem,
 /area/rogue/under/underdark/rmh/shar)
 "BM" = (
-/obj/structure/trap/rock_fall,
+/obj/structure/trap/rock_fall{
+	alpha = 5
+	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/underdark/rmh)
 "BQ" = (
@@ -2062,6 +2153,12 @@
 	},
 /turf/open/water/cleanshallow,
 /area/rogue/under/underdark/rmh/glimmerlakes)
+"Gi" = (
+/obj/effect/decal/cobbleedge{
+	dir = 2
+	},
+/turf/open/floor/rogue/cobblerock,
+/area/rogue/under/underdark/rmh/caves)
 "Gk" = (
 /obj/effect/spawner/lootdrop/valuable_candle_spawner,
 /turf/open/floor/rogue/hexstone,
@@ -2159,6 +2256,9 @@
 	dir = 1
 	},
 /area/rogue/under/underdark/rmh/shar)
+"IA" = (
+/turf/closed/mineral/random/rogue,
+/area/rogue/under/underdark/rmh/caves)
 "IC" = (
 /obj/structure/stairs/stone{
 	dir = 1
@@ -2171,7 +2271,9 @@
 /area/rogue/under/underdark/rmh/caves)
 "IN" = (
 /obj/effect/decal/cleanable/debris/woody,
-/obj/structure/trap/rock_fall,
+/obj/structure/trap/rock_fall{
+	alpha = 5
+	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/shelter)
 "IQ" = (
@@ -2247,7 +2349,9 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/underdark/rmh)
 "JK" = (
-/obj/structure/trap/rock_fall,
+/obj/structure/trap/rock_fall{
+	alpha = 5
+	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/underdark/rmh/shar)
 "JP" = (
@@ -2438,6 +2542,9 @@
 	},
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/under/underdark/rmh/shar)
+"MH" = (
+/turf/closed/mineral/rogue/cinnabar,
+/area/rogue/under/underdark/rmh/caves)
 "MW" = (
 /obj/effect/decal/cleanable/blood/gibs/torso,
 /turf/open/floor/rogue/tile/masonic/inverted,
@@ -3120,6 +3227,10 @@
 /obj/structure/fluff/statue,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/underdark/rmh/shar)
+"XV" = (
+/obj/structure/well/fountain/mana,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/underdark/rmh/caves)
 "Yd" = (
 /obj/item/natural/glass_shard,
 /obj/item/natural/wood/plank,
@@ -22088,8 +22199,8 @@ xD
 Zv
 Zv
 Zv
-xD
-xD
+Zv
+Zv
 xD
 xD
 xD
@@ -22346,12 +22457,12 @@ Zv
 Zv
 xD
 xD
+Zv
+Zv
+Zv
 xD
 xD
-xD
-xD
-xD
-xD
+Zv
 Zv
 Zv
 Zv
@@ -22604,11 +22715,11 @@ xD
 xD
 xD
 xD
+Zv
+Zv
 xD
 xD
-xD
-xD
-xD
+Zv
 Zv
 Zv
 Zv
@@ -22864,8 +22975,8 @@ xD
 xD
 xD
 xD
-xD
-xD
+Zv
+Zv
 Zv
 Zv
 Zv
@@ -23119,8 +23230,8 @@ xD
 xD
 xD
 xD
-xD
-xD
+Zv
+Zv
 Zv
 Zv
 xf
@@ -23134,8 +23245,8 @@ Zv
 Zv
 xD
 xD
-xD
-xD
+xf
+xf
 xD
 xf
 YW
@@ -23376,7 +23487,7 @@ xD
 xD
 xD
 xD
-xD
+Zv
 Zv
 Zv
 xf
@@ -23390,9 +23501,9 @@ xf
 Zv
 Zv
 xD
-xD
-xD
-xD
+xf
+xf
+xf
 xf
 xf
 YW
@@ -23639,17 +23750,17 @@ xf
 xf
 Cd
 Cd
-Cd
+nE
 Cd
 Cd
 Cd
 xf
 Zv
 xD
-xD
-xD
-xD
-xD
+xf
+xf
+xf
+xf
 xf
 xf
 Zv
@@ -52993,7 +53104,7 @@ jM
 JP
 qM
 RB
-br
+Qp
 UR
 UR
 UR
@@ -105684,10 +105795,10 @@ fe
 fe
 fe
 fe
-fe
-fe
-fe
-fe
+UR
+UR
+UR
+UR
 fe
 fe
 fe
@@ -105941,12 +106052,12 @@ fe
 fe
 fe
 fe
-fe
-fe
-fe
-fe
-fe
-fe
+UR
+UR
+UR
+UR
+UR
+UR
 fe
 fe
 fe
@@ -106198,12 +106309,12 @@ qX
 qX
 qX
 qX
-fe
-fe
-fe
-fe
-fe
-fe
+UR
+UR
+UR
+UR
+UR
+UR
 fe
 fe
 fe
@@ -106457,12 +106568,12 @@ qX
 Eg
 Eg
 Eg
-fe
-fe
-fe
-fe
-fe
-fe
+UR
+UR
+UR
+UR
+UR
+UR
 fe
 fe
 fe
@@ -106716,10 +106827,10 @@ Eg
 uP
 uP
 uP
-fe
-fe
-fe
-fe
+UR
+UR
+UR
+UR
 fe
 fe
 fe
@@ -106974,11 +107085,11 @@ uP
 uP
 uP
 uP
-fe
-fe
-fe
-fe
-fe
+UR
+UR
+UR
+UR
+UR
 fe
 fe
 fe
@@ -107234,8 +107345,8 @@ uP
 uP
 uP
 uP
-fe
-fe
+UR
+UR
 UR
 UR
 fe
@@ -107479,7 +107590,7 @@ qX
 qX
 qX
 Eg
-fe
+UR
 uP
 uP
 uP
@@ -107737,14 +107848,14 @@ qX
 qX
 Eg
 uP
-uP
+yx
 uP
 uP
 uP
 Ld
-Ld
-Ld
-Ld
+IA
+IA
+IA
 uP
 uP
 uP
@@ -107998,11 +108109,11 @@ uP
 Ld
 Ld
 Ld
-Ld
-Ld
-Ld
-Ld
-uP
+IA
+IA
+MH
+IA
+IA
 uP
 uP
 uP
@@ -108254,12 +108365,12 @@ uP
 uP
 Ld
 uP
-Ld
-Ld
-Ld
-Ld
-Ld
-uP
+IA
+IA
+MH
+MH
+IA
+IA
 uP
 uP
 uP
@@ -108507,15 +108618,15 @@ qX
 qX
 Eg
 Eg
-fe
+UR
 uP
 Ld
 Ld
-Ld
-Ld
-Ld
-Ld
-Ld
+IA
+MH
+MH
+MH
+IA
 Ld
 Ld
 uP
@@ -108768,12 +108879,12 @@ Eg
 uP
 uP
 uP
-Ld
-Ld
-Ld
-Ld
-Ld
-Ld
+IA
+MH
+MH
+IA
+IA
+qv
 Ld
 uP
 uP
@@ -109026,9 +109137,9 @@ uP
 uP
 Ld
 Ld
-Ld
-Ld
-Ld
+IA
+IA
+IA
 Ld
 Ld
 Ld
@@ -109538,7 +109649,7 @@ Eg
 uP
 uP
 uP
-uP
+yx
 uP
 uP
 uP
@@ -109815,10 +109926,10 @@ uP
 uP
 uP
 uP
-Ld
-uP
-Ld
-uP
+IA
+IA
+IA
+IA
 uP
 uP
 uP
@@ -110071,12 +110182,12 @@ uP
 Ld
 Ld
 uP
-Ld
-Ld
-uP
-uP
-Ld
-Ld
+IA
+IA
+MH
+MH
+IA
+IA
 uP
 Ld
 Ld
@@ -110315,25 +110426,25 @@ Ld
 Ld
 uP
 uP
-uP
+dP
 uP
 UR
 UR
 UR
 UR
 uP
-uP
+yx
 Ld
 Ld
 uP
 Ld
 uP
-Ld
-Ld
-Ld
-Ld
-uP
-Ld
+IA
+MH
+MH
+IA
+IA
+IA
 Ld
 Ld
 Ld
@@ -110570,25 +110681,25 @@ uP
 uP
 Ld
 uP
-uP
-uP
-uP
+dP
+dP
+uT
 uP
 Ld
 UR
 uP
 uP
 uP
-uP
+IA
+IA
+IA
 uP
 Ld
-uP
 Ld
-Ld
-Ld
-Ld
-uP
-uP
+IA
+MH
+IA
+IA
 uP
 Ld
 Ld
@@ -110825,25 +110936,25 @@ UR
 UR
 uP
 uP
-Ld
-uP
-uP
-Ld
-uP
-Ld
-Ld
-uP
-uP
-uP
-uP
-Ld
+dP
+ag
+xB
+jk
+xe
 Ld
 Ld
 uP
+uP
+uP
+IA
+IA
+MH
+IA
+uP
 Ld
 Ld
 uP
-Ld
+IA
 Ld
 uP
 Ld
@@ -111082,20 +111193,20 @@ UR
 UR
 uP
 uP
-Ld
-Ld
-Ld
-Ld
-Ld
+uT
+xB
+xB
+xB
+Gi
 uP
 Ld
 uP
 Ld
 Ld
-Ld
-Ld
-Ld
-Ld
+IA
+MH
+MH
+IA
 Ld
 JU
 Ld
@@ -111339,20 +111450,20 @@ UR
 uP
 uP
 uP
+sN
+xB
+XV
+xB
+dP
 uP
-uP
 Ld
 Ld
 Ld
-uP
-Ld
-Ld
-Ld
-Ld
-Ld
-Ld
-Ld
-uP
+IA
+MH
+MH
+MH
+IA
 Ld
 Ld
 Ld
@@ -111596,20 +111707,20 @@ UR
 uP
 uP
 uP
+yY
+xB
+xB
+xB
+uT
 uP
 uP
 uP
 uP
-uP
-uP
-uP
-uP
-uP
-uP
-Ld
-Ld
-Ld
-Ld
+IA
+IA
+IA
+IA
+IA
 Ld
 uP
 Ld
@@ -111853,18 +111964,18 @@ UR
 uP
 uP
 uP
+yx
+uT
+iE
+dP
 uP
 uP
 uP
 uP
 uP
 uP
-uP
-uP
-uP
-uP
-Ld
-uP
+IA
+IA
 uP
 uP
 uP
@@ -112106,8 +112217,8 @@ fe
 fe
 fe
 fe
-fe
-fe
+UR
+UR
 uP
 uP
 uP
@@ -112117,6 +112228,7 @@ uP
 uP
 uP
 uP
+yx
 uP
 uP
 uP
@@ -112125,9 +112237,8 @@ uP
 uP
 uP
 uP
-uP
-fe
-fe
+UR
+UR
 fe
 fe
 fe
@@ -112363,28 +112474,28 @@ fe
 fe
 fe
 fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 uP
 uP
 uP
 uP
-fe
-fe
-fe
-fe
+UR
+UR
+UR
+UR
 fe
 fe
 fe
@@ -112621,27 +112732,27 @@ fe
 fe
 fe
 fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 fe
 fe
 fe
@@ -112878,26 +112989,26 @@ fe
 fe
 fe
 fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 fe
 fe
 fe
@@ -113145,13 +113256,13 @@ fe
 fe
 fe
 fe
-fe
-fe
-fe
-fe
-fe
-fe
-fe
+UR
+UR
+UR
+UR
+UR
+UR
+UR
 fe
 fe
 fe
