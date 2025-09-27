@@ -144,3 +144,9 @@
 	var/adaptive_name
 
 	var/custom_race_name = null
+
+	/// Ref to orison-like sunder object
+	var/sunder_light_obj = null
+
+	/// Assoc list of culinary preferences of the mob
+	var/list/culinary_preferences = list()

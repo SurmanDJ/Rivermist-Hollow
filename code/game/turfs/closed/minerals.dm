@@ -327,7 +327,7 @@
 
 /turf/closed/mineral/rogue/elementalmote //chance for elemental motes to drop, low, like with cinnabar
 	icon_state = "mingold"
-	mineralType = /obj/item/magic/elementalmote
+	mineralType = /obj/item/magic/elemental/mote
 	rockType = /obj/item/natural/rock/elementalmote
 	spreadChance = 23
 	spread = 5

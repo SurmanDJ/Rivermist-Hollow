@@ -5037,7 +5037,6 @@
 "vZ" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/dragon/broodmother{
 	faction = list("caves");
-	STAEND = 15;
 	STALUC = 15;
 	STASPD = 15
 	},

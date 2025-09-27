@@ -417,6 +417,7 @@
 	user.playsound_local(user, 'sound/misc/mat/end.ogg', 100)
 	last_climax_time = world.time
 	recent_orgasm_count += 1
+	record_round_statistic(STATS_PLEASURES)
 
 /datum/sex_controller/proc/after_intimate_climax()
 	if(user == target)
