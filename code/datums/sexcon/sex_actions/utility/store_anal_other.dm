@@ -1,5 +1,6 @@
 /datum/sex_action/store_ass_other
 	name = "search/insert in their ass"
+	check_same_tile = FALSE
 
 /datum/sex_action/store_ass_other/shows_on_menu(mob/living/user, mob/living/target)
 	if(issimple(target)) //will not work on simple mobs
@@ -8,7 +9,7 @@
 		return FALSE
 	if(!target.getorganslot(ORGAN_SLOT_ANUS))
 		return FALSE
-	var/obj/item/organ/filling_organ/anus/targetass = target.getorgan(/obj/item/organ/filling_organ/vagina)
+	var/obj/item/organ/filling_organ/anus/targetass = target.getorgan(/obj/item/organ/filling_organ/anus)
 	if(!targetass)
 		return FALSE
 	if(targetass.contents.len)
@@ -31,7 +32,7 @@
 					return FALSE*/
 	if(!target.getorganslot(ORGAN_SLOT_ANUS))
 		return FALSE
-	var/obj/item/organ/filling_organ/anus/targetass = target.getorgan(/obj/item/organ/filling_organ/vagina)
+	var/obj/item/organ/filling_organ/anus/targetass = target.getorgan(/obj/item/organ/filling_organ/anus)
 	if(targetass.contents.len)
 		return TRUE
 	if(!get_insertable_in_hand(user))
@@ -40,7 +41,9 @@
 
 /datum/sex_action/store_ass_other/on_start(mob/living/user, mob/living/target)
 	var/obj/item/useditem = user.get_active_held_item()
-	var/obj/item/organ/filling_organ/anus/targetass = target.getorgan(/obj/item/organ/filling_organ/vagina)
+	var/obj/item/organ/filling_organ/anus/targetass = target.getorgan(/obj/item/organ/filling_organ/anus)
+	if(!useditem)
+		return
 	if(useditem.w_class > WEIGHT_CLASS_NORMAL)
 		to_chat(user, span_smallred("This won't fit inside [target]'s [targetass]!"))
 		user.sexcon.desire_stop = TRUE
@@ -59,7 +62,7 @@
 
 /datum/sex_action/store_ass_other/is_finished(mob/living/user, mob/living/target)
 	var/obj/item/useditem = user.get_active_held_item()
-	var/obj/item/organ/filling_organ/anus/targetass = target.getorgan(/obj/item/organ/filling_organ/vagina)
+	var/obj/item/organ/filling_organ/anus/targetass = target.getorgan(/obj/item/organ/filling_organ/anus)
 	//var/mob/living/carbon/human/targetussy = user
 	var/stealskill =  max(1,user.get_skill_level(/datum/skill/misc/stealing))
 	var/medicineskill =  max(1,user.get_skill_level(/datum/skill/misc/medicine))

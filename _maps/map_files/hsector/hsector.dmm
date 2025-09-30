@@ -3806,13 +3806,6 @@
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/river)
-"cEf" = (
-/obj/effect/landmark/start/woodsman,
-/turf/open/floor/rogue/cobble,
-/area/rogue/outdoors/town{
-	name = "Rivermist Hollow";
-	first_time_text = "RIVERMIST HOLLOW"
-	})
 "cEp" = (
 /obj/structure/fluff/railing/border{
 	dir = 4;
@@ -30101,11 +30094,6 @@
 /obj/effect/decal/wood/herringbone{
 	dir = 1
 	},
-/obj/item/book/granter/spell/blackstone/blindness{
-	spell = /obj/effect/proc_holder/spell/invoked/shadowstep;
-	spellname = "shadow step";
-	name = "Scroll of Shadow Step"
-	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/rmh/magician)
 "uYJ" = (
@@ -31515,16 +31503,6 @@
 /obj/item/magic/fairydust,
 /obj/item/magic/fairydust,
 /obj/item/magic/fairydust,
-/obj/item/magic/infernalash,
-/obj/item/magic/infernalash,
-/obj/item/magic/infernalash,
-/obj/item/magic/infernalash,
-/obj/item/magic/infernalash,
-/obj/item/magic/elementalmote,
-/obj/item/magic/elementalmote,
-/obj/item/magic/elementalmote,
-/obj/item/magic/elementalmote,
-/obj/item/magic/elementalmote,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/indoors/cave/rmh_cave/minotaur)
 "whd" = (
@@ -135665,7 +135643,7 @@ gkc
 hBI
 jHR
 lyL
-cEf
+cnh
 cnh
 cnh
 xOE

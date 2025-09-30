@@ -182,6 +182,19 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	first_time_text = "ABYSSOR'S GRASP"
 	deathsight_message = "amidst abyssor's"
 
+/area/rogue/outdoors/river
+	name = "river"
+	icon_state = "river"
+	warden_area = TRUE
+	ambientsounds = AMB_RIVERDAY
+	ambientnight = AMB_RIVERNIGHT
+	spookysounds = SPOOKY_FROG
+	spookynight = SPOOKY_FOREST
+	droning_sound = 'sound/music/area/forest.ogg'
+	droning_sound_dusk = 'sound/music/area/septimus.ogg'
+	droning_sound_night = 'sound/music/area/forestnight.ogg'
+	converted_type = /area/rogue/indoors/shelter/woods
+
 //// UNDER AREAS (no indoor rain sound usually)
 
 // these don't get a rain sound because they're underground

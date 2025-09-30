@@ -1253,6 +1253,10 @@
 /obj/structure/resurrection_rune/control,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods/north)
+"QI" = (
+/obj/structure/stripper_pole,
+/turf/open/floor/rogue/cobblerock,
+/area/rogue/outdoors)
 "QU" = (
 /obj/structure/resurrection_rune,
 /turf/open/floor/rogue/dirt/road,
@@ -3014,7 +3018,7 @@ xy
 xy
 yK
 yK
-yK
+QI
 rT
 rT
 rT

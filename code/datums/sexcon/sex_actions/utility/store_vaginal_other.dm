@@ -1,5 +1,6 @@
 /datum/sex_action/store_vagina_other
 	name = "search/insert in their cunt"
+	check_same_tile = FALSE
 
 /datum/sex_action/store_vagina_other/shows_on_menu(mob/living/user, mob/living/target)
 	if(issimple(target)) //will not work on simple mobs
@@ -43,6 +44,8 @@
 /datum/sex_action/store_vagina_other/on_start(mob/living/user, mob/living/target)
 	var/obj/item/useditem = user.get_active_held_item()
 	var/obj/item/organ/filling_organ/vagina/targetvag = target.getorgan(/obj/item/organ/filling_organ/vagina)
+	if(!useditem)
+		return
 	if(useditem.w_class > WEIGHT_CLASS_NORMAL)
 		to_chat(user, span_smallred("This won't fit inside [target]'s [targetvag]!"))
 		user.sexcon.desire_stop = TRUE

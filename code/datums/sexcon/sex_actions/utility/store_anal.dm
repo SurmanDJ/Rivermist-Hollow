@@ -37,6 +37,8 @@
 /datum/sex_action/store_anal/on_start(mob/living/user, mob/living/target)
 	var/obj/item/useditem = user.get_active_held_item()
 	var/obj/item/organ/filling_organ/anus/userass = user.getorgan(/obj/item/organ/filling_organ/anus)
+	if(!useditem)
+		return
 	if(useditem.w_class > WEIGHT_CLASS_NORMAL)
 		to_chat(user, span_smallred("This won't fit inside my [userass]!"))
 		user.sexcon.desire_stop = TRUE

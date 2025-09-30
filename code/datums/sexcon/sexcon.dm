@@ -163,8 +163,8 @@
 	if(victim.cmode || user.cmode)
 		return TRUE
 	// Need to violate unconscious people, or those surrendering to remove ZAPE
-	if(victim.stat || victim.surrendering)
-		return TRUE
+	//if(victim.stat || victim.surrendering)
+	//	return TRUE
 	return FALSE
 
 /datum/sex_controller/proc/violate_victim(mob/living/victim)
@@ -1051,8 +1051,8 @@
 			break
 		if(current_action == null || performed_action_type != current_action)
 			break
-		if(need_to_be_violated(target) && !can_violate_victim(target))
-			break
+		//if(need_to_be_violated(target) && !can_violate_victim(target))
+		//	break
 		if(!can_perform_action(current_action))
 			break
 		if(action.is_finished(user, target))
@@ -1081,8 +1081,8 @@
 	var/datum/sex_action/action = SEX_ACTION(action_type)
 	if(!target)
 		return FALSE
-	if(user.stat != CONSCIOUS)
-		return FALSE
+	//if(user.stat != CONSCIOUS)
+	//	return FALSE
 	if(!user.Adjacent(target))
 		return FALSE
 	if(action.check_incapacitated && user.incapacitated())

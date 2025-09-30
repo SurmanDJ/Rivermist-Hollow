@@ -137,7 +137,7 @@ SUBSYSTEM_DEF(ticker)
 	else
 		login_music = "[global.config.directory]/title_music/sounds/[pick(music)]"
 
-	login_music = pick('modular_rmh/sound/music/title.ogg') //New by Northern Flowers
+	login_music = pick('modular_rmh/sound/music/house_of_the_rising_sun.ogg','modular_rmh/sound/music/soldier_poet_king.ogg')
 
 	if(!GLOB.syndicate_code_phrase)
 		GLOB.syndicate_code_phrase	= generate_code_phrase(return_list=TRUE)
