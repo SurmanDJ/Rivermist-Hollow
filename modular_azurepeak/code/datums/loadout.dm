@@ -548,3 +548,8 @@ GLOBAL_LIST_EMPTY(loadout_items)
 	name = "Donator Kit - Regret"
 	path = /obj/item/enchantingkit/eiren
 	ckeywhitelist = list("eirenxiv")
+
+/datum/loadout_item/donator_waff
+	name = "Donator Kit - Weeper's Lathe"
+	path = /obj/item/enchantingkit/waff
+	ckeywhitelist = list("waffai")

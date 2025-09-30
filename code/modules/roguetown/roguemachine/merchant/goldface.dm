@@ -47,6 +47,7 @@
 		"Armor (Light)",
 		"Armor (Iron)",
 		"Armor (Steel)",
+		"Armor (Exotic)",
 		"Potions",
 		"Weapons (Ranged)",
 		"Weapons (Iron and Shields)",
@@ -90,6 +91,7 @@
 	categories = list(
 		"Armor (Iron)",
 		"Armor (Steel)",
+		"Armor (Exotic)",
 		"Weapons (Ranged)",
 		"Weapons (Iron and Shields)",
 		"Weapons (Steel)",

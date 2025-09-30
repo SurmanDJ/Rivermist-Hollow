@@ -10,14 +10,22 @@
 	if(user.client.prefs.defiant && issimple(target))
 		return FALSE
 	if(user == target)
-		return FALSE
-	//if(HAS_TRAIT(user, TRAIT_TINY)) //Fairy is too small and weak to force this
-	//	return FALSE
+		if(isdullahan(user))
+			var/datum/species/dullahan/dullahan = user.dna.species
+			if(dullahan.headless && !user.is_holding(dullahan.my_head))
+				return FALSE
+		else
+			return FALSE
 	return TRUE
 
 /datum/sex_action/force_crotch_nuzzle/can_perform(mob/living/user, mob/living/target)
 	if(user == target)
-		return FALSE
+		if(isdullahan(user))
+			var/datum/species/dullahan/dullahan = user.dna.species
+			if(dullahan.headless && !user.is_holding(dullahan.my_head))
+				return FALSE
+		else
+			return FALSE
 	/*if(ishuman(user))
 		var/mob/living/carbon/human/userhuman = user
 		if(userhuman.wear_pants)
