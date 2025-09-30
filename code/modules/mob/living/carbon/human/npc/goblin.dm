@@ -144,7 +144,6 @@
 	H.update_inv_hands()
 	H.update_inv_handcuffed()
 	H.update_inv_legcuffed()
-	H.update_fire()
 	H.update_body()
 	var/mob/living/carbon/human/species/goblin/G = H
 	G.update_wearable()
@@ -200,8 +199,9 @@
 
 	apply_overlay(ARMOR_LAYER)
 
-/mob/living/carbon/human/species/goblin/update_inv_head()
+/mob/living/carbon/human/species/goblin/update_inv_head(hide_nonstandard = FALSE)
 	update_wearable()
+
 /mob/living/carbon/human/species/goblin/update_inv_armor()
 	update_wearable()
 
@@ -246,7 +246,7 @@
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
-	ADD_TRAIT(src, TRAIT_INFINITE_ENERGY, TRAIT_GENERIC)
+	ADD_TRAIT(src, TRAIT_BREADY, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_LEECHIMMUNE, INNATE_TRAIT)
 	if(is_species(src, /datum/species/goblin/sea))
 		ADD_TRAIT(src, TRAIT_NOBREATH, TRAIT_GENERIC)
@@ -316,7 +316,7 @@
 		H.tree_climber = TRUE
 		H.find_targets_above = TRUE // so they can taunt
 	H.STACON = 6
-	H.STAEND = 15
+	H.STAWIL = 15
 	if(is_species(H, /datum/species/goblin/moon))
 		H.STAINT = 8
 	else

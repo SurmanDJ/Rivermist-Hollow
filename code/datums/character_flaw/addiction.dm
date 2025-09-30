@@ -60,7 +60,7 @@
 /datum/status_effect/debuff/addiction
 	id = "addiction"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/addiction
-	effectedstats = list("endurance" = -1,"fortune" = -1)
+	effectedstats = list(STATKEY_WIL = -1,STATKEY_LCK = -1)
 	duration = 100
 
 
@@ -111,10 +111,11 @@
 	time = 40 MINUTES
 	needsate_text = "I need to hear someone whimper."
 
-/// PAIN FREEK
+/// MASOCHIST
 
 /datum/charflaw/addiction/masochist
-	name = "Pain Freek"
-	desc = "They call me a freek, but it just feels so good..."
-	time = 25 MINUTES
-	needsate_text = "I need to feel good... punch me in the face!"
+	name = "Masochist"
+	desc = "I love the feeling of pain, so much I can't get enough of it."
+	time = 40 MINUTES
+	needsate_text = "I need someone to HURT me."
+

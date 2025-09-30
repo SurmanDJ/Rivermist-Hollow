@@ -135,7 +135,7 @@
 			H.adjustFireLoss(30)
 			H.Paralyze(20)
 			H.fire_act(1,4)
-			H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
+			//H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
 			src.last_used = world.time
 		if(V)
 			if(V.disguised)
@@ -145,7 +145,7 @@
 				H.adjustFireLoss(30)
 				H.Paralyze(20)
 				H.fire_act(1,4)
-				H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
+				//H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
 				src.last_used = world.time
 			else
 				H.Stun(20)
@@ -153,7 +153,7 @@
 				H.adjustFireLoss(30)
 				H.Paralyze(20)
 				H.fire_act(1,4)
-				H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
+				//H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
 				src.last_used = world.time
 		if(V_lord)
 			if(V_lord.vamplevel < 4 && !V)

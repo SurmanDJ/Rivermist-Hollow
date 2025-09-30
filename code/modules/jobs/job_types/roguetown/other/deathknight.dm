@@ -16,8 +16,9 @@
 
 	show_in_credits = FALSE
 	give_bank_account = FALSE
+
 	announce_latejoin = FALSE
-	
+
 	cmode_music = 'sound/music/combat_weird.ogg'
 
 /datum/outfit/job/roguetown/deathknight/pre_equip(mob/living/carbon/human/H)
@@ -46,7 +47,6 @@
 		H.STASTR = 12
 		H.STAINT = 13
 		H.STACON = 12
-		H.STAEND = 12
 		H.STASPD = 7
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/lightningbolt)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/gravity)
@@ -113,6 +113,39 @@
 		for(var/obj/item/bodypart/B in H.bodyparts)
 			B.skeletonize(FALSE)
 		H.update_body()
+
+/datum/outfit/job/roguetown/deathknight/pre_equip(mob/living/carbon/human/H)
+	..()
+	H.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/magic/arcane, 3, TRUE)
+	H.mind?.adjust_spellpoints(18)
+
+
+	belt = /obj/item/storage/belt/rogue/leather
+	pants = /obj/item/clothing/under/roguetown/platelegs/blk/death
+	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/blkknight
+	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/blkknight/death
+	gloves = /obj/item/clothing/gloves/roguetown/plate/blk/death
+	backl = /obj/item/rogueweapon/sword/long/death
+	head = /obj/item/clothing/head/roguetown/helmet/heavy/knight/black
+
+	H.change_stat(STATKEY_INT, 3)
+	H.change_stat(STATKEY_STR, 2)
+	H.change_stat(STATKEY_WIL, 2)
+	H.change_stat(STATKEY_CON, 2)
+	H.change_stat(STATKEY_SPD, -3)
+
+	H.ambushable = FALSE
+
+	var/datum/antagonist/new_antag = new /datum/antagonist/skeleton/knight()
+	H.mind.add_antag_datum(new_antag)
 
 /obj/item/clothing/suit/roguetown/armor/plate/blkknight/death
 	color = CLOTHING_BLACK

@@ -67,6 +67,7 @@
 	LAZYREMOVE(GLOB.roleplay_ads, departing_mob.mobid)
 	message_admins(dat)
 	log_admin(dat)
+	departing_mob.returntolobby(0)
 	if(departing_mob.stat == DEAD)
 		departing_mob.visible_message("<span class='notice'>[user] sends the body of [departing_mob] away. They're someone else's problem now.</span>")
 	else
