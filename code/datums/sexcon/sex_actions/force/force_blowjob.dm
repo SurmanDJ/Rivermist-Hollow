@@ -10,8 +10,9 @@
 	if(user.client.prefs.defiant && issimple(target))
 		return FALSE
 	if(user == target)
+		var/mob/living/carbon/human/user_d
 		if(isdullahan(user))
-			var/datum/species/dullahan/dullahan = user.dna.species
+			var/datum/species/dullahan/dullahan = user_d.dna.species
 			if(dullahan.headless && !user.is_holding(dullahan.my_head))
 				return FALSE
 		else
@@ -24,8 +25,9 @@
 
 /datum/sex_action/force_blowjob/can_perform(mob/living/user, mob/living/target)
 	if(user == target)
+		var/mob/living/carbon/human/user_d
 		if(isdullahan(user))
-			var/datum/species/dullahan/dullahan = user.dna.species
+			var/datum/species/dullahan/dullahan = user_d.dna.species
 			if(dullahan.headless && !user.is_holding(dullahan.my_head))
 				return FALSE
 		else
