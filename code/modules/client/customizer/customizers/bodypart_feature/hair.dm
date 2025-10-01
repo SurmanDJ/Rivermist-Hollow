@@ -514,6 +514,7 @@
 		//RMH
 		/datum/sprite_accessory/hair/head/cowlick,
 		/datum/sprite_accessory/hair/head/cowbangs,
+		/datum/sprite_accessory/hair/head/shortbob,
 
 		)
 
@@ -831,6 +832,11 @@
 		/datum/sprite_accessory/hair/head/vulpkian/keid,
 		/datum/sprite_accessory/hair/head/vulpkian/mizar,
 		/datum/sprite_accessory/hair/head/vulpkian/raine,
+		
+		//RMH
+		/datum/sprite_accessory/hair/head/cowlick,
+		/datum/sprite_accessory/hair/head/cowbangs,
+		/datum/sprite_accessory/hair/head/shortbob,
 		)
 
 
