@@ -1,11 +1,12 @@
 
 GLOBAL_LIST_INIT(character_flaws, list(
+	"No Flaw (FREE)"=/datum/charflaw/noflaw,
 	"Alcoholic"=/datum/charflaw/addiction/alcoholic,
 	"Devout Follower"=/datum/charflaw/addiction/godfearing,
 	"Colorblind"=/datum/charflaw/colorblind,
 	"Smoker"=/datum/charflaw/addiction/smoker,
 	"Junkie"=/datum/charflaw/addiction/junkie,
-	"Greedy"=/datum/charflaw/greedy,
+	//"Greedy"=/datum/charflaw/greedy,
 	"Narcoleptic"=/datum/charflaw/narcoleptic,
 	"Nymphomaniac"=/datum/charflaw/addiction/lovefiend,
 	"Sadist"=/datum/charflaw/addiction/sadist,
@@ -23,7 +24,6 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	"Critical Weakness"=/datum/charflaw/critweakness,
 	"Random or No Flaw"=/datum/charflaw/randflaw,
 	"Pain Freek"=/datum/charflaw/addiction/masochist,
-	"No Flaw (3 TRIUMPHS)"=/datum/charflaw/noflaw,
 	))
 
 /datum/charflaw
@@ -71,7 +71,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		var/mob/living/carbon/human/H = user
 		if(H.ckey)
 			nochekk = FALSE
-			if(prob(50))
+			/*if(prob(50))
 				var/flawz = GLOB.character_flaws.Copy()
 				var/charflaw = pick_n_take(flawz)
 				charflaw = GLOB.character_flaws[charflaw]
@@ -83,9 +83,9 @@ GLOBAL_LIST_INIT(character_flaws, list(
 					charflaw = GLOB.character_flaws[charflaw]
 				H.charflaw = new charflaw()
 				H.charflaw.on_mob_creation(H)
-			else
-				H.charflaw = new /datum/charflaw/eznoflaw()
-				H.charflaw.on_mob_creation(H)
+			else*/
+			H.charflaw = new /datum/charflaw/eznoflaw()
+			H.charflaw.on_mob_creation(H)
 
 
 /datum/charflaw/eznoflaw
@@ -94,9 +94,9 @@ GLOBAL_LIST_INIT(character_flaws, list(
 
 /datum/charflaw/noflaw
 	name = "No Flaw (3 TRI)"
-	desc = "I'm a normal person, how rare! (Consumes 3 triumphs or gives a random flaw.)"
+	desc = "I'm a normal person, how rare!"// (Consumes 3 triumphs or gives a random flaw.)"
 	var/nochekk = TRUE
-
+/*
 /datum/charflaw/noflaw/flaw_on_life(mob/user)
 	if(!nochekk)
 		return
@@ -118,7 +118,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 				H.charflaw.on_mob_creation(H)
 			else
 				nochekk = FALSE
-				H.adjust_triumphs(-3)
+				H.adjust_triumphs(-3)*/
 
 /datum/charflaw/badsight
 	name = "Bad Eyesight"
@@ -282,7 +282,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 /datum/charflaw/colorblind/on_mob_creation(mob/user)
 	..()
 	user.add_client_colour(/datum/client_colour/monochrome)
-
+/*
 /datum/charflaw/greedy
 	name = "Greedy"
 	desc = "I can't get enough of mammons, I need more and more! I've also become good at knowing how much things are worth"
@@ -355,7 +355,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		else
 			to_chat(user, span_boldwarning("No! My precious mammons..."))
 
-	last_checked_mammons = new_mammon_amount
+	last_checked_mammons = new_mammon_amount*/
 
 /datum/charflaw/narcoleptic
 	name = "Narcoleptic"
