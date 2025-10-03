@@ -11,7 +11,7 @@
 	min_pq = 10
 	cmode_music = 'modular_twilight_axis/firearms/sound/music/combat_gunslinger.ogg'
 	category_tags = list(CTAG_MERCENARY)
-	traits_applied = list(TRAIT_OUTLANDER)
+	//traits_applied = list(TRAIT_OUTLANDER)
 
 /datum/outfit/job/roguetown/mercenary/twilight_gunslinger/pre_equip(mob/living/carbon/human/H)
 	..()

@@ -38,7 +38,7 @@
 	H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/sewing, 2, TRUE)
 	H.change_stat("strength", 2)
 	H.change_stat("endurance", 2)
 	H.change_stat("constitution", 3)

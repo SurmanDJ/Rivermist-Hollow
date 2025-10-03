@@ -206,6 +206,7 @@ Balloon Alert / Floating Text defines
 	/datum/species/dwarf/gnome,\
 	/datum/species/dwarf/halfling,\
 	/datum/species/dullahan,\
+  /datum/species/dwarf/gnome\
 )
 
 #define RACES_RESPECTED \
