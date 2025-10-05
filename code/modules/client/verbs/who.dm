@@ -45,9 +45,9 @@
 						entry += " - <b><font color='red'>[C.mob.mind.special_role]</font></b>"
 //			entry += " [ADMIN_QUE(C.mob)]"
 			//entry += " ([CheckIPCountry(C.address)])"
-			if(C.whitelisted())
-				wled++
-				entry += "(WL)"
+			//if(C.whitelisted())
+			//	wled++
+			//	entry += "(WL)"
 			entry += "</span>"
 			Lines += entry
 /*		else//If they don't have +ADMIN
@@ -71,8 +71,8 @@
 	else
 		for(var/client/C in GLOB.clients)
 //			var/WL = FALSE
-			if(C.whitelisted())
-				wled++
+			//if(C.whitelisted())
+			//	wled++
 //				WL = TRUE
 //			if(C.holder)
 //				continue
