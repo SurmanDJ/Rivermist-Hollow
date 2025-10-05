@@ -29,7 +29,7 @@
 	H.adjust_skillrank_up_to(/datum/skill/craft/crafting, 3 , TRUE)
 	H.adjust_skillrank_up_to(/datum/skill/craft/masonry, 3, TRUE)
 	H.adjust_skillrank_up_to(/datum/skill/craft/carpentry, 3, TRUE)
-	H.adjust_skillrank_up_to(/datum/skill/misc/sewing, 1, TRUE)
+	H.adjust_skillrank_up_to(/datum/skill/craft/sewing, 1, TRUE)
 	H.adjust_skillrank_up_to(/datum/skill/labor/farming, 4, TRUE)
 	H.adjust_skillrank_up_to(/datum/skill/craft/cooking, 1, TRUE)
 	H.adjust_skillrank_up_to(/datum/skill/misc/medicine, 4, TRUE)

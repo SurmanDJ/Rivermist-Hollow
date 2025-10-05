@@ -10,7 +10,13 @@
 	if(user.client.prefs.defiant && issimple(target))
 		return FALSE
 	if(user == target)
-		return FALSE
+		var/mob/living/carbon/human/user_d
+		if(isdullahan(user))
+			var/datum/species/dullahan/dullahan = user_d.dna.species
+			if(dullahan.headless && !user.is_holding(dullahan.my_head))
+				return FALSE
+		else
+			return FALSE
 	if(!user.getorganslot(ORGAN_SLOT_PENIS))
 		return FALSE
 	//if(HAS_TRAIT(target, TRAIT_TINY) || HAS_TRAIT(user, TRAIT_TINY)) //Size issues
@@ -19,7 +25,13 @@
 
 /datum/sex_action/force_blowjob/can_perform(mob/living/user, mob/living/target)
 	if(user == target)
-		return FALSE
+		var/mob/living/carbon/human/user_d
+		if(isdullahan(user))
+			var/datum/species/dullahan/dullahan = user_d.dna.species
+			if(dullahan.headless && !user.is_holding(dullahan.my_head))
+				return FALSE
+		else
+			return FALSE
 	/*if(ishuman(user))
 		var/mob/living/carbon/human/userhuman = user
 		if(userhuman.wear_pants)
