@@ -2618,7 +2618,7 @@
 	color = "#4dc6eb"
 	},
 /obj/effect/spawner/roguemap/treeorbush,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/rogue/snowpatchy,
 /area/rogue/outdoors/mountains/rmh_mountains/frozen/lowlands)
 "lp" = (
 /obj/structure/fluff/railing/border{
@@ -3353,6 +3353,13 @@
 "oz" = (
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/indoors/cave/rmh_dwarf_keep/grand)
+"oA" = (
+/obj/structure/flora/roguegrass{
+	color = "#4dc6eb"
+	},
+/obj/structure/flora/roguegrass/thorn_bush,
+/turf/open/floor/rogue/snowrough,
+/area/rogue/outdoors/mountains/rmh_mountains/frozen/lowlands)
 "oE" = (
 /obj/effect/spawner/lootdrop/roguetown/dungeon/misc,
 /turf/open/floor/rogue/dirt,
@@ -3364,6 +3371,10 @@
 	icon_state = "linoleum"
 	},
 /area/rogue/indoors/town/vault)
+"oJ" = (
+/obj/structure/flora/roguetree/burnt,
+/turf/open/floor/rogue/snow,
+/area/rogue/outdoors/mountains/rmh_mountains/frozen)
 "oK" = (
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/cave/rmh_cave/cold)
@@ -3572,6 +3583,12 @@
 /obj/item/natural/stoneblock,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/indoors/cave/rmh_dwarf_keep)
+"pK" = (
+/obj/effect/spawner/roguemap/treeorbush{
+	spawned = list(/obj/structure/flora/roguetree/burnt,/obj/structure/flora/roguegrass/bush)
+	},
+/turf/open/floor/rogue/snow,
+/area/rogue/outdoors/mountains/rmh_mountains/frozen)
 "pL" = (
 /obj/structure/closet/crate/chest/neu_iron,
 /obj/effect/spawner/lootdrop/valuable_clutter_spawner,
@@ -3854,7 +3871,7 @@
 	color = "#4dc6eb"
 	},
 /obj/structure/flora/roguetree/burnt,
-/turf/open/floor/rogue/grasscold,
+/turf/open/floor/rogue/snowrough,
 /area/rogue/outdoors/mountains/rmh_mountains/frozen/lowlands)
 "qX" = (
 /turf/closed/wall/mineral/rogue/decostone/center,
@@ -4165,6 +4182,10 @@
 /obj/effect/decal/remains/human,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/cave/rmh_dwarf_keep/living)
+"sk" = (
+/obj/structure/flora/roguegrass/thorn_bush,
+/turf/open/floor/rogue/snowrough,
+/area/rogue/outdoors/mountains/rmh_mountains/frozen/lowlands)
 "sm" = (
 /obj/effect/decal/cleanable/debris/woody,
 /obj/effect/decal/remains/human,
@@ -4951,11 +4972,14 @@
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors/town/manor)
 "vH" = (
-/obj/structure/rack/rogue,
-/obj/item/rogueweapon/sword/long/blackflamb,
-/obj/item/rogueweapon/sword/long/blackflamb,
-/turf/open/floor/rogue/herringbone,
-/area/rogue/under/town/basement/keep)
+/obj/structure/flora/roguegrass{
+	color = "#4dc6eb"
+	},
+/obj/effect/spawner/roguemap/treeorbush{
+	spawned = list(/obj/structure/flora/roguetree/burnt,/obj/structure/flora/roguegrass/bush)
+	},
+/turf/open/floor/rogue/snowrough,
+/area/rogue/outdoors/mountains/rmh_mountains/frozen)
 "vI" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
@@ -5421,7 +5445,7 @@
 /area/rogue/indoors/cave/rmh_dwarf_keep/living)
 "xH" = (
 /obj/structure/flora/roguegrass/thorn_bush,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/rogue/snowpatchy,
 /area/rogue/outdoors/mountains/rmh_mountains/frozen/lowlands)
 "xI" = (
 /obj/structure/table/wood{
@@ -5471,6 +5495,13 @@
 	icon_state = "chess"
 	},
 /area/rogue/under/town/basement/keep)
+"xV" = (
+/obj/structure/flora/roguegrass{
+	color = "#4dc6eb"
+	},
+/obj/structure/flora/roguegrass/thorn_bush,
+/turf/open/floor/rogue/snowpatchy,
+/area/rogue/outdoors/mountains/rmh_mountains/frozen/lowlands)
 "xW" = (
 /obj/structure/closet/dirthole/closed,
 /obj/effect/spawner/lootdrop/valuable_jewelry_spawner,
@@ -7060,6 +7091,10 @@
 /obj/item/rogueore/coal,
 /turf/open/water/sewer,
 /area/rogue/indoors/cave/rmh_dwarf_keep/smelters)
+"Fq" = (
+/obj/structure/flora/roguegrass/bush/westleach,
+/turf/open/floor/rogue/snowrough,
+/area/rogue/outdoors/mountains/rmh_mountains/frozen/lowlands)
 "Fs" = (
 /obj/effect/decal/remains/human{
 	color = "#5e5e5e"
@@ -8991,6 +9026,10 @@
 /obj/effect/decal/cleanable/dreamfiend_ichor,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/cave/rmh_dwarf_keep/living)
+"NC" = (
+/obj/effect/spawner/roguemap/treeorbush,
+/turf/open/floor/rogue/snowpatchy,
+/area/rogue/outdoors/mountains/rmh_mountains/frozen/lowlands)
 "ND" = (
 /obj/structure/fluff/railing/border{
 	dir = 4;
@@ -9354,6 +9393,13 @@
 	},
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/exposed/rmh/manorgarri)
+"Pe" = (
+/obj/structure/flora/roguegrass{
+	color = "#4dc6eb"
+	},
+/obj/structure/flora/roguetree/stump/log,
+/turf/open/floor/rogue/snowpatchy,
+/area/rogue/outdoors/mountains/rmh_mountains/frozen/lowlands)
 "Pf" = (
 /obj/structure/flora/roguegrass{
 	color = "#4dc6eb"
@@ -9607,6 +9653,10 @@
 	dir = 4
 	},
 /area/rogue/indoors/town/manor)
+"Qo" = (
+/obj/structure/flora/hotspring_rocks,
+/turf/open/floor/rogue/snowrough,
+/area/rogue/outdoors/mountains/rmh_mountains/frozen/lowlands)
 "Qp" = (
 /obj/structure/roguewindow,
 /turf/open/floor/rogue/tile{
@@ -9745,6 +9795,13 @@
 	icon_state = "bfloorz"
 	},
 /area/rogue/indoors/town/manor)
+"QU" = (
+/obj/structure/flora/roguegrass{
+	color = "#4dc6eb"
+	},
+/obj/structure/flora/roguetree/burnt,
+/turf/open/floor/rogue/snowpatchy,
+/area/rogue/outdoors/mountains/rmh_mountains/frozen/lowlands)
 "QV" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -18475,7 +18532,7 @@ MS
 Ja
 nU
 nU
-vH
+Sh
 MS
 Vz
 kO
@@ -58063,7 +58120,7 @@ QL
 QL
 QL
 dt
-QL
+pK
 QL
 QL
 QL
@@ -58505,7 +58562,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -58702,7 +58759,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 dt
 QL
@@ -58748,8 +58805,8 @@ QL
 QL
 QL
 QL
-QL
-QL
+pK
+pK
 QL
 QL
 QL
@@ -58877,8 +58934,8 @@ QL
 QL
 QL
 QL
-QL
-QL
+pK
+pK
 QL
 QL
 QL
@@ -59405,7 +59462,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -59652,7 +59709,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -59988,7 +60045,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -60062,7 +60119,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -60162,7 +60219,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -60551,7 +60608,7 @@ QL
 ce
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -60680,7 +60737,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -61072,6 +61129,7 @@ QL
 QL
 QL
 QL
+pK
 QL
 QL
 QL
@@ -61081,8 +61139,7 @@ QL
 QL
 QL
 QL
-QL
-QL
+pK
 QL
 QL
 QL
@@ -61193,7 +61250,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -61281,7 +61338,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 vh
 vh
@@ -61720,7 +61777,7 @@ QL
 QL
 QQ
 QL
-QL
+pK
 QL
 QL
 QL
@@ -61854,7 +61911,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -62610,7 +62667,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -62834,7 +62891,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 vh
@@ -63017,8 +63074,8 @@ QL
 QL
 QL
 QL
-QL
-QL
+pK
+pK
 QL
 AN
 AN
@@ -63140,7 +63197,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -63253,7 +63310,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -63627,7 +63684,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -63792,7 +63849,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -64586,7 +64643,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -64711,7 +64768,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -65220,7 +65277,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -65354,16 +65411,16 @@ QL
 QL
 QL
 QL
+pK
 QL
 QL
 QL
 QL
 QL
+pK
 QL
 QL
-QL
-QL
-QL
+pK
 QL
 QL
 QL
@@ -66270,7 +66327,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -66534,7 +66591,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -67699,7 +67756,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 Vz
 Vz
@@ -67823,12 +67880,12 @@ QL
 QL
 QL
 QL
+pK
 QL
 QL
 QL
 QL
-QL
-QL
+pK
 QL
 QL
 Vz
@@ -68074,12 +68131,12 @@ Vz
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 YL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -68469,7 +68526,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -68720,7 +68777,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -68845,6 +68902,7 @@ QL
 QL
 QL
 QL
+pK
 QL
 QL
 QL
@@ -68856,8 +68914,7 @@ QL
 QL
 QL
 QL
-QL
-QL
+pK
 QL
 QL
 QL
@@ -69370,7 +69427,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -69614,9 +69671,9 @@ QL
 QL
 QL
 QL
+pK
 QL
-QL
-QL
+pK
 QL
 QL
 QL
@@ -69751,8 +69808,8 @@ QL
 QL
 QL
 QL
-QL
-QL
+pK
+pK
 QL
 QL
 QL
@@ -70076,7 +70133,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -70329,7 +70386,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -70717,7 +70774,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -71284,7 +71341,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 Lb
@@ -71378,7 +71435,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -71470,7 +71527,7 @@ Vz
 Vz
 Vz
 Vz
-QL
+pK
 QL
 QL
 QL
@@ -71490,7 +71547,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -71667,7 +71724,7 @@ Vz
 QL
 QL
 QL
-QL
+pK
 ce
 QL
 QL
@@ -71888,7 +71945,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -72070,7 +72127,7 @@ QL
 QL
 AN
 AN
-Kc
+Lh
 Vz
 Vz
 Vz
@@ -72199,8 +72256,8 @@ QL
 AN
 OF
 AN
-Kc
-FN
+Lh
+Lh
 Vz
 Vz
 Vz
@@ -72251,7 +72308,7 @@ QL
 QL
 mu
 QL
-QL
+pK
 QL
 QL
 QL
@@ -72327,10 +72384,10 @@ QL
 QL
 AN
 Wr
-Mq
-JQ
-Kc
-Kc
+Lh
+sk
+Lh
+Lh
 Vz
 Vz
 Vz
@@ -72447,7 +72504,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -72456,11 +72513,11 @@ QL
 AN
 Wr
 Wr
-VC
-QO
-FN
-FN
-FN
+Fq
+id
+Lh
+Sq
+Sq
 Vz
 Vz
 Vz
@@ -72536,7 +72593,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -72584,14 +72641,14 @@ QL
 QL
 AN
 Wr
-QO
-QO
+id
+id
 qW
 Mq
-Mq
-FN
-Kc
-Kc
+Sq
+Sq
+Lh
+Lh
 Vz
 Vz
 Vz
@@ -72650,7 +72707,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -72713,13 +72770,13 @@ QL
 QL
 AN
 Wr
-QO
+id
 dA
 QO
 Wv
 Mq
 Mq
-Kc
+Sq
 Kc
 Vz
 Vz
@@ -73099,7 +73156,7 @@ QL
 QL
 AN
 wM
-QO
+ZB
 Mq
 ZG
 rX
@@ -73152,7 +73209,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -73162,7 +73219,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -73228,16 +73285,16 @@ QL
 QL
 AN
 AN
+ZB
+Sq
 QO
-Mq
-QO
-wS
-jB
+NC
+ZB
 xH
 Mq
-Mq
-QO
-QO
+Sq
+ZB
+ZB
 Mq
 Mq
 FN
@@ -73283,7 +73340,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 Lf
 dN
 ml
@@ -73356,17 +73413,17 @@ QL
 QL
 QL
 AN
+id
+id
+xV
+Sq
+Mq
 QO
-QO
-Hz
-Mq
-Mq
-QO
 Mq
 Mq
 Mq
 Mq
-Mq
+Sq
 Ax
 Mq
 FN
@@ -73445,7 +73502,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -73485,10 +73542,10 @@ QL
 QL
 QL
 AN
-QO
-Mq
-QO
-Mq
+id
+Lh
+ZB
+Sq
 Mq
 QO
 Mq
@@ -73567,10 +73624,10 @@ AN
 QL
 QL
 QL
+pK
 QL
 QL
-QL
-QL
+pK
 QL
 QL
 QL
@@ -73616,9 +73673,9 @@ AN
 Wr
 QO
 Km
-Mq
-Mq
-Mq
+Lh
+Sq
+Sq
 QO
 QO
 ZB
@@ -73742,7 +73799,7 @@ QL
 QL
 AN
 AN
-Wr
+vH
 Mq
 QO
 Ax
@@ -73831,7 +73888,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -73872,14 +73929,14 @@ QL
 AN
 Wr
 Wr
-QO
+ZB
 QO
 QO
 jB
 YA
 Mq
 Sq
-Mq
+Sq
 Lh
 rX
 id
@@ -73969,6 +74026,7 @@ QL
 AN
 AN
 QL
+pK
 QL
 QL
 QL
@@ -73981,8 +74039,7 @@ QL
 QL
 QL
 QL
-QL
-QL
+pK
 QL
 QL
 QL
@@ -74001,14 +74058,14 @@ QL
 AN
 Wr
 AN
-QO
-QO
+ZB
+ZB
 jB
 wS
 jB
 Mq
 Mq
-QO
+ZB
 id
 Lh
 Lh
@@ -74101,7 +74158,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -74129,16 +74186,16 @@ QL
 QL
 AN
 Wr
-QO
-QO
-QO
+id
+id
+ZB
 xH
 jB
 Qt
 Mq
 QO
-Mq
-Ed
+Sq
+uS
 Lh
 ZB
 ZB
@@ -74195,7 +74252,7 @@ My
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -74258,17 +74315,17 @@ QL
 QL
 wM
 AN
-Mq
-QO
-QO
-Mq
-QO
+Lh
+id
+id
+Sq
+ZB
 Mq
 QO
 Ax
 Mq
-Mq
-QO
+Sq
+ZB
 Mq
 QO
 QO
@@ -74375,7 +74432,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -74387,8 +74444,8 @@ QL
 QL
 QL
 OF
-QO
-Hz
+id
+xV
 QO
 QO
 VC
@@ -74516,9 +74573,9 @@ QL
 QL
 QL
 AN
+id
 QO
-QO
-QO
+ZB
 QO
 jR
 Mq
@@ -74609,7 +74666,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -74645,8 +74702,8 @@ QL
 QL
 QL
 AN
-QO
-QO
+id
+id
 DD
 QO
 Mq
@@ -74655,8 +74712,8 @@ QO
 Sq
 Sq
 Mq
-QO
-Mq
+ZB
+Sq
 Mq
 QO
 rX
@@ -74764,7 +74821,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -74774,7 +74831,7 @@ QL
 QL
 AN
 AN
-Mq
+Lh
 QO
 QO
 QO
@@ -74785,7 +74842,7 @@ Sq
 Sq
 id
 Lh
-Mq
+Sq
 jB
 rX
 Qt
@@ -74879,6 +74936,7 @@ QL
 QL
 QL
 QL
+pK
 QL
 QL
 QL
@@ -74899,8 +74957,7 @@ QL
 QL
 QL
 QL
-QL
-QL
+pK
 AN
 AN
 VC
@@ -74914,7 +74971,7 @@ Lh
 Lh
 Ed
 Sq
-Mq
+Sq
 Mq
 wS
 rX
@@ -74960,7 +75017,7 @@ Ou
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -75025,17 +75082,17 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
 QL
 AN
-Mq
-QO
-QO
-QO
-Mq
+Lh
+ZB
+ZB
+ZB
+Sq
 Mq
 ZB
 Lh
@@ -75143,7 +75200,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -75154,18 +75211,18 @@ QL
 QL
 QL
 QL
-QL
+oJ
 QL
 QL
 QL
 QL
 OF
-QO
-QO
-Mq
-QO
-QO
-QO
+id
+id
+Lh
+id
+ZB
+ZB
 Sq
 ZB
 Sq
@@ -75289,13 +75346,13 @@ QL
 QL
 QL
 AN
-QO
-QO
-JQ
-QO
-QO
-Mq
-QO
+id
+id
+sk
+id
+id
+Sq
+ZB
 Mq
 Sq
 ZB
@@ -75418,11 +75475,11 @@ QL
 QL
 AN
 AN
-QO
-Ax
-QO
-jB
-Mq
+ZB
+Qo
+id
+id
+Lh
 Mq
 Mq
 Mq
@@ -75481,7 +75538,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -75547,19 +75604,19 @@ QL
 QL
 AN
 Wr
-Mq
-QO
-jB
+Lh
+id
+ZB
 xH
-wS
-Mq
+NC
+Sq
 Mq
 jD
 QO
 Mq
-Mq
-QO
-QO
+Sq
+ZB
+ZB
 Mq
 Mq
 Mq
@@ -75574,7 +75631,7 @@ Hz
 Mq
 QO
 QO
-QO
+ZB
 Xa
 Mq
 Mq
@@ -75599,6 +75656,7 @@ Vz
 QL
 QL
 QL
+pK
 QL
 QL
 QL
@@ -75615,8 +75673,7 @@ QL
 QL
 QL
 QL
-QL
-QL
+pK
 QL
 QL
 QL
@@ -75655,7 +75712,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -75676,8 +75733,8 @@ QL
 QL
 AN
 Wr
-QO
-jB
+ZB
+ZB
 wS
 jB
 jB
@@ -75695,8 +75752,8 @@ QO
 rX
 If
 id
-Ed
-Mq
+uS
+Sq
 Mq
 jB
 jB
@@ -75800,15 +75857,15 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 OF
 AN
 QO
-DH
-Mq
-QO
+QU
+Sq
+ZB
 QO
 QO
 QO
@@ -75823,8 +75880,8 @@ Mq
 Lh
 rX
 id
-id
-QO
+ZB
+ZB
 QO
 QO
 jB
@@ -75908,7 +75965,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -75934,10 +75991,10 @@ QL
 QL
 AN
 AN
-QO
-Mq
+id
+Sq
 Wv
-Mq
+Sq
 QO
 QO
 id
@@ -75949,10 +76006,10 @@ Sq
 Mq
 Mq
 Mq
-Mq
+Sq
 id
-id
-Mq
+ZB
+Sq
 Mq
 Hz
 QO
@@ -75995,7 +76052,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -76051,7 +76108,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -76063,10 +76120,10 @@ QL
 QL
 AN
 Wr
-Mq
-Mq
-QO
-QO
+Lh
+Lh
+ZB
+ZB
 dA
 Hz
 Mq
@@ -76078,9 +76135,9 @@ QO
 QO
 Qt
 wS
-Mq
-QO
-QO
+Sq
+ZB
+ZB
 Mq
 Mq
 Mq
@@ -76192,11 +76249,11 @@ QL
 QL
 QL
 Wr
-QO
-Mq
-Xa
-QO
-qW
+id
+Lh
+Pe
+ZB
+QU
 QO
 Mq
 Sq
@@ -76247,7 +76304,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -76300,7 +76357,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -76321,13 +76378,13 @@ QL
 QL
 QL
 AN
-QO
-QO
-QO
-QO
-QO
-Mq
-Mq
+id
+id
+id
+ZB
+ZB
+Sq
+Sq
 Mq
 bh
 QO
@@ -76383,7 +76440,7 @@ QL
 QL
 QL
 QL
-QL
+pK
 QL
 QL
 QL
@@ -76451,12 +76508,12 @@ QL
 QL
 AN
 AN
-Mq
-QO
-Hz
-Mq
-FN
-Kc
+Lh
+id
+oA
+Lh
+Lh
+Sq
 Kc
 FN
 rX
