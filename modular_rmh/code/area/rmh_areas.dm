@@ -9,9 +9,10 @@
 	soundenv = 19
 	ambush_mobs = null
 	first_time_text = "RIVERMIST HOLLOW OUTSKIRTS"
+	droning_sound_dawn = 'modular_rmh/sound/music/area/town_dawn.ogg'
 	droning_sound = 'sound/music/area/field.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/sleeping.ogg'
+	droning_sound_night = 'modular_rmh/sound/music/area/town_night.ogg'
 	converted_type = /area/rogue/indoors/shelter/rmh_field
 	deathsight_message = "somewhere nar the town"
 	warden_area = TRUE
@@ -79,7 +80,6 @@
 	icon = 'modular_rmh/icons/turf/areas.dmi'
 	icon_state = "mine"
 	deathsight_message = "a dark mine"
-	ceiling_protected = TRUE
 
 /area/rogue/indoors/cave/rmh_cave/to_underdark
 	name = "UNDERDARK DESCENT"
@@ -362,6 +362,7 @@
 /area/rogue/indoors/town/rmh/farm
 	name = "Town Farm"
 	first_time_text = "TOWN FARM"
+	droning_sound_dawn = 'modular_rmh/sound/music/area/town_dawn.ogg'
 
 /area/rogue/outdoors/exposed/town/rmh/farm
 	name = "Town Farm"
@@ -499,7 +500,6 @@
 	name = "Bedrock Border"
 	first_time_text = "BEDROCK BORDER"
 	icon_state = "unknown"
-	ceiling_protected = TRUE
 	deathsight_message = "out of bounds"
 
 /area/rogue/outdoors/rmh_air

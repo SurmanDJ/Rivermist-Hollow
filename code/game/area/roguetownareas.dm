@@ -657,9 +657,10 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	name = "outdoors"
 	icon_state = "town"
 	soundenv = 16
+	droning_sound_dawn = 'modular_rmh/sound/music/area/town_dawn.ogg'
 	droning_sound = 'sound/music/area/townstreets.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/sleeping.ogg'
+	droning_sound_night = 'modular_rmh/sound/music/area/town_night.ogg'
 	converted_type = /area/rogue/indoors/shelter/town
 	first_time_text = "RIVERMIST HOLLOW"
 	town_area = TRUE
