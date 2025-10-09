@@ -2690,6 +2690,8 @@
 #include "modular_rmh\code\area\rmh_underdark_areas.dm"
 #include "modular_rmh\code\area\rmh_desert_areas.dm"
 #include "modular_rmh\code\game\modules\clothing\explorer.dm"
+#include "modular_rmh\code\game\modules\clothing\leo_robe.dm"
+#include "modular_rmh\code\game\modules\clothing\nightie.dm"
 #include "modular_rmh\code\game\modules\crafting\lewd\dildo_crafting.dm"
 #include "modular_rmh\code\game\modules\mapgen\rmh_deserts.dm"
 #include "modular_rmh\code\game\modules\mapgen\rmh_mountains.dm"
