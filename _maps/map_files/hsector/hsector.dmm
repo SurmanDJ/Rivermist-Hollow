@@ -1810,6 +1810,10 @@
 	},
 /turf/open/floor/rogue/wood/herringbone,
 /area/rogue/indoors/town/rmh)
+"bpB" = (
+/obj/structure/chair/stool/rogue,
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/town/rmh/magician)
 "bpE" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -2218,6 +2222,7 @@
 /obj/machinery/light/rogue/hearth{
 	pixel_y = 13
 	},
+/obj/machinery/light/rogue/oven/center,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/rmh/magician/pass)
 "bDo" = (
@@ -4902,12 +4907,6 @@
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/rmh/tavern)
-"doG" = (
-/obj/structure/beehive/wild{
-	pixel_y = 7
-	},
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/rmh_field/north)
 "doS" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 1
@@ -5778,6 +5777,13 @@
 "dPm" = (
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/rmh)
+"dPq" = (
+/obj/structure/standingbell{
+	dir = 1;
+	name = "guild service bell"
+	},
+/turf/open/floor/rogue/wood,
+/area/rogue/indoors/town/rmh/crafters_guild/under)
 "dPx" = (
 /obj/effect/decal/edge_corner{
 	dir = 2;
@@ -6989,6 +6995,14 @@
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/rmh_field/camp)
+"eHq" = (
+/obj/structure/standingbell{
+	dir = 1;
+	name = "merchant service bell";
+	pixel_x = 1
+	},
+/turf/open/floor/rogue/wood/herringbone,
+/area/rogue/indoors/town/rmh/merchant)
 "eHt" = (
 /obj/structure/table/vtable/v2,
 /obj/item/reagent_containers/glass/cup/silver/small{
@@ -7026,12 +7040,18 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/rmh/magician)
 "eIy" = (
-/mob/living/carbon/human/species/aasimar,
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/town{
-	name = "Rivermist Hollow";
-	first_time_text = "RIVERMIST HOLLOW"
-	})
+/obj/structure/table/wood/large_table/south_west,
+/obj/effect/wisp/prestidigitation{
+	name = "Will-o'-the-wisp";
+	desc = "A small, fiery ball of light made up of mystical energy.";
+	pixel_y = 20;
+	pixel_x = 18;
+	light_power = 2;
+	light_outer_range = 5
+	},
+/obj/item/rogueweapon/huntingknife/idagger/silver/arcyne,
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/town/rmh/magician)
 "eIV" = (
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors/cave/rmh_cave/to_underdark)
@@ -7057,6 +7077,10 @@
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
+"eJw" = (
+/obj/structure/table/wood/large_table/middle_west,
+/turf/open/floor/rogue/cobblerock,
+/area/rogue/indoors/town/rmh/magician)
 "eJL" = (
 /turf/closed/wall/mineral/rogue/decostone/mossy,
 /area/rogue/indoors/cave/rmh_cave/minotaur)
@@ -9793,12 +9817,6 @@
 /obj/item/bedsheet/rogue/double_pelt,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/rmh)
-"gJt" = (
-/obj/structure/beehive/wild{
-	pixel_y = 7
-	},
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/rmh_field/west)
 "gJv" = (
 /obj/structure/table/vtable/v2,
 /obj/item/reagent_containers/glass/bottle/rogue/redwine{
@@ -10498,7 +10516,8 @@
 	aportalgoesto = "magebog";
 	aportalid = "magetower_bog";
 	name = "teleport to swampland";
-	alpha = 0
+	alpha = 0;
+	required_trait = "Arcyne Training (Expert)"
 	},
 /obj/effect/decal/cobbleedge{
 	icon = 'icons/roguetown/misc/structure.dmi';
@@ -12387,6 +12406,16 @@
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/rmh_air)
+"ize" = (
+/obj/structure/table/wood/large_table/middle_east,
+/obj/item/book/granter/spell/blackstone/acidsplash{
+	spell = /obj/effect/proc_holder/spell/invoked/shadowstep;
+	spellname = "Shadow Step";
+	remarks = list("Fah Mofa");
+	name = "Scroll of Shadow Step"
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/town/rmh/magician)
 "izg" = (
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/rmh_field/druid)
@@ -14597,6 +14626,10 @@
 	name = "Rivermist Hollow";
 	first_time_text = "RIVERMIST HOLLOW"
 	})
+"kdl" = (
+/obj/structure/chair/stool/rogue,
+/turf/open/floor/rogue/cobblerock,
+/area/rogue/indoors/town/rmh/magician)
 "kdo" = (
 /obj/effect/decal/cobbleedge{
 	icon_state = "cobbleedge-e"
@@ -19169,13 +19202,6 @@
 "njw" = (
 /turf/closed/wall/mineral/rogue/stonebrick,
 /area/rogue/indoors/town/rmh)
-"njz" = (
-/obj/structure/flora/roguegrass,
-/obj/structure/beehive/wild{
-	pixel_y = 7
-	},
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/rmh_field/east)
 "njO" = (
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/grassred,
@@ -21511,12 +21537,6 @@
 	},
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/rmh/chapel)
-"oRV" = (
-/obj/structure/beehive/wild{
-	pixel_y = 7
-	},
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/rmh_field/east)
 "oSc" = (
 /turf/closed/wall/mineral/rogue/decostone/end{
 	dir = 4
@@ -23186,12 +23206,6 @@
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors)
-"qdY" = (
-/obj/structure/beehive/wild{
-	pixel_y = 7
-	},
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/rmh_field/druid)
 "qed" = (
 /obj/effect/decal/wood/herringbone{
 	dir = 6
@@ -24968,7 +24982,8 @@
 	aportalgoesto = "magemountain";
 	aportalid = "magetower_mountain";
 	name = "teleport to mountains";
-	alpha = 0
+	alpha = 0;
+	required_trait = "Arcyne Training (Expert)"
 	},
 /obj/effect/decal/cobbleedge{
 	icon = 'icons/roguetown/misc/structure.dmi';
@@ -26218,6 +26233,10 @@
 "shE" = (
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/rmh_air)
+"shF" = (
+/obj/structure/table/wood/large_table/south_east,
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/town/rmh/magician)
 "sit" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1;
@@ -28505,13 +28524,6 @@
 /obj/structure/stairs,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/rmh/bath)
-"tJK" = (
-/obj/structure/flora/roguegrass,
-/obj/structure/beehive/wild{
-	pixel_y = 7
-	},
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/rmh_field/west)
 "tJQ" = (
 /obj/structure/flora/roguetree/pine{
 	icon_state = "pine2"
@@ -28937,12 +28949,6 @@
 /obj/effect/landmark/start/squire,
 /turf/open/floor/rogue/tile/brownbrick,
 /area/rogue/indoors/town/rmh/town_hall)
-"tWO" = (
-/obj/structure/beehive/wild{
-	pixel_y = 7
-	},
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/rmh_field)
 "tWU" = (
 /turf/closed/wall/mineral/rogue/decostone/mossy/red/end{
 	dir = 4
@@ -30610,9 +30616,16 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/rmh/town_hall)
 "vdG" = (
-/obj/machinery/light/rogue/oven/center,
-/turf/closed/wall/mineral/rogue/craftstone,
-/area/rogue/indoors/town/rmh/magician/pass)
+/obj/structure/closet/crate/chest/neu,
+/obj/item/storage/keyring/mageapprentice,
+/obj/item/book/granter/spell/blackstone/acidsplash{
+	spell = /obj/effect/proc_holder/spell/invoked/shadowstep;
+	spellname = "Shadow Step";
+	remarks = list("Fah Mofa");
+	name = "Scroll of Shadow Step"
+	},
+/turf/open/floor/rogue/cobblerock,
+/area/rogue/indoors/town/rmh/magician)
 "vdN" = (
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/naturalstone,
@@ -30851,7 +30864,8 @@
 	aportalgoesto = "mageunderdark";
 	aportalid = "magetower_underdark";
 	name = "teleport to underdark";
-	alpha = 0
+	alpha = 0;
+	required_trait = "Arcyne Training (Expert)"
 	},
 /obj/effect/decal/cobbleedge{
 	icon = 'icons/roguetown/misc/structure.dmi';
@@ -32556,7 +32570,8 @@
 	aportalgoesto = "magedesert";
 	aportalid = "magetower_desert";
 	name = "teleport to damned desert";
-	alpha = 0
+	alpha = 0;
+	required_trait = "Arcyne Training (Expert)"
 	},
 /obj/effect/decal/cobbleedge{
 	icon = 'icons/roguetown/misc/structure.dmi';
@@ -33825,6 +33840,12 @@
 /obj/item/reagent_containers/food/snacks/grown/manabloom,
 /obj/item/reagent_containers/food/snacks/grown/manabloom,
 /obj/item/reagent_containers/food/snacks/grown/manabloom,
+/obj/item/book/granter/spell/blackstone/acidsplash{
+	spell = /obj/effect/proc_holder/spell/invoked/shadowstep;
+	spellname = "Shadow Step";
+	remarks = list("Fah Mofa");
+	name = "Scroll of Shadow Step"
+	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/rmh/magician)
 "xpP" = (
@@ -33994,13 +34015,6 @@
 /obj/structure/ladder,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/rmh)
-"xuj" = (
-/obj/structure/flora/roguegrass,
-/obj/structure/beehive/wild{
-	pixel_y = 7
-	},
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/rmh_field/north)
 "xum" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4;
@@ -132271,7 +132285,7 @@ dId
 dXk
 dCE
 nZb
-nZb
+dPq
 nZb
 nZb
 nZb
@@ -133832,7 +133846,7 @@ pZb
 eUR
 eUR
 gVA
-eIy
+lyL
 xgm
 prm
 prm
@@ -136908,7 +136922,7 @@ pZb
 dId
 pDt
 lbC
-lIW
+eHq
 jEX
 ooj
 sZP
@@ -157268,8 +157282,8 @@ wJx
 nOU
 gtL
 nzd
-pXx
-pXx
+pBP
+kdl
 nzd
 nzd
 rmY
@@ -157525,8 +157539,8 @@ uID
 kdY
 kGL
 nzd
-pBP
-nzd
+eJw
+eIy
 nzd
 pXx
 dQN
@@ -157782,9 +157796,9 @@ kUB
 nzd
 nzd
 nzd
-nzd
-nzd
-nzd
+ize
+shF
+bpB
 nzd
 hgl
 dQN
@@ -158039,7 +158053,7 @@ uGD
 tnj
 nzd
 nzd
-pXx
+kdl
 pXx
 nzd
 nzd
@@ -158298,7 +158312,7 @@ pXx
 pXx
 myU
 eeL
-myU
+vdG
 pXx
 mut
 myI
@@ -178500,7 +178514,7 @@ qRr
 qRr
 xub
 cqo
-tJK
+mpV
 qRr
 qRr
 qRr
@@ -179064,7 +179078,7 @@ qRr
 qRr
 xub
 xub
-gJt
+qRr
 qRr
 usv
 qRr
@@ -186146,7 +186160,7 @@ rkt
 jHG
 jHG
 uFd
-doG
+jVb
 xQn
 jVb
 jVb
@@ -200462,7 +200476,7 @@ puw
 puw
 puw
 hLa
-qdY
+puw
 oUD
 oUD
 oUD
@@ -201800,7 +201814,7 @@ jVb
 xQn
 jVb
 tkt
-doG
+jVb
 jVb
 jVb
 jVb
@@ -207459,7 +207473,7 @@ xQn
 jVb
 xQn
 tkt
-xuj
+xQn
 jVb
 jVb
 jVb
@@ -214014,7 +214028,7 @@ jmD
 gdG
 gdG
 vSb
-tWO
+fFw
 fFw
 fFw
 fFw
@@ -216103,7 +216117,7 @@ fFw
 fFw
 fFw
 vSb
-tWO
+fFw
 fFw
 fFw
 fFw
@@ -221603,7 +221617,7 @@ jVb
 jVb
 yhB
 tkt
-doG
+jVb
 jVb
 jsN
 jSb
@@ -224243,7 +224257,7 @@ snm
 pPw
 pPw
 iNb
-njz
+cjI
 pPw
 wPd
 pPw
@@ -226354,7 +226368,7 @@ pPw
 jZV
 pPw
 eao
-oRV
+pPw
 jZV
 pPw
 lcn
@@ -355157,7 +355171,7 @@ etm
 etm
 jxv
 qNW
-vdG
+qNW
 bCW
 jXv
 quh

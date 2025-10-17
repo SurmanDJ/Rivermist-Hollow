@@ -2033,7 +2033,8 @@
 	aportalgoesto = "magetower_bog";
 	aportalid = "magebog";
 	name = "teleport to Mage Tower";
-	alpha = 0
+	alpha = 0;
+	required_trait = "Arcyne Training (Expert)"
 	},
 /obj/effect/decal/cobbleedge{
 	icon = 'icons/obj/rune.dmi';
@@ -50923,9 +50924,9 @@ QH
 "}
 (11,1,2) = {"
 QH
-QH
-QH
-QH
+aV
+qU
+FV
 Wv
 JQ
 cW
@@ -51791,8 +51792,8 @@ QH
 "}
 (15,1,2) = {"
 QH
-QH
-QH
+aV
+qU
 Wv
 JQ
 JQ
@@ -88682,11 +88683,11 @@ QH
 (185,1,2) = {"
 QH
 QH
-QH
 aV
 aV
 aV
-QH
+aV
+aV
 QH
 QH
 QH
@@ -88899,11 +88900,11 @@ QH
 (186,1,2) = {"
 QH
 QH
-QH
 KX
 KX
 KX
-QH
+KX
+KX
 QH
 QH
 QH
@@ -89116,11 +89117,11 @@ QH
 (187,1,2) = {"
 QH
 QH
-QH
 hM
 hM
 hM
-lX
+hM
+hM
 QH
 QH
 QH
@@ -89337,7 +89338,7 @@ lX
 hM
 hM
 hM
-lX
+hM
 rp
 QH
 QH
@@ -97579,9 +97580,9 @@ OK
 "}
 (11,1,3) = {"
 OK
-OK
-OK
-OK
+QH
+QH
+Pe
 Pe
 Pe
 Pe
@@ -98447,8 +98448,8 @@ OK
 "}
 (15,1,3) = {"
 OK
-OK
-OK
+QH
+QH
 Pe
 Pe
 Pe
@@ -135337,12 +135338,12 @@ OK
 "}
 (185,1,3) = {"
 OK
-OK
-OK
-Pe
-Pe
-Pe
-Pe
+QH
+QH
+QH
+QH
+QH
+QH
 Pe
 Pe
 Pe
@@ -135554,12 +135555,12 @@ OK
 "}
 (186,1,3) = {"
 OK
-OK
-OK
 QH
 QH
 QH
-Pe
+QH
+QH
+QH
 Pe
 Pe
 Pe
@@ -135771,7 +135772,7 @@ OK
 "}
 (187,1,3) = {"
 OK
-OK
+QH
 QH
 QH
 QH

@@ -2687,6 +2687,7 @@
 #include "modular_rmh\code\area\rmh_areas.dm"
 #include "modular_rmh\code\area\rmh_bogforest_areas.dm"
 #include "modular_rmh\code\area\rmh_desert_areas.dm"
+#include "modular_rmh\code\area\rmh_dungeon.dm"
 #include "modular_rmh\code\area\rmh_mountain_areas.dm"
 #include "modular_rmh\code\area\rmh_underdark_areas.dm"
 #include "modular_rmh\code\game\modules\clothing\explorer.dm"
