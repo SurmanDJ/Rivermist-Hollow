@@ -690,7 +690,7 @@
 	id = "bigboobs"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/bigboobs
 	examine_text = span_notice("They have massive MAGICAL GOODS!")
-	effectedstats = list("constitution" = 3,"endurance" = -2, "speed" = -1)
+	effectedstats = list("constitution" = 3, "speed" = -1)
 	duration = 10 MINUTES
 	var/initialpenis
 	var/initialbutt
@@ -792,7 +792,7 @@
 	id = "knot_tied"
 	status_type = STATUS_EFFECT_UNIQUE
 	alert_type = /atom/movable/screen/alert/status_effect/knot_tied
-	effectedstats = list("strength" = -5, "constitution" = -3, "endurance" = -3, "speed" = -5)
+	effectedstats = list("strength" = -5, "constitution" = -3, "speed" = -5)
 
 /atom/movable/screen/alert/status_effect/knot_tied
 	name = "Knotted"

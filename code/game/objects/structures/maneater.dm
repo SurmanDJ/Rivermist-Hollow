@@ -93,6 +93,8 @@
 	if(!do_after(victim, 2 SECONDS, progress = FALSE))
 		visible_message(span_warning("[src] stops chewing on [victim]!"))
 		return
+	if(victim.getBruteLoss() > 20)
+		maneater_spit_out(victim)
 
 	playsound(src,'sound/misc/eat.ogg', rand(30,60), TRUE)
 	if(!iscarbon(victim))
@@ -105,7 +107,7 @@
 		victim.flash_fullscreen("redflash3")
 		playsound(src.loc, list('sound/vo/mobs/plant/attack (1).ogg','sound/vo/mobs/plant/attack (2).ogg','sound/vo/mobs/plant/attack (3).ogg','sound/vo/mobs/plant/attack (4).ogg'), 100, FALSE, -1)
 		if(prob(chew_factor * 15))
-			if(limb.dismember(damage = 20))
+			if(limb.dismember(damage = 5))
 				//limb.forceMove(src)
 				seednutrition += 25
 				//if(!victim.mind)

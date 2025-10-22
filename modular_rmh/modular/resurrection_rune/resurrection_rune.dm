@@ -134,7 +134,7 @@
 		to_chat(user.mind, span_blue("The tugging stops; you seem to be recovering."))
 		return*/
 	var/turf/T = get_turf(sub_rune)
-	var/mob/living/body = user
+	var/mob/living/carbon/body = user
 	if(!body)
 		sub_rune.visible_message(span_blue("The rune flickers, connection to a body suddenly severed."))
 		resurrecting -= user
@@ -143,11 +143,21 @@
 	playsound(get_turf(body), 'sound/magic/repulse.ogg', 100, FALSE, -1)
 	body.forceMove(T)
 	body.revive(full_heal = TRUE, admin_revive = TRUE)
-	user.grab_ghost(TRUE)
+
+	var/has_rot = FALSE
+	if (body.mind?.has_antag_datum(/datum/antagonist/zombie))
+		has_rot = TRUE
+	else if (istype(body, /mob/living/carbon))
+		has_rot = check_bodyparts_for_rot(body)
+	else if (body.has_status_effect(/datum/status_effect/zombie_infection))
+		has_rot = TRUE
+	if(has_rot)
+		remove_zombie(body)
+
+	body.grab_ghost(TRUE)
 	body.flash_act()
-	//resurrecting -= user
-	addtimer(CALLBACK(src, PROC_REF(remove_res), user), 10 SECONDS)
-	var/mob/living/carbon/human/H = user
+	addtimer(CALLBACK(src, PROC_REF(remove_res), body), 10 SECONDS)
+	var/mob/living/carbon/human/H = body
 	if(H.rune_linked)
 		body.apply_status_effect(/datum/status_effect/debuff/revived/rune)
 	else
@@ -155,6 +165,16 @@
 	body.apply_status_effect(/datum/status_effect/debuff/rune_glow)
 	playsound(T, 'sound/misc/vampirespell.ogg', 100, FALSE, -1)
 	to_chat(body, span_blue("You are back."))
+
+/datum/resurrection_rune_controller/proc/remove_zombie(mob/living/carbon/target)
+	// Check if the target has rot
+	var/datum/antagonist/zombie/was_zombie = target.mind?.has_antag_datum(/datum/antagonist/zombie)
+	was_zombie.become_rotman = FALSE
+	target.mind.remove_antag_datum(/datum/antagonist/zombie)
+	remove_rot_component(target)
+	target.infected = FALSE
+	target.remove_status_effect(/datum/status_effect/zombie_infection)
+	clean_body_parts(target)
 
 /datum/resurrection_rune_controller/proc/remove_res(mob/living/carbon/user)
 	resurrecting -= user
